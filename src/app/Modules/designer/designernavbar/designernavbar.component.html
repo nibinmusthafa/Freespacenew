@@ -1,0 +1,38 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list class="p-2">
+      <mat-accordion>
+        <mat-expansion-panel class="m-0">
+          <mat-expansion-panel-header class="title_panel_bg rounded">
+            <mat-panel-title class="rounded">
+              LEADS
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <!-- <a matLine  routerLink="createlead"><p>Create Lead</p></a> -->
+          <a matLine routerLink="updateleads"><p class="mb-0">Manage Lead</p></a>
+        </mat-expansion-panel>
+      </mat-accordion> 
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Free Space</span>
+      <div class="log_main">
+        <mat-icon class="icn" matTooltip="Logout" (click)="btnclick()">power_settings_new</mat-icon>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

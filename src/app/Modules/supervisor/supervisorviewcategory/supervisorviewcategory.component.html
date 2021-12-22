@@ -1,0 +1,22 @@
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Sub Category</th>
+            <th>Units</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- <tr>
+            <td>Dom</td>
+            <td>6000</td>
+        </tr> -->
+        <tr class="active-row" *ngFor="let category of catArray"  >
+            <td>{{ category.category_id===1? "Kitchen":"Home Interior" }}</td>
+            <td>{{ category.subcat }}</td>
+            <td>{{ category.units }}</td>
+        </tr>
+        <!-- and so on... -->
+    </tbody>
+</table>
+

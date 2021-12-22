@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <mat-card>
+<div class="mat-elevation-z8 table_shadow">
+  <table mat-table [dataSource]="customer" class="full-width-table table_shadow" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <h3 class="mat-subheading-2 font-weight-bold">Id</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="customername">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Customer Name</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.customername}}</td>
+    </ng-container>
+    <ng-container matColumnDef="leadname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Lead Name</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.leadname}}</td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Description</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.description}}</td>
+    </ng-container>
+    <ng-container matColumnDef="leadsource_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Leadsource</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.leadsource_id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="updated_on">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Created Date</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.updated_on | date:'shortDate'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="statusvalue">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <h3 class="mat-subheading-2 font-weight-bold">Status</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.statusvalue}}</td>
+    </ng-container>
+    <ng-container matColumnDef="followup_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <h3 class="mat-subheading-2 font-weight-bold">FollowUp Date</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.followup_date}}</td>
+    </ng-container>
+    <ng-container matColumnDef="action" >
+      <th mat-header-cell *matHeaderCellDef><h3 class="mat-subheading-2 font-weight-bold">Action</h3>  </th>
+      <td mat-cell *matCellDef="let row" >
+      <ng-container *ngIf="row.status_id =='1'">
+        <button mat-raised-button color="primary" type="button"(click)="btnClick(row.id)">Accept</button>
+      </ng-container>
+      <ng-container *ngIf="row.status_id !='1'">
+        <button mat-raised-button color="primary" type="button"(click)="loadRemarks(row.id)">Manage</button>
+      </ng-container> 
+        <!-- <a matLine (onclick)="btnClick()"><button>Choose</button></a> -->
+       </td>
+    </ng-container> 
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <!-- <mat-paginator #paginator
+      [length]="dataSource?.data?.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page">
+  </mat-paginator> -->
+</div>
+</mat-card>
+</div>
+</div>
+</div>

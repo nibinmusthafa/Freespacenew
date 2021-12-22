@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <mat-card>
+<div class="mat-elevation-z8 table_shadow">
+  <table mat-table [dataSource]="customers" class="full-width-table table_shadow" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="space mat-subheading-2 font-weight-bold">Id</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="customername">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Customer Name</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.customername}}</td>
+    </ng-container>
+    <ng-container matColumnDef="leadname">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Lead Name</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.leadname}}</td>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Description</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.description}}</td>
+    </ng-container>
+    <ng-container matColumnDef="leadsource_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Leadsource</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.leadsource_id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="updated_on">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header > <h3 class="mat-subheading-2 font-weight-bold">Created Date</h3></th>
+      <td [ngClass]="{'make-gold': compareDate(row.updated_on) && row.statusvalue == 'Lead Created'}" mat-cell *matCellDef="let row" (click)="compareDate(row.updated_on)">{{row.updated_on | date:'dd/MM/yyyy'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="statusvalue">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <h3 class="mat-subheading-2 font-weight-bold">Status</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.statusvalue}}</td>
+    </ng-container>
+    <ng-container matColumnDef="followup_date">
+      <th #followupdate mat-header-cell *matHeaderCellDef mat-sort-header > <h3 class="mat-subheading-2 font-weight-bold">Followup Date</h3></th>
+      <td [ngClass]="{'make-green': (row.followup_date| date:'yyyy-MM-dd') > today , 'make-red': (row.followup_date| date:'yyyy-MM-dd') < today , 'make-orange': (row.followup_date| date:'yyyy-MM-dd') === today}" mat-cell *matCellDef="let row">{{row.followup_date }}</td>
+    </ng-container>
+    <ng-container matColumnDef="action" >
+      <th mat-header-cell *matHeaderCellDef><h3 class="mat-subheading-2 font-weight-bold">Activities</h3></th>
+      <td mat-cell *matCellDef="let row" >
+        <ng-container>
+          <button class="btn" (click)="navigatetodesigner(row.id)" mat-raised-button color="primary">Designer</button>
+        </ng-container>
+        <ng-container>
+          <button class="btn" (click)="navigatetosupervisor(row.id)" mat-raised-button color="primary">Supervisor</button>
+        </ng-container>
+        <ng-container>
+          <button class="btn" (click)="navigatetoedit(row.id)" mat-raised-button color="accent">Edit</button>
+        </ng-container>
+        </td>
+      </ng-container>    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <!-- <mat-paginator #paginator
+      [length]="dataSource?.data?.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page">
+  </mat-paginator> -->
+</div>
+</mat-card>
+</div>
+</div>
+</div>
+<!-- <h1>{{datewithtime}}</h1>
+
+<h1>{{today}}</h1> -->
+

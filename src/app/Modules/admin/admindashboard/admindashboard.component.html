@@ -1,0 +1,70 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async)? 'dialog':'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+  <mat-accordion>
+      <mat-expansion-panel class="m-0">
+        <mat-expansion-panel-header class="title_panel_bg rounded">
+          <mat-panel-title class="rounded">
+            LEADS
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a matLine routerLink="createlead"><p>Create Lead</p></a>
+        <a matLine routerLink="manageleads"><p>Manage Lead</p></a>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="m-0">
+        <mat-expansion-panel-header class="title_panel_bg rounded">
+          <mat-panel-title class="rounded">
+           PROJECTS
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a matLine routerLink="projects"><p>Create Project</p></a>          
+        <a (click)="getuser()"><p>Manage Project</p></a>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="m-0">
+        <mat-expansion-panel-header class="title_panel_bg rounded">
+          <mat-panel-title class="rounded">
+           CUSTOMERS
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a matLine routerLink="addcustomer"><p>Create Customer</p></a>          
+        <a matLine routerLink="managecustomer"><p>Manage Customer</p></a>
+      </mat-expansion-panel>
+      <mat-expansion-panel class="m-0">
+        <mat-expansion-panel-header class="title_panel_bg rounded">
+          <mat-panel-title class="rounded">
+            USERS
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a matLine routerLink="createuser"><p>Create User</p></a>
+        <a matLine routerLink="manageuser"><p>Manage User</p></a>
+      </mat-expansion-panel>
+  </mat-accordion>     
+      <!-- <mat-list-item *ngFor="let link of links">
+         <a matLine routerLink={{link}}>{{ link }}</a>
+         <button mat-icon-button >
+        </button> -->
+      <!-- </mat-list-item> -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Admin Dashboard</span>
+      <div class="log_main">
+        <mat-icon class="icn" matTooltip="Logout" (click)="btnclick()">power_settings_new</mat-icon>
+      </div>
+    </mat-toolbar>
+   <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

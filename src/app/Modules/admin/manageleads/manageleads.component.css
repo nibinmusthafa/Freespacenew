@@ -1,0 +1,27 @@
+.full-width-table {
+  width: 100%;
+}
+.btn {
+  margin-left: 10px;
+}
+
+
+.make-gold {
+  background-color: gold
+}
+
+
+.make-orange {
+  background-color: orange
+}
+
+.make-green {
+  background-color: green
+}
+
+.make-red {
+  background-color: red
+}
+.space{
+  width: 25px;
+}

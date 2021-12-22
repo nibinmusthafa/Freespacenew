@@ -1,0 +1,9 @@
+<form [formGroup]="fileForm" novalidate >
+    <div class="upload-btn-wrapper">
+        <input matInput placeholder="Name" formControlName="name">
+        <input type="file" (change)="onFileSelected($event)">
+        <button mat-raised-button color="primary" [disabled]="fileForm.invalid" type="button" (click)="onUpload()">
+            Upload
+        </button>      
+    </div>
+    </form>

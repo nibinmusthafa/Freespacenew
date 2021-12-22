@@ -1,0 +1,92 @@
+<ng-container *ngIf="lead">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="fl-left">
+        <h1 class="ml-0">{{ lead.leadname | titlecase }}</h1>
+      </div>
+      <div class="fl-center">
+        <button (click)="openFollowupDialog()" mat-raised-button color="accent" type="button">Followup</button>
+      </div>
+      <ng-container>
+        <h1 style="color: rgb(19, 6, 92);">{{followupDate?.followup_date | date}}</h1>
+      </ng-container>
+      <div >
+        <h1 class="ml-4"><b>Designer : {{lead.leadname | titlecase}}</b></h1>
+      </div>
+
+      <div class="fl-right">
+        <h1 class="ml-0">{{ lead.statusvalue | titlecase }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <mat-card>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Lead Id</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Lead Date</th>
+                <th scope="col">Renovation</th>
+                <th scope="col">Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{lead.id}}</td>
+                <td>{{lead.customername | titlecase}}</td>
+                <td>{{lead.phonenumber}}</td>
+                <td>{{lead.updated_on | date:'medium'}}</td>
+                <td>{{lead.renovation}}</td>
+                <td><button (click)="openCategoryDialog()" mat-raised-button color="primary">View Category</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-card>
+      </div>
+    </div>
+    <div class="dividerlass">
+    </div>
+    <div class="row">
+      <div class="col-md-6 col">
+        <mat-card class="example-card">
+          <mat-card-header class="mat-toolbar mat-primary mat-toolbar-single-row">
+            <mat-card-subtitle>
+              <h1 class="ml-0">Remarks For Lead</h1>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="card_scroll" *ngIf="leadarray[0]">
+            <div *ngFor="let rem of leadarray">
+              <ul class="list-group">
+                <li class="list-group-item border-left-0 border-right-0 rounded-0">
+                  <h3 class="mat-subheading-2">{{rem.remark_data}}</h3>
+                  <p class="mat-caption"> {{rem.datetime | date:'medium'}}Updated By:{{rem.username}}</p>
+                </li>
+              </ul>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-6 col">
+        <mat-card class="example-card">
+          <mat-card-header class="mat-toolbar mat-primary mat-toolbar-single-row">
+            <mat-card-subtitle>
+              <h1 class="ml-0">File Upload</h1>
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="card_scroll" *ngIf="leadarray[0]">
+            <div *ngFor="let file of files">
+              <ul class="list-group">
+                <li class="list-group-item border-left-0 border-right-0 rounded-0">
+                  <h3 (click)="btnclick(file.url)" class="mat-subheading-2">{{file.file_name}}</h3>
+                  <p class="mat-caption">{{file.date | date:'medium'}} Updated By: {{file.name}}</p>
+                </li>
+              </ul>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,19 @@
+.full-width-table {
+  width: 100%;
+}
+.table_shadow{
+  transition: none !important;
+  box-shadow: none !important;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+.mat-header-cell {
+  color: rgb(0 0 0);
+}
+
+tr.mat-row, tr.mat-footer-row {
+  height: 55px;
+  padding: 0.75 rem;
+}

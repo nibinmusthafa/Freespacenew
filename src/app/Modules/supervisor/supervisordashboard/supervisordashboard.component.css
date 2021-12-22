@@ -1,0 +1,37 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.log_main {
+  position: relative;
+  margin: 0px 0px 0px auto;
+  float: left;
+  display: flex;
+}
+.icn {
+  margin-top: 6px;
+}
+.fl-right {
+  margin-left: auto;
+  float: right;
+  transition-duration: 0.4s;
+  background-color: rgb(255 255 255);
+  color: #000000;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  padding: 0px 8px;
+}
