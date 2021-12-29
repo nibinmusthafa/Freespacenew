@@ -6,7 +6,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { AdminService, icategory, icustomer, icustomers, idescription, ilead, ileadsource, isubcategory, iunit, iuser } from '../admin.service';
+import { AdminService, icategory, icustomer, idescription,ileadsource, isubcategory, iunit, iuser } from '../admin.service';
 import { Leads } from '../models/leads';
 
 
@@ -21,9 +21,11 @@ export class EditleadComponent implements OnInit {
   catvalue: any;
   minDate: Date;
   maxDate: Date;
+  showDeleteButton=false;
   followupForm = this.fb.group({
     followup_date: [null],
   });
+  
   leadCategory;
   catArray;
   lead?: any = null;
@@ -81,9 +83,25 @@ export class EditleadComponent implements OnInit {
     })
   }
 
-  removeCategory(val) {
-    this.categories.removeAt(val)
+  checkCategories(){
+   if(this.categories.length > 1){
+    this.showDeleteButton=true;
+    console.log(this.categories.length)
+    console.log("iiiiiii")
+   }
+   if(this.categories.length == 1){
+    this.showDeleteButton=false;
+    console.log(this.categories.length)
+    console.log("iiiiiii")
+   }
   }
+  
+  removeCategory(val) { 
+    this.categories.removeAt(val)  
+    console.log("hiii") 
+    console.log(this.categories.length + "hiiii")
+  }
+
   getCustomerByid(id: any) {
     this.customer = this.customers.find(x => x.id == id)
     console.log(this.customer);
@@ -104,7 +122,6 @@ export class EditleadComponent implements OnInit {
       this.subcategory = true;
   }
 
-
   manageleadForm() {
     //console.log(this.lead);
     this.leadForm.controls['id'].setValue(this.lead?.id)
@@ -121,21 +138,18 @@ export class EditleadComponent implements OnInit {
       category_id: [category?.category_id],
       sub_cat_id: [category?.sub_cat_id],
       units: [category?.units],
-
     })))
   }
 
 
   updateLead() {
-
     // const lead = {
     //   categories: this.leadForm.get('categories').value
     // }
     // console.log(lead);
     let lead_id=this.leadForm.controls['id'].value
     
-        var val = {
-        
+        var val = {      
         created_by: 1,
         designer_id: this.leadForm.get('designer_id')?.value,
         customer_id: this.leadForm.get('customer_id')?.value,
@@ -146,26 +160,21 @@ export class EditleadComponent implements OnInit {
         leadsource_id: this.leadForm.get('leadsource_id')?.value,
         supervisor_id: null,
         followup_date:this.pipe.transform(this.leadForm.getRawValue().followup_date, 'MM/dd/yyyy'),
-
         categories: this.leadForm.get('categories')?.value
-
     }
- 
     this.adminservice.updateLeadbyid(lead_id,val).subscribe(res => {
       console.log(res);
+      this.router.navigateByUrl('admin/manageleads')     
     })
-
   }
 
   managecategoryForm() {
-
     // this.categories.controls.forEach(c=>{
     //   // c.setValue(this.categories.category_id)
     // })
     // this.categories.controls['category_id'].setValue(this.categorynew?.category_id)
     // this.categories.controls['sub_cat_id'].setValue(this.category?.sub_cat_id)
     // this.categories.controls['units'].setValue(this.categorynew?.units)
-
   }
   // managesubcategoryForm(){
   //   this.categories.controls['sub_cat_id'].setValue(this.subcat?.sub_cat_id)
@@ -186,6 +195,7 @@ export class EditleadComponent implements OnInit {
       console.log(this.categorynew);
 
       this.managecategoryForm();
+      this.checkCategories();
     })
   }
   // getsubcategoryByid(){
@@ -202,7 +212,6 @@ export class EditleadComponent implements OnInit {
     // console.log(this.displaydata);
     // console.log(JSON.stringify(this.displaydata));
     this.leads = this.leadForm.getRawValue();
-
   }
 
   Cancellead() {
@@ -217,6 +226,7 @@ export class EditleadComponent implements OnInit {
 
   addCategory() {
     this.categories.push(this.addnewCategory());
+    this.checkCategories();
   }
 
   getCustomerlist() {
@@ -260,7 +270,7 @@ export class EditleadComponent implements OnInit {
     console.log(customer?.customer_phonenumber);
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.getCustomerlist();
     this.getLeadsourcelist();
     this.getCategorylist();
@@ -269,8 +279,7 @@ export class EditleadComponent implements OnInit {
     this.getleadByid();
     this.getcategoriesByid(this.lead_id)
   }
-
-
+  
   getleadcategorybylead() {
     this.adminservice.getleadcategorybylead(this.route.snapshot.paramMap.get('id')).subscribe(res => {
       this.leadCategory = res
@@ -290,9 +299,9 @@ export class EditleadComponent implements OnInit {
 
   deleteCategory(i){
     this.categories.removeAt(i)
+    this.checkCategories();
+    console.log(this.categories.length)
   }
-
-
 }
 
 

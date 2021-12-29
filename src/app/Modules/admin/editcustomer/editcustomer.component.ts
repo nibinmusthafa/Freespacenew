@@ -84,7 +84,6 @@ export class EditcustomerComponent implements OnInit {
     this.addressForm.controls['postalCode'].setValue(this.address?.pincode)
     this.addressForm.controls['country'].setValue(this.address?.country_id)
   }
-
   //   updateCustomer()
   // {
   //   this.adminservice.updatecustomer(this.data.id).subscribe(res =>{
@@ -134,32 +133,29 @@ export class EditcustomerComponent implements OnInit {
     // alert(JSON.stringify(data));
     // console.log(this.customers); 
     let data = this.addressForm.value
-    let jsn = {
-        "id": data.id,
-        "updated_by": 1,
-        "customer_firstname": data.firstName,
-        "customer_lastname": data.lastName,
-        "customer_phonenumber": data.phonenumber,
-        "email": data.email,
-    }
-    this.adminservice.updatecustomer(data.id, jsn).subscribe(res => {
+    var customer = {
+      
+      updated_by: 1,
+      customer_firstname: this.addressForm.get('firstName')?.value,
+      customer_lastname: this.addressForm.get('lastName')?.value,
+      customer_phonenumber: this.addressForm.get('phonenumber')?.value,
+      email: this.addressForm.get('email')?.value,
+   
+    addresses:[{addr_line1: this.addressForm.get('address1')?.value,
+    addr_line2: this.addressForm.get('address2')?.value,
+    city: this.addressForm.get('city')?.value,
+    state_id: this.addressForm.get('state')?.value,
+    country_id:this.addressForm.get('country')?.value,
+    pincode: this.addressForm.get('postalCode')?.value,}]
+    
+  }    
+    this.adminservice.updatecustomer(data.id, customer).subscribe(res => {
       console.log(res);
+      alert(res)
     })
-
-    let jsn1={
-      "id":data.customer_id,
-      "addr_line1": data.address1,
-      "addr_line2": data.address2,
-      "city": data.city,
-      "state_id": data.state,
-      "pincode": data.postalCode,
-      "country_id":data.country,
-    }
-    this.adminservice.updateaddressbyid(data.id,jsn1).subscribe(res=>{
-      console.log(res);
-      window.location.reload()
-    })
-    this.router.navigateByUrl('admin/managecustomer')    
+    // window.location.reload()
+   
+    this.router.navigateByUrl('admin/managecustomer')  
   }
 
   ngOnInit(): void {

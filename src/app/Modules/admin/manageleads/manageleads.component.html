@@ -1,9 +1,15 @@
+
+ <mat-form-field>
+  <mat-icon matPrefix>search</mat-icon>
+  <input (keyup)="applySearch($event)" autocomplete="off" matInput type="search" placeholder="search here" class="search-input">
+</mat-form-field>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col">
       <mat-card>
 <div class="mat-elevation-z8 table_shadow">
-  <table mat-table [dataSource]="customers" class="full-width-table table_shadow" matSort aria-label="Elements">
+  <table mat-table [dataSource]="dataSource" class="full-width-table table_shadow" matSort aria-label="Elements">
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="space mat-subheading-2 font-weight-bold">Id</h3></th>
@@ -15,11 +21,11 @@
       <td mat-cell *matCellDef="let row">{{row.customername}}</td>
     </ng-container>
     <ng-container matColumnDef="leadname">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Lead Name</h3></th>
+      <th mat-header-cell *matHeaderCellDef ><h3 class="mat-subheading-2 font-weight-bold">Lead Name</h3></th>
       <td mat-cell *matCellDef="let row">{{row.leadname}}</td>
     </ng-container>
     <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Description</h3></th>
+      <th mat-header-cell *matHeaderCellDef ><h3 class="mat-subheading-2 font-weight-bold">Description</h3></th>
       <td mat-cell *matCellDef="let row">{{row.description}}</td>
     </ng-container>
     <ng-container matColumnDef="leadsource_id">
@@ -38,9 +44,13 @@
       <th #followupdate mat-header-cell *matHeaderCellDef mat-sort-header > <h3 class="mat-subheading-2 font-weight-bold">Followup Date</h3></th>
       <td [ngClass]="{'make-green': (row.followup_date| date:'yyyy-MM-dd') > today , 'make-red': (row.followup_date| date:'yyyy-MM-dd') < today , 'make-orange': (row.followup_date| date:'yyyy-MM-dd') === today}" mat-cell *matCellDef="let row">{{row.followup_date }}</td>
     </ng-container>
+
+    
     <ng-container matColumnDef="action" >
       <th mat-header-cell *matHeaderCellDef><h3 class="mat-subheading-2 font-weight-bold">Activities</h3></th>
-      <td mat-cell *matCellDef="let row" >
+        <td mat-cell *matCellDef="let row" >
+
+            
         <ng-container>
           <button class="btn" (click)="navigatetodesigner(row.id)" mat-raised-button color="primary">Designer</button>
         </ng-container>
@@ -51,17 +61,16 @@
           <button class="btn" (click)="navigatetoedit(row.id)" mat-raised-button color="accent">Edit</button>
         </ng-container>
         </td>
-      </ng-container>    
+      </ng-container>          
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-  <!-- <mat-paginator #paginator
-      [length]="dataSource?.data?.length"
+  <mat-paginator #paginator     
       [pageIndex]="0"
-      [pageSize]="10"
-      [pageSizeOptions]="[5, 10, 20]"
+      [pageSize]="15"
+      [pageSizeOptions]="[10,15,20,25,30,50]"
       aria-label="Select page">
-  </mat-paginator> -->
+  </mat-paginator>
 </div>
 </mat-card>
 </div>
@@ -70,4 +79,6 @@
 <!-- <h1>{{datewithtime}}</h1>
 
 <h1>{{today}}</h1> -->
+
+
 

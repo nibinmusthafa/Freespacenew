@@ -102,11 +102,11 @@
               <h1 class="ml-0">File Upload</h1>
             </mat-card-subtitle>
           </mat-card-header>
-          <mat-card-content class="card_scroll" *ngIf="leadarray[0]">
+          <mat-card-content class="card_scroll" >
             <div *ngFor="let file of files">
               <ul class="list-group">
                 <li class="list-group-item border-left-0 border-right-0 rounded-0">
-                  <!-- <a href='{{file.url}}'> -->
+                 <!-- <a href='{{file.url}}'></a> -->
                     <h3 (click)="btnclick(file.url)" class="mat-subheading-2">{{file.file_name}}</h3>
                   <p class="mat-caption">  {{file.date | date:'medium'}} Updated By: {{file.name}}</p>
                 </li>

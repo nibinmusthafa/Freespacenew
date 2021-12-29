@@ -27,12 +27,10 @@ export class FollowupComponent implements OnInit {
       lead_id: this.data.lead_id,
       updated_by: this.data.user_id,
     }
-    this.setFollowupdate(this.pipe.transform(this.followupForm.getRawValue().followup_date, 'MM/dd/yyyy'));
-    
+    this.setFollowupdate(this.pipe.transform(this.followupForm.getRawValue().followup_date, 'MM/dd/yyyy'));    
     this.http.addFollowup(data).subscribe(res => {
       console.log(res+"followup result")
-      this.updateStatusValue();
-      
+      this.updateStatusValue();      
     })
   }
 

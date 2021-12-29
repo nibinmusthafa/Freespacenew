@@ -40,6 +40,7 @@ export interface item {
   styleUrls: ['./leadremarks.component.css']
 
 })
+
 export class LeadremarksComponent implements OnInit {
 
   files: files[] = [];

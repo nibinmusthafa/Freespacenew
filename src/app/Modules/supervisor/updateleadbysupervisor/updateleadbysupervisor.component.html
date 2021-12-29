@@ -41,12 +41,15 @@
     <ng-container matColumnDef="action" >
       <th mat-header-cell *matHeaderCellDef><h3 class="mat-subheading-2 font-weight-bold">Action</h3>  </th>
       <td mat-cell *matCellDef="let row" >
-      <ng-container *ngIf="row.status_id =='1'">
+      <!-- <ng-container *ngIf="row.status_id =='1'">
         <button mat-raised-button color="primary" type="button"(click)="btnClick(row.id)">Accept</button>
       </ng-container>
       <ng-container *ngIf="row.status_id !='1'">
         <button mat-raised-button color="primary" type="button"(click)="loadRemarks(row.id)">Manage</button>
-      </ng-container> 
+      </ng-container>  -->
+      <button mat-raised-button color="primary" type="button"(click)="loadRemarks(row.id)">Manage</button>
+
+
         <!-- <a matLine (onclick)="btnClick()"><button>Choose</button></a> -->
        </td>
     </ng-container> 

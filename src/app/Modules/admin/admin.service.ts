@@ -179,7 +179,7 @@ export class AdminService {
   }
 
   addCustomer(val: any) {
-    return this.http.post(this.baseUrl + 'addcustomer/', val)
+    return this.http.post(this.baseUrl + 'createcustomer/', val)
   }
 
   getUserlist() {

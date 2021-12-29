@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
     AppComponent
   ],
   imports: [
-    
     BrowserModule,
     RouterModule.forRoot(routes),
     AppRoutingModule,

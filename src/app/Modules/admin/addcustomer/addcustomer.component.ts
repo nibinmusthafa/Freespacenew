@@ -72,19 +72,20 @@ export class AddcustomerComponent {
 
   addCustomer() {
     var customer = {
-      customer_id: {
+      
         updated_by: 1,
         customer_firstname: this.addressForm.get('firstName')?.value,
         customer_lastname: this.addressForm.get('lastName')?.value,
         customer_phonenumber: this.addressForm.get('phonenumber')?.value,
         email: this.addressForm.get('email')?.value,
-      },
-      addr_line1: this.addressForm.get('address1')?.value,
+     
+      addresses:[{addr_line1: this.addressForm.get('address1')?.value,
       addr_line2: this.addressForm.get('address2')?.value,
       city: this.addressForm.get('city')?.value,
       state_id: this.addressForm.get('state')?.value,
       country_id:this.addressForm.get('country')?.value,
-      pincode: this.addressForm.get('postalCode')?.value,
+      pincode: this.addressForm.get('postalCode')?.value,}]
+      
 
     }    
     this.adminservice.addCustomer(customer).subscribe(res => {

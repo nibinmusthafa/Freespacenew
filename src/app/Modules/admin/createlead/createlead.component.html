@@ -109,9 +109,22 @@
               <mat-form-field class="full-width">
                 <input matInput placeholder="Units" formControlName="units">
               </mat-form-field>
+           
             </div>
+            <div class="example-button-container">
+              <button  mat-mini-fab color="primary" (click)="addCategory()" aria-label="Delete icon">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+            <div *ngIf="showDeleteButton" class="example-button-container">
+              <button  mat-mini-fab color="warn" (click)="deleteCategory(i)"aria-label="Delete icon">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div> 
           </div>
-        </div>           
+            
+        </div>  
+             
     </mat-card-content>
       <div class="col">
     <mat-card-actions>

@@ -35,6 +35,7 @@ export class CreateleadComponent {
   leadname: any;
   lead_id: any;
   user_id:any;
+  showDeleteButton=false;
   pipe = new DatePipe('en-US');
 
   leadForm = this.fb.group({
@@ -141,6 +142,7 @@ export class CreateleadComponent {
 
   addCategory() {
     this.categories.push(this.addnewCategory());
+    this.checkCategories();
   }
 
   getCustomerlist() {
@@ -186,6 +188,27 @@ export class CreateleadComponent {
     this.getCategorylist();
     this.getSubCategorylist();
     this.ListDesigner();
+  }
+
+  checkCategories(){
+    if(this.categories.length > 1){
+     this.showDeleteButton=true;
+     console.log(this.categories.length)
+     console.log("iiiiiii")
+    }
+    if(this.categories.length == 1){
+     this.showDeleteButton=false;
+     console.log(this.categories.length)
+     console.log("iiiiiii")
+    }
+    
+  }
+  deleteCategory(i){
+    this.categories.removeAt(i)
+    
+    this.checkCategories();
+    console.log(this.categories.length)
+
   }
  
   // addFollowup() {

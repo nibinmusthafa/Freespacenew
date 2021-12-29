@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './updateleads.component.html',
   styleUrls: ['./updateleads.component.css']
 })
+
 export class UpdateleadsComponent implements AfterViewInit {
 
   customer: icustomer[] = [];

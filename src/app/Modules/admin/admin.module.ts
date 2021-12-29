@@ -40,9 +40,12 @@ import { EditcustomerComponent } from './editcustomer/editcustomer.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+
+
+
 const routes: Routes = [
 
-  { path:'',canActivate:[AuthGuard], component: AdmindashboardComponent, 
+  { path:'', canActivate:[AuthGuard], component: AdmindashboardComponent, 
    children:[
       { path:'createlead',canActivate:[AuthGuard], component: CreateleadComponent },
       { path:'addcustomer',canActivate:[AuthGuard], component: AddcustomerComponent },
@@ -108,16 +111,19 @@ const routes: Routes = [
     MatDialogModule,
     MatNativeDateModule,
     PdfViewerModule,
-    MatSnackBarModule  
-
-  ],
+    MatSnackBarModule,
+   
+   ],
 
   exports: [
     RouterModule,
     MatGridListModule,
     MatDatepickerModule,
     MatDialogModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule
     ],
 
   providers:[{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
