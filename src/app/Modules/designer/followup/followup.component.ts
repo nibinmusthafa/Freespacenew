@@ -11,6 +11,8 @@ import { DesignerService } from '../designer.service';
 })
 export class FollowupComponent implements OnInit {
 
+  minDate:Date;
+  maxDate:Date;
   pipe = new DatePipe('en-US');
   followupForm = this.fb.group({
     followup_date: [null],
@@ -18,7 +20,11 @@ export class FollowupComponent implements OnInit {
 
   constructor(private http: DesignerService,
     private fb: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) { 
+      const currentYear = new Date().getFullYear();
+      this.minDate = new Date();
+      this.maxDate = new Date(currentYear + 2, 11, 31)
+    }
 
   addFollowup(){
     let data = 

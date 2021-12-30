@@ -2,8 +2,8 @@
     <thead>
         <tr>
             <th>Category</th>
-            <th>Sub Category</th>
-            <th>Units</th>
+            <!-- <th>Sub Category</th> -->
+            <th>Location</th>
         </tr>
     </thead>
     <tbody>
@@ -12,9 +12,9 @@
             <td>6000</td>
         </tr> -->
         <tr class="active-row" *ngFor="let category of catArray"  >
-            <td>{{ category.category_id === 1? "Kitchen":"Home Interior" }}</td>
-            <td>{{ category.subcat }}</td>
-            <td>{{ category.units }}</td>
+            <td>{{ category.category_name }}</td>
+            <!-- <td>{{ category.subcat }}</td> -->
+            <td>{{ category.location }}</td>
         </tr>
         <!-- and so on... -->
     </tbody>

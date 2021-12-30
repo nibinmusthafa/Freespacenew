@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class UpdateleadsComponent implements AfterViewInit {
 
   customer: icustomer[] = [];
-  displayedColumns: string[] = ['id', 'customername', 'leadname', 'description', 'statusvalue', 'updated_on','followup_date','action'];
+  displayedColumns: string[] = ['id', 'customername', 'description', 'statusvalue', 'updated_on','followup_date','action'];
   dataSource = this.customer;
   num: number = 0;
   updatedresponse: any;

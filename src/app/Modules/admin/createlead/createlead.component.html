@@ -96,7 +96,7 @@
                 </mat-select>
               </mat-form-field>
             </div>
-            <div class="col" >
+            <!-- <div class="col" >
               <mat-form-field class="full-width">
                 <mat-select placeholder="Sub category" formControlName='sub_cat_id'>
                   <mat-option *ngFor="let subcategory of subcategories" [value]="subcategory.id">
@@ -104,15 +104,14 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-            </div>
+            </div> -->
             <div class="col">
               <mat-form-field class="full-width">
-                <input matInput placeholder="Units" formControlName="units">
-              </mat-form-field>
-           
+                <input matInput placeholder="Location" formControlName="location">
+              </mat-form-field>     
             </div>
             <div class="example-button-container">
-              <button  mat-mini-fab color="primary" (click)="addCategory()" aria-label="Delete icon">
+              <button  mat-mini-fab color="primary" type="button" (click)="addCategory()" aria-label="Delete icon">
                 <mat-icon>add</mat-icon>
               </button>
             </div>
@@ -121,10 +120,8 @@
                 <mat-icon>delete</mat-icon>
               </button>
             </div> 
-          </div>
-            
-        </div>  
-             
+          </div>            
+        </div>              
     </mat-card-content>
       <div class="col">
     <mat-card-actions>

@@ -17,7 +17,7 @@ import { ManageleadsItem } from './manageleads-datasource';
 export class ManageleadsComponent implements AfterViewInit {
 
   customers: icustomers[] = [];
-  displayedColumns: string[] = ['id', 'customername', 'leadname', 'description', 'updated_on', 'statusvalue', 'followup_date', 'action'];
+  displayedColumns: string[] = ['id', 'customername', 'description', 'updated_on', 'statusvalue', 'followup_date', 'action'];
   dataSource: MatTableDataSource<any>;
   userId: any;
   pipe = new DatePipe('en-US');
@@ -78,6 +78,9 @@ export class ManageleadsComponent implements AfterViewInit {
   }
   navigatetoedit(id: any) {
     this.router.navigateByUrl('admin/editlead/' + id)
+  }
+  navigatetocategory(id:any){
+    this.router.navigateByUrl('admin/leaddetails/'+ id)
   }
 
   ngOnInit() {

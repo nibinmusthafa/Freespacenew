@@ -29,9 +29,9 @@ export class ViewcategoriesComponent implements OnInit {
       for (let i=0; i< this.leadCategory.length; i++ )
       {
         let data={
-          category_id:this.leadCategory[i].category_id,
-          subcat:this.leadCategory[i].subcat,
-          units:this.leadCategory[i].units,                  
+          category_name:this.leadCategory[i].category_name,
+          // subcat:this.leadCategory[i].subcat,
+          location:this.leadCategory[i].location,                  
         }
         this.category=data;
         this.catArray.push(data)             

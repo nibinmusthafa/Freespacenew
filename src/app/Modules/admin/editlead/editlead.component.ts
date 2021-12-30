@@ -5,10 +5,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-
-import { AdminService, icategory, icustomer, idescription,ileadsource, isubcategory, iunit, iuser } from '../admin.service';
+import { AdminService, icategory, icustomer, idescription,ileadsource, ilocation, isubcategory, iuser } from '../admin.service';
 import { Leads } from '../models/leads';
-
 
 @Component({
   selector: 'app-editlead',
@@ -29,6 +27,7 @@ export class EditleadComponent implements OnInit {
   leadCategory;
   catArray;
   lead?: any = null;
+  subcat?:any=null;
   category?: any = null;
   categorynew?: any = null;
   customers: icustomer[] = [];
@@ -36,7 +35,7 @@ export class EditleadComponent implements OnInit {
   categories_source: icategory[] = [];
   subcategories: isubcategory[] = [];
   descriptions: idescription[] = [];
-  units: iunit[] = [];
+  location: ilocation[] = [];
   designers: iuser[] = [];
   leads: Leads[] = [];
   displaydata: {} = {};
@@ -53,7 +52,6 @@ export class EditleadComponent implements OnInit {
       id: null,
       designer_id: [this.lead?.designer_id, Validators.required],
       customer_id: [this.lead?.customer_id, Validators.required],
-      leadname: [null,],
       description: [this.lead?.description, Validators.required],
       renovation: [true, Validators.required],
       leadsource_id: [this.lead?.leadsource_id, Validators.required],
@@ -79,7 +77,7 @@ export class EditleadComponent implements OnInit {
     return this.fb.group({
       category_id: [''],
       sub_cat_id: [''],
-      units: [''],
+      location: [''],
     })
   }
 
@@ -98,20 +96,18 @@ export class EditleadComponent implements OnInit {
   
   removeCategory(val) { 
     this.categories.removeAt(val)  
-    console.log("hiii") 
     console.log(this.categories.length + "hiiii")
   }
 
   getCustomerByid(id: any) {
     this.customer = this.customers.find(x => x.id == id)
     console.log(this.customer);
-
   }
 
   getcategoryByid(id: any) {
     let category = this.categories_source.find(x => x.id == id)
     this.leadname = this.customer?.customer_firstname + "_" + category?.category_name
-    this.SubcategoryCheck()
+    // this.SubcategoryCheck()
   }
 
   SubcategoryCheck() {
@@ -136,9 +132,11 @@ export class EditleadComponent implements OnInit {
     this.lead.categories.map(category => this.categories.push(this.fb.group({
 
       category_id: [category?.category_id],
-      sub_cat_id: [category?.sub_cat_id],
-      units: [category?.units],
+      // sub_cat_id: [category?.sub_cat_id],
+      location: [category?.location],
     })))
+
+    this.checkCategories();
   }
 
 
@@ -147,14 +145,12 @@ export class EditleadComponent implements OnInit {
     //   categories: this.leadForm.get('categories').value
     // }
     // console.log(lead);
-    let lead_id=this.leadForm.controls['id'].value
-    
+    let lead_id=this.leadForm.controls['id'].value   
         var val = {      
         created_by: 1,
         designer_id: this.leadForm.get('designer_id')?.value,
         customer_id: this.leadForm.get('customer_id')?.value,
         status_id: this.lead.status_id,
-        leadname: this.lead.leadname,
         description: this.leadForm.get('description')?.value,
         renovation: this.leadForm.get('renovation')?.value,
         leadsource_id: this.leadForm.get('leadsource_id')?.value,
@@ -169,13 +165,14 @@ export class EditleadComponent implements OnInit {
   }
 
   managecategoryForm() {
-    // this.categories.controls.forEach(c=>{
-    //   // c.setValue(this.categories.category_id)
-    // })
-    // this.categories.controls['category_id'].setValue(this.categorynew?.category_id)
-    // this.categories.controls['sub_cat_id'].setValue(this.category?.sub_cat_id)
-    // this.categories.controls['units'].setValue(this.categorynew?.units)
+    this.categories.controls.forEach(c=>{
+      // c.setValue(this.categories.category_id)
+    })
+    this.categories.controls['category_id'].setValue(this.categorynew?.category_id)
+    this.categories.controls['sub_cat_id'].setValue(this.category?.sub_cat_id)
+    this.categories.controls['location'].setValue(this.categorynew?.location)
   }
+
   // managesubcategoryForm(){
   //   this.categories.controls['sub_cat_id'].setValue(this.subcat?.sub_cat_id)
   //   this.categories.controls['units'].setValue(this.subcat?.units)
@@ -192,18 +189,20 @@ export class EditleadComponent implements OnInit {
   getcategoriesByid(lead_id) {
     this.adminservice.getCategorybyid(this.route.snapshot.paramMap.get('id'), lead_id).subscribe(res => {
       this.categorynew = res
-      console.log(this.categorynew);
+      console.log("aswathy")
+    
+      console.log(this.categorynew);  
 
-      this.managecategoryForm();
+      // this.managecategoryForm();
       this.checkCategories();
     })
   }
-  // getsubcategoryByid(){
-  //   this.adminservice.getsubCategorybyid(this.route.snapshot.paramMap.get('id')).subscribe(res=>{     
-  //     this.lead = res
+  getsubcategoryByid(){
+    this.adminservice.getsubCategorybyid(this.route.snapshot.paramMap.get('id')).subscribe(res=>{     
+      this.lead = res
 
-  //   })
-  // }
+    })
+  }
 
   onSubmit(): void {
     // window.location.reload()
@@ -271,13 +270,15 @@ export class EditleadComponent implements OnInit {
   }
 
   ngOnInit(): void {  
+    console.log("omg")
     this.getCustomerlist();
     this.getLeadsourcelist();
     this.getCategorylist();
-    this.getSubCategorylist();
+    // this.getSubCategorylist();
     this.ListDesigner();
     this.getleadByid();
-    this.getcategoriesByid(this.lead_id)
+    
+    // this.getcategoriesByid(this.lead_id)
   }
   
   getleadcategorybylead() {
@@ -288,7 +289,7 @@ export class EditleadComponent implements OnInit {
         let data = {
           category_id: this.leadCategory[i].category_id,
           subcat: this.leadCategory[i].subcat,
-          units: this.leadCategory[i].units,
+          location: this.leadCategory[i].location,
         }
         this.category = data;
         this.catArray.push(data)

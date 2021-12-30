@@ -89,7 +89,6 @@ export interface icustomers {
   designer_id: number,
   customer_id: number,
   status_id: number,
-  leadname: string,
   description: string,
   renovation: boolean,
   leadsource_id: number,
@@ -97,11 +96,10 @@ export interface icustomers {
   updated_on: Date
 }
 
-export interface iunit {
+export interface ilocation {
   id: number;
+  location:string;
 }
-
-
 
 let userToken: any = localStorage.getItem('user');
 let token = JSON.parse(userToken)?.jwt;
@@ -266,7 +264,7 @@ export class AdminService {
   }
 
   getCategorybyid(id: any, lead_id: any) {
-    return this.http.get(this.baseUrl + 'getleadcategorybylead/' + id + '/', lead_id)
+    return this.http.get(this.baseUrl + 'getleadcategorybylead/' + id + '/')
   }
 
   getsubCategorybyid(id: any) {
@@ -296,9 +294,9 @@ export class AdminService {
   updateLeadbyid(id: any, data: any) {
     return this.http.put(this.baseUrl + 'updatelead/' + id , data)
   }
-
-
-
+  // listCategory():Observable<icategory[]>{
+  //   return this.http.get<icategory[]>(this.baseUrl + 'listleadcategory/')
+  // }
 
 }
 

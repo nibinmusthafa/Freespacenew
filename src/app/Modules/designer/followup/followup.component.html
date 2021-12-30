@@ -2,7 +2,7 @@
   <mat-dialog-content>
     <div class="col">
       <mat-label>FollowUp date :</mat-label>
-      <input matInput #matdate [matDatepicker]="picker" formControlName="followup_date">
+      <input matInput #matdate [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="followup_date">
       <mat-datepicker-toggle matSuffix [for]="picker">
         <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
       </mat-datepicker-toggle>
