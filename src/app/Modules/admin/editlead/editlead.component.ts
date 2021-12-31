@@ -57,7 +57,8 @@ export class EditleadComponent implements OnInit {
       leadsource_id: [this.lead?.leadsource_id, Validators.required],
       status_value: [null],
       followup_date: [this.lead?.followup_date, Validators.required],
-      categories: this.fb.array([]),
+      architect:[this.lead?.architect, Validators.required],
+      categories: this.fb.array([this.category?.architect, Validators.required]),
     });
 
 
@@ -75,9 +76,10 @@ export class EditleadComponent implements OnInit {
 
   addnewCategory(): FormGroup {
     return this.fb.group({
-      category_id: [''],
-      sub_cat_id: [''],
-      location: [''],
+      category_id: [],
+      // sub_cat_id: [''],
+      location: [],
+      is_updated:[],
     })
   }
 
@@ -127,6 +129,7 @@ export class EditleadComponent implements OnInit {
     this.leadForm.controls['renovation'].setValue(String(this.lead?.renovation))
     this.leadForm.controls['leadsource_id'].setValue(this.lead?.leadsource_id)
     this.leadForm.controls['followup_date'].setValue(this.lead?.followup_date)
+    this.leadForm.controls['architect'].setValue(this.lead?.architect)
 
     console.log(this.leads)
     this.lead.categories.map(category => this.categories.push(this.fb.group({
@@ -134,6 +137,7 @@ export class EditleadComponent implements OnInit {
       category_id: [category?.category_id],
       // sub_cat_id: [category?.sub_cat_id],
       location: [category?.location],
+      is_updated:[category?.is_updated]
     })))
 
     this.checkCategories();
@@ -156,7 +160,9 @@ export class EditleadComponent implements OnInit {
         leadsource_id: this.leadForm.get('leadsource_id')?.value,
         supervisor_id: null,
         followup_date:this.pipe.transform(this.leadForm.getRawValue().followup_date, 'MM/dd/yyyy'),
+        architect:this.leadForm.get('architect')?.value,
         categories: this.leadForm.get('categories')?.value
+
     }
     this.adminservice.updateLeadbyid(lead_id,val).subscribe(res => {
       console.log(res);
@@ -169,8 +175,10 @@ export class EditleadComponent implements OnInit {
       // c.setValue(this.categories.category_id)
     })
     this.categories.controls['category_id'].setValue(this.categorynew?.category_id)
-    this.categories.controls['sub_cat_id'].setValue(this.category?.sub_cat_id)
+    // this.categories.controls['sub_cat_id'].setValue(this.category?.sub_cat_id)
     this.categories.controls['location'].setValue(this.categorynew?.location)
+    this.categories.controls['is_updated'].setValue(this.categorynew?.is_updated)
+
   }
 
   // managesubcategoryForm(){

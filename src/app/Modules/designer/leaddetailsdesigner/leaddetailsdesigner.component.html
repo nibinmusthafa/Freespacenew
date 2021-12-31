@@ -1,3 +1,15 @@
+<ng-container [formGroup]="leadDetailForm">
+  <mat-form-field class="top">
+    <mat-select  placeholder="Category" formControlName="category">
+      <mat-option *ngFor="let element of categories_source" [value]="element.id">
+        {{element.category_name}} {{element.location}}
+      </mat-option>
+    </mat-select>
+    <mat-error >
+      Category is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</ng-container>
 <form [formGroup]="leadDetailForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
@@ -7,52 +19,84 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Category" formControlName="category">
-            <mat-error *ngIf="leadDetailForm.controls['category'].hasError('required')">
-              Category is <strong>required</strong>
-            </mat-error>
+            <mat-select placeholder="Category" formControlName="category">
+              <mat-option *ngFor="let element of categories_source" [value]="element.id">
+                {{element.category_name}} {{element.location}}
+              </mat-option>
+          </mat-select>
+          <mat-error >
+            Category is <strong>required</strong>
+          </mat-error>        
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Part" formControlName="part">
-            <mat-error *ngIf="leadDetailForm.controls['part'].hasError('required')">
+            <mat-select placeholder="Part" formControlName="part">
+            <mat-option *ngFor="let element of parts" [value]="element.id">
+              {{element.part}}
+              </mat-option>
+            </mat-select>
+            <mat-error>
               Part is <strong>required</strong>
-            </mat-error>
+            </mat-error>           
           </mat-form-field>
+        </div>
+        <div class="col">
+        <mat-form-field class="full-width">
+          <mat-select placeholder="Material" formControlName="material">
+          <mat-option *ngFor="let element of materials" [value]="element.id">
+            {{element.material}}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            Material is <strong>required</strong>
+          </mat-error>           
+        </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Material" formControlName="material">
-            <mat-error *ngIf="leadDetailForm.controls['material'].hasError('required')">
-              Material is <strong>required</strong>
+            <mat-select placeholder="Finish" formControlName="finishs">
+              <mat-option *ngFor="let element of finishes" [value]="element.id">
+                {{ element.finish }}
+              </mat-option>
+            </mat-select>
+            <mat-error >
+              Finish is <strong>required</strong>
             </mat-error>
           </mat-form-field>
-        </div>
-        <div class="col">
+          </div> 
+        <!-- <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Finish" formControlName="finish">
             <mat-error *ngIf="leadDetailForm.controls['finish'].hasError('required')">
               Finish is <strong>required</strong>
             </mat-error>
           </mat-form-field>
-        </div>
+        </div> -->
       </div>
        <div class="row">
         <div class="col">
-            <mat-form-field class="full-width">
-              <input matInput placeholder="Type/size" formControlName="type">
-              <mat-error *ngIf="leadDetailForm.controls['type'].hasError('required')">
-                Type/size is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-select placeholder="Type/Size" formControlName="type">
+            <mat-option *ngFor="let element of typesizes" [value]="element.id">
+              {{ element.typesize }}
+            </mat-option>
+          </mat-select>
+          <mat-error>
+            Finish is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
           </div>
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Brand" formControlName="brand">
-              <mat-error *ngIf="leadDetailForm.controls['brand'].hasError('required')">
-                Brand is <strong>required</strong>
-              </mat-error>
+              <mat-select placeholder="Brand" formControlName="brand">
+              <mat-option *ngFor="let element of brands" [value]="element.id">
+                {{ element.brand }}
+              </mat-option>
+            </mat-select>
+            <mat-error>
+              Brand is <strong>required</strong>
+            </mat-error>
             </mat-form-field>
           </div>
           <div class="col">

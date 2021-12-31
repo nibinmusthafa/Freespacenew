@@ -8,12 +8,12 @@ import { DesignerService } from '../designer.service';
   templateUrl: './viewcategory.component.html',
   styleUrls: ['./viewcategory.component.css']
 })
+
 export class ViewcategoryComponent implements OnInit {
 
   leadCategory?: LeadCategory[]=[];
   category:any;
   catArray:any=[];
-
   constructor(private http:DesignerService,
     @Inject(MAT_DIALOG_DATA)public data:any) { }
 
@@ -22,15 +22,13 @@ export class ViewcategoryComponent implements OnInit {
   }
 
   getleadcategorybylead(){
-    this.http.getleadcategorybylead(this.data.lead_id).subscribe(res=>{
-      
-      this.leadCategory=res
-      
+    this.http.getleadcategorybylead(this.data.lead_id).subscribe(res=>{    
+      this.leadCategory=res     
       for (let i=0; i< this.leadCategory.length; i++ )
       {
         let data={
           category_name:this.leadCategory[i].category_name,
-          subcat:this.leadCategory[i].subcat,
+          // subcat:this.leadCategory[i].subcat,
           location:this.leadCategory[i].location,                  
         }
         this.category=data;
@@ -39,5 +37,4 @@ export class ViewcategoryComponent implements OnInit {
       console.log(this.catArray.sort((x:any,y:any) => x.category_id-y.category_id))
     })
   }
-
 }

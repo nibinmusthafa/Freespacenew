@@ -39,10 +39,6 @@ export class CreateuserComponent {
       alert(error.error.email[0])
       })
     }
-      
-    
-    
-  
 
   listdesignation(){
     

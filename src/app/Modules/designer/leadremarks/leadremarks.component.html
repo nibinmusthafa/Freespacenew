@@ -44,7 +44,8 @@
                 <td>{{lead.phonenumber}}</td>
                 <td>{{lead.updated_on | date:'medium'}}</td>
                 <td>{{lead.renovation}}</td>
-                <td><button (click)="openCategoryDialog()" mat-raised-button color="primary">View Category</button></td>
+                <td><button (click)="openCategoryDialog()" mat-raised-button color="primary">View Category</button>
+                <button class="Catright" (click)="addCategory()" mat-raised-button color="primary">Add Category</button></td>
               </tr>
             </tbody>
           </table>

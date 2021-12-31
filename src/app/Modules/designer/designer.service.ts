@@ -26,7 +26,11 @@ export interface icustomer {
   followup_date:Date;
   // leadsource_id:number;
 }
+export interface ifinish{
+  id:number;
+  finish:string;
 
+}
 export interface isupervisor {
   id: number;
   name: string
@@ -35,6 +39,31 @@ export interface isupervisor {
 export interface iStatus {
   id: number;
   status_value: string;
+}
+export interface icategory {
+  id: number;
+  category_id:number;
+  updated_on:number;
+  is_updated:string;
+  category_name: string;
+  location:string;
+
+}
+export interface itypesize{
+  id:number;
+  typesize:string;
+}
+export interface ipart{
+   id:number;
+   part:string;
+}
+export interface imaterial{
+  id:number;
+  material:string;
+}
+export interface ibrand{
+  id:number;
+  brand:string;
 }
 
 
@@ -115,6 +144,27 @@ export class DesignerService {
   }
   getleadcategorybylead(lead_id:any):Observable<LeadCategory[]>{
     return this.http.get<LeadCategory[]>(this.baseUrl+'getleadcategorybylead/'+ lead_id+'/')
+  }
+ 
+  getCategory(lead_id:any): Observable<icategory[]> {
+    return this.http.get<icategory[]>(this.baseUrl + 'getleadcategorybylead/'+ lead_id+'/');
+  }
+
+  getfinish():Observable<ifinish[]>{
+    return this.http.get<ifinish[]>(this.baseUrl+'api/listfinish/')
+  }
+
+  getPart():Observable<ipart[]>{
+    return this.http.get<ipart[]>(this.baseUrl+'api/listkitchenpart/')
+  }
+  getMaterial():Observable<imaterial[]>{
+    return this.http.get<imaterial[]>(this.baseUrl+'api/listmaterial/')
+  }
+  getTypesize():Observable<itypesize[]>{
+    return this.http.get<itypesize[]>(this.baseUrl+'api/listkitchentypesize/')
+  }
+  getBrand():Observable<ibrand[]>{
+    return this.http.get<ibrand[]>(this.baseUrl+'api/listbrands/')
   }
 
 }

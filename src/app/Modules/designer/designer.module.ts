@@ -22,7 +22,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AssignsupervisorComponent } from './assignsupervisor/assignsupervisor.component';
-import{MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input'
 import {MatSelectModule} from '@angular/material/select';
 import { UpdateStatusComponent } from './update-status/update-status.component';
 import { FollowupComponent } from './followup/followup.component';
@@ -31,18 +31,20 @@ import { ViewfileComponent } from './viewfile/viewfile.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { ViewcategoryComponent } from './viewcategory/viewcategory.component'
+import { ViewcategoryComponent } from './viewcategory/viewcategory.component';
+import { LeaddetailsdesignerComponent } from './leaddetailsdesigner/leaddetailsdesigner.component';
+import { MatRadioModule } from '@angular/material/radio'
 
 
 
 const routes: Routes = [
-
   {
     path: '',canActivate:[AuthGuard], component: DesignernavbarComponent,
     children: [
       { path: "updateleads",canActivate:[AuthGuard], component: UpdateleadsComponent },
       { path: "leadremarks/:id",canActivate:[AuthGuard], component: LeadremarksComponent },
-      { path: "viewcategory",canActivate:[AuthGuard],component:ViewcategoryComponent}
+      { path: "viewcategory",canActivate:[AuthGuard],component:ViewcategoryComponent},
+      { path: "leaddetails/:id",canActivate:[AuthGuard],component:LeaddetailsdesignerComponent },
     ]
   }
 ];
@@ -59,6 +61,7 @@ const routes: Routes = [
     ViewfileComponent,
     FileuploadComponent,
     ViewcategoryComponent,
+    LeaddetailsdesignerComponent,
   ],
   entryComponents:[
     AssignsupervisorComponent,
@@ -92,8 +95,7 @@ const routes: Routes = [
     MatSelectModule,
     PdfViewerModule,
     MatSnackBarModule,
-   
-
+    MatRadioModule,
     
   ],
   exports: [

@@ -25,7 +25,6 @@ export class FollowupComponent implements OnInit {
       const currentYear = new Date().getFullYear();
       this.minDate = new Date();
       this.maxDate = new Date(currentYear + 2, 11, 31)
-
     }
 
     addFollowup() {

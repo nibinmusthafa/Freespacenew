@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DesignerService, isupervisor } from '../designer.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -82,6 +82,7 @@ export class LeadremarksComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder,
+    private router: Router,
     private http: DesignerService,
     private route: ActivatedRoute,
     public dialog: MatDialog) {
@@ -97,7 +98,6 @@ export class LeadremarksComponent implements OnInit {
   setleadId(){
     this.lead_id =this.route.snapshot.paramMap.get('id');
     this.user_id = this.getcurrentUser();
-
   }
 
   openDialog() {
@@ -116,7 +116,10 @@ export class LeadremarksComponent implements OnInit {
     this.dialog.open(ViewcategoryComponent, { data: { lead_id: this.route.snapshot.paramMap.get('id'), user_id: this.getcurrentUser() } })
   }
 
+  addCategory(){
+    this.router.navigateByUrl('designer/leaddetails/'+this.lead_id)
 
+  }
 
   ngOnInit(): void {
     this.setleadId();
