@@ -166,5 +166,8 @@ export class DesignerService {
   getBrand():Observable<ibrand[]>{
     return this.http.get<ibrand[]>(this.baseUrl+'api/listbrands/')
   }
+  getCategorybyid(id: any, lead_id: any) {
+    return this.http.get(this.baseUrl + 'getleadcategorybylead/' + id + '/')
+  }
 
 }

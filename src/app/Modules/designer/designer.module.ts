@@ -109,9 +109,8 @@ const routes: Routes = [
     MatSelectModule,
     MatSnackBarModule,
    
-   
-
   ],
+  
   providers:[{ provide: MAT_DATE_LOCALE, useValue: 'en-GB' }]
 })
 export class DesignerModule { }

@@ -65,7 +65,6 @@ export class EdituserComponent implements OnInit {
   }
 
   updateUser(){
-
     let value=this.addressForm.value
     console.log(value);
     let jsn={

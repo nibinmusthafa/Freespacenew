@@ -71,8 +71,7 @@ export class AddcustomerComponent {
   }
 
   addCustomer() {
-    var customer = {
-      
+    var customer = { 
         updated_by: 1,
         customer_firstname: this.addressForm.get('firstName')?.value,
         customer_lastname: this.addressForm.get('lastName')?.value,

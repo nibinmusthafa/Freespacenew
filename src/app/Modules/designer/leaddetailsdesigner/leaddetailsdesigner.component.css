@@ -32,3 +32,6 @@
 .col:last-child {
   margin-right: 0;
 }
+.align{
+  align-items: right;
+}
