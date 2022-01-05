@@ -100,6 +100,12 @@ export interface ilocation {
   id: number;
   location:string;
 }
+export interface iarchitect{
+  id:number;
+  architect_name:string;
+  architect_id:number;
+
+}
 
 let userToken: any = localStorage.getItem('user');
 let token = JSON.parse(userToken)?.jwt;
@@ -294,9 +300,11 @@ export class AdminService {
   updateLeadbyid(id: any, data: any) {
     return this.http.put(this.baseUrl + 'updatelead/' + id , data)
   }
-  // listCategory():Observable<icategory[]>{
-  //   return this.http.get<icategory[]>(this.baseUrl + 'listleadcategory/')
-  // }
+
+  listArchitect():Observable<iarchitect[]>{
+    return this.http.get<iarchitect[]>(this.baseUrl + 'listarchitect/')
+  }
+
 
 }
 

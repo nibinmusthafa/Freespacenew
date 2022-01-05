@@ -11,8 +11,8 @@ import { DesignerService, ibrand, icategory, ifinish, imaterial, ipart, itypesiz
 
 
 export class LeaddetailsdesignerComponent {
-
   finishes:ifinish[]=[];
+  // architects:iarchitect[]=[];
   categories_source: icategory[] = [];
   parts:ipart[]=[];
   materials:imaterial[]=[];
@@ -51,18 +51,18 @@ export class LeaddetailsdesignerComponent {
 
   addnewDetails(): FormGroup {    
     return this.fb.group({
-      category: [''],
-      part: [''],
-      material: [''],
-      finishs: [''],
-      type: [''],
-      brand: [''],
-      edgebanding: [''],
-      colour:[''],
-      code: [''],
-      photoupload: [''],
-      measurement: [''],
-      remark: [''],
+      category: [null, Validators.required],
+      part: [null, Validators.required],
+      material: [null, Validators.required],
+      finishs: [null, Validators.required],
+      type: [null, Validators.required],
+      brand: [null, Validators.required],
+      edgebanding: [null, Validators.required],
+      colour:[null, Validators.required],
+      code: [null, Validators.required],
+      photoupload: [null, Validators.required],
+      measurement: [null, Validators.required],
+      remark: [null, Validators.required],
     })
   }
   
@@ -75,10 +75,11 @@ export class LeaddetailsdesignerComponent {
   }
 
   setCat_ID(cat_id:any){
-    // console.log("hiiii")
-    // this.cat_id=cat_id;
-    // this.manageForm(this.cat_id);
-    // console.log(this.cat_id)
+
+    console.log("hiiii")
+    this.cat_id=cat_id;
+    this.manageForm(this.cat_id);
+    console.log(this.cat_id)
   }
 
   // getCategoriesid(lead_id){
@@ -118,11 +119,13 @@ export class LeaddetailsdesignerComponent {
       this.materials=res;
     })
   }
+
   getTypesizeList(){
     this.http.getTypesize().subscribe(res =>{
       this.typesizes=res;
     })
   }
+
   getBrandList(){
     this.http.getBrand().subscribe(res =>{
       this.brands=res;

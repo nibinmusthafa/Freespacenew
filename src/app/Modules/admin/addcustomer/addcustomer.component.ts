@@ -85,11 +85,11 @@ export class AddcustomerComponent {
       country_id:this.addressForm.get('country')?.value,
       pincode: this.addressForm.get('postalCode')?.value,}]
       
-
     }    
     this.adminservice.addCustomer(customer).subscribe(res => {
     
       console.log(JSON.stringify(res));
+      alert(res)
     },error=>{
           alert(error.error.detail);})  
     }

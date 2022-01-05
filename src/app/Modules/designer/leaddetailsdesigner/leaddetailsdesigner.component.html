@@ -1,6 +1,6 @@
 <form [formGroup]="CategoryForm">
   <mat-form-field class="top">
-    <mat-select #cat_id (selectionChange)="setCat_ID(cat_id.value)"  placeholder="Category" formControlName="categories">
+    <mat-select #cat_id  placeholder="Category" formControlName="categories">
       <mat-option *ngFor="let element of categories_source" [value]="element.id">
         {{ element.category_name}} {{element.location }}
       </mat-option>
@@ -23,12 +23,12 @@
           <mat-form-field class="full-width">
             <mat-select placeholder="Category" formControlName="category">
               <mat-option *ngFor="let element of categories_source" [value]="element.id">
-                {{element.category_name}} {{element.location}}
+                {{ element.category_name }} {{ element.location }}
               </mat-option>
           </mat-select>
-          <!-- <mat-error>
+          <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
             Category is <strong>required</strong>
-          </mat-error>         -->
+          </mat-error>        
           </mat-form-field>
         </div>
         <div class="col">
@@ -38,9 +38,9 @@
               {{element.part}}
               </mat-option>
             </mat-select>
-            <!-- <mat-error>
+            <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
               Part is <strong>required</strong>
-            </mat-error>            -->
+            </mat-error>           
           </mat-form-field>
         </div>
         <div class="col">
@@ -50,9 +50,9 @@
             {{element.material}}
             </mat-option>
           </mat-select>
-          <!-- <mat-error>
+          <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
             Material is <strong>required</strong>
-          </mat-error>            -->
+          </mat-error>           
         </mat-form-field>
         </div>
         <div class="col">
@@ -62,9 +62,9 @@
                 {{ element.finish }}
               </mat-option>
             </mat-select>
-            <!-- <mat-error >
+            <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
               Finish is <strong>required</strong>
-            </mat-error> -->
+            </mat-error>
           </mat-form-field>
           </div> 
         <!-- <div class="col">
@@ -84,9 +84,9 @@
               {{ element.typesize }}
             </mat-option>
           </mat-select>
-          <!-- <mat-error>
-            Finish is <strong>required</strong>
-          </mat-error> -->
+          <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
+            Type/size is <strong>required</strong>
+          </mat-error>
         </mat-form-field>
           </div>
           <div class="col">
@@ -96,17 +96,16 @@
                 {{ element.brand }}
               </mat-option>
             </mat-select>
-            <!-- <mat-error>
+            <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
               Brand is <strong>required</strong>
-            </mat-error> -->
+            </mat-error>
             </mat-form-field>
           </div>
           <div class="col">
             <mat-form-field class="full-width">
               <input matInput placeholder="Edge banding" formControlName="edgebanding">
-              <mat-error *ngIf="leadDetailForm.controls.detailform.get('0').value === 'false' ">
+              <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
                 Edge banding is <strong>required</strong>
-
                 <!-- leadDetailForm.controls.detailform.get('1').status -->
               </mat-error>
             </mat-form-field>
@@ -114,9 +113,9 @@
           <div class="col">
             <mat-form-field class="full-width">
               <input matInput placeholder="Colour" formControlName="colour">
-              <!-- <mat-error *ngIf="leadDetailForm.controls['colour'].hasError('required')">
+              <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
                 Colour is <strong>required</strong>
-              </mat-error> -->
+              </mat-error>
             </mat-form-field>
           </div>  
           </div>
@@ -124,33 +123,33 @@
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Code" formControlName="code">
-            <!-- <mat-error *ngIf="leadDetailForm.controls['code'].hasError('required')">
+            <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
               Code is <strong>required</strong>
-            </mat-error> -->
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Photo Upload" formControlName="photoupload">
-            <!-- <mat-error *ngIf="leadDetailForm.controls['photoupload'].hasError('required')">
+            <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
               Photo Upload is <strong>required</strong>
-            </mat-error> -->
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Measurement" formControlName="measurement">
-            <!-- <mat-error *ngIf="leadDetailForm.controls['measurement'].hasError('required')">
+            <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
               Measurement is <strong>required</strong>
-            </mat-error> -->
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="Remark" formControlName="remark">
-            <!-- <mat-error *ngIf="leadDetailForm.controls['remark'].hasError('required')">
-              Remark is <strong>required</strong>
-            </mat-error> -->
+            <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
+              Remark is<strong>required</strong>
+            </mat-error>
           </mat-form-field>
         </div>
       </div>        

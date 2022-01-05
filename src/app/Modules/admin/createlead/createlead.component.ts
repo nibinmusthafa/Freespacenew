@@ -4,7 +4,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdminService, icustomer, icategory, idescription, ileadsource, isubcategory, iuser, ilocation } from '../admin.service';
+import { AdminService, icustomer, icategory, idescription, ileadsource, isubcategory, iuser, ilocation, iarchitect } from '../admin.service';
 import { Leads } from '../models/leads';
 
 @Component({
@@ -19,6 +19,7 @@ export class CreateleadComponent {
   minDate: Date;
   maxDate: Date;
   //followupForm = this.fb.group({
+  architects:iarchitect[]=[];
   followup_date: [null];
   customers: icustomer[] = [];
   leadsources: ileadsource[] = [];
@@ -46,11 +47,14 @@ export class CreateleadComponent {
     leadsource_id: [null, Validators.required],
     status_value: [null],
     followup_date:[null,Validators.required],
+    architect:[null,Validators.required],
     categories: this.fb.array([
         this.fb.group({
         category_id: [null,Validators.required],
         // sub_cat_id: [null,Validators.required],
         location: [null,Validators.required],
+        // is_updated:[],
+
       }),
     ]),
   });
@@ -68,13 +72,12 @@ export class CreateleadComponent {
     return this.leadForm.get('categories') as FormArray;
   }
 
-  addnewCategory(): FormGroup {
-    
+  addnewCategory(): FormGroup {  
     return this.fb.group({
-
       category_id: [''],
       // sub_cat_id: [''],
       location: [''],
+      // is_updated:[''],
     })
   }
 
@@ -84,7 +87,7 @@ export class CreateleadComponent {
 
   getcategoryByid(id: any) {
     let category = this.categories_source.find(x => x.id == id)
-    this.leadname = this.customer?.customer_firstname + "_" + category?.category_name
+    // this.leadname = this.customer?.customer_firstname + "_" + category?.category_name
     // this.SubcategoryCheck()
   }
 
@@ -106,18 +109,21 @@ export class CreateleadComponent {
         renovation: this.leadForm.get('renovation')?.value,
         leadsource_id: this.leadForm.get('leadsource_id')?.value,
         supervisor_id: null,
+        architect_id:this.leadForm.get('architect')?.value,
         followup_date:this.pipe.transform(this.leadForm.getRawValue().followup_date, 'MM/dd/yyyy'), 
-        categories: this.leadForm.get('categories')?.value   
+        categories:this.leadForm.get('categories')?.value   
     }
-
+        console.log(val);
+        
     this.adminservice.createLead(val).subscribe(value => {
       console.log(value);
+    
     })
   }
 
   onSubmit(): void {  
-    this.num++;
-    this.addnewCategory();
+    // this.num++;
+    // this.addnewCategory();
     this.leads = this.leadForm.getRawValue();
     this.createLead();   
   }
@@ -155,6 +161,12 @@ export class CreateleadComponent {
 
     })
   }
+  getArchitectList(){
+    this.adminservice.listArchitect().subscribe(res =>{
+      this.architects=res;
+    })
+  }
+
 
   // getSubCategorylist() {
   //   this.adminservice.getSubCategory().subscribe(res => {
@@ -178,9 +190,10 @@ export class CreateleadComponent {
   ngOnInit() {
     this.getCustomerlist();
     this.getLeadsourcelist();
-    this.getCategorylist();
     // this.getSubCategorylist();
     this.ListDesigner();
+    this.getArchitectList();
+    this.getCategorylist();
   }
 
   checkCategories(){

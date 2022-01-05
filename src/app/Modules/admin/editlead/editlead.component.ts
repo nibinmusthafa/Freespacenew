@@ -5,7 +5,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdminService, icategory, icustomer, idescription,ileadsource, ilocation, isubcategory, iuser } from '../admin.service';
+import { AdminService, iarchitect, icategory, icustomer, idescription,ileadsource, ilocation, isubcategory, iuser } from '../admin.service';
 import { Leads } from '../models/leads';
 
 @Component({
@@ -27,6 +27,7 @@ export class EditleadComponent implements OnInit {
   leadCategory;
   catArray;
   lead?: any = null;
+  architects:iarchitect[]=[];
   subcat?:any=null;
   category?: any = null;
   categorynew?: any = null;
@@ -58,7 +59,7 @@ export class EditleadComponent implements OnInit {
       status_value: [null],
       followup_date: [this.lead?.followup_date, Validators.required],
       architect:[this.lead?.architect, Validators.required],
-      categories: this.fb.array([this.category?.architect, Validators.required]),
+      categories: this.fb.array([]),
     });
 
 
@@ -76,10 +77,10 @@ export class EditleadComponent implements OnInit {
 
   addnewCategory(): FormGroup {
     return this.fb.group({
-      category_id: [],
+      category_id: [''],
       // sub_cat_id: [''],
-      location: [],
-      is_updated:[],
+      location: [''],
+      is_updated:[''],
     })
   }
 
@@ -112,16 +113,15 @@ export class EditleadComponent implements OnInit {
     // this.SubcategoryCheck()
   }
 
-  SubcategoryCheck() {
-    if (this.leadForm.value.categories[0].category_id == 2) {
-      this.subcategory = false;
-    }
-    else
-      this.subcategory = true;
-  }
-
+  // SubcategoryCheck() {
+  //   if (this.leadForm.value.categories[0].category_id == 2) {
+  //     this.subcategory = false;
+  //   }
+  //   else
+  //     this.subcategory = true;
+  // }
   manageleadForm() {
-    //console.log(this.lead);
+    console.log(this.lead);
     this.leadForm.controls['id'].setValue(this.lead?.id)
     this.leadForm.controls['designer_id'].setValue(this.lead?.designer_id)
     this.leadForm.controls['customer_id'].setValue(this.lead?.customer_id)
@@ -129,17 +129,18 @@ export class EditleadComponent implements OnInit {
     this.leadForm.controls['renovation'].setValue(String(this.lead?.renovation))
     this.leadForm.controls['leadsource_id'].setValue(this.lead?.leadsource_id)
     this.leadForm.controls['followup_date'].setValue(this.lead?.followup_date)
-    this.leadForm.controls['architect'].setValue(this.lead?.architect)
+    this.leadForm.controls['architect'].setValue(this.lead?.architect_id)
 
-    console.log(this.leads)
-    this.lead.categories.map(category => this.categories.push(this.fb.group({
-
+    // console.log(this.leads)
+    //-------------------------------------------------------------------------------
+    this.lead.categories.map(category => 
+      this.categories.push(this.fb.group({
       category_id: [category?.category_id],
       // sub_cat_id: [category?.sub_cat_id],
       location: [category?.location],
-      is_updated:[category?.is_updated]
+      is_updated:[''],
     })))
-
+//-------------------------------------------------------------------------------------
     this.checkCategories();
   }
 
@@ -160,7 +161,7 @@ export class EditleadComponent implements OnInit {
         leadsource_id: this.leadForm.get('leadsource_id')?.value,
         supervisor_id: null,
         followup_date:this.pipe.transform(this.leadForm.getRawValue().followup_date, 'MM/dd/yyyy'),
-        architect:this.leadForm.get('architect')?.value,
+        architect_id:this.leadForm.get('architect')?.value,
         categories: this.leadForm.get('categories')?.value
 
     }
@@ -170,16 +171,18 @@ export class EditleadComponent implements OnInit {
     })
   }
 
-  managecategoryForm() {
-    this.categories.controls.forEach(c=>{
-      // c.setValue(this.categories.category_id)
-    })
-    this.categories.controls['category_id'].setValue(this.categorynew?.category_id)
-    // this.categories.controls['sub_cat_id'].setValue(this.category?.sub_cat_id)
-    this.categories.controls['location'].setValue(this.categorynew?.location)
-    this.categories.controls['is_updated'].setValue(this.categorynew?.is_updated)
+  // managecategoryForm() {
+  //   this.categories.controls.forEach(c=>{
+  //     console.log(c);
+      
+  //     // c.setValue(this.categories.category_id)
+  //   })
+  //   this.categories.controls['category_id'].setValue(this.categorynew?.category_id)
+  //   // this.categories.controls['sub_cat_id'].setValue(this.category?.sub_cat_id)
+  //   this.categories.controls['location'].setValue(this.categorynew?.location)
+  //   // this.categories.controls['is_updated'].setValue(this.category?.is_updated)
 
-  }
+  // }
 
   // managesubcategoryForm(){
   //   this.categories.controls['sub_cat_id'].setValue(this.subcat?.sub_cat_id)
@@ -188,9 +191,17 @@ export class EditleadComponent implements OnInit {
 
   getleadByid() {
     this.adminservice.getLeadbyid(this.route.snapshot.paramMap.get('id')).subscribe(res => {
-      this.lead = res
-      console.log(this.lead)
-      this.manageleadForm()
+    this.lead = res
+    console.log(this.lead)
+    console.log("test by aswathy");
+    
+    this.manageleadForm()
+    })
+  }
+
+  getArchitectList(){
+    this.adminservice.listArchitect().subscribe(res =>{
+      this.architects=res;
     })
   }
 
@@ -210,15 +221,6 @@ export class EditleadComponent implements OnInit {
       this.lead = res
 
     })
-  }
-
-  onSubmit(): void {
-    // window.location.reload()
-    this.num++;
-    this.addnewCategory();
-    // console.log(this.displaydata);
-    // console.log(JSON.stringify(this.displaydata));
-    this.leads = this.leadForm.getRawValue();
   }
 
   Cancellead() {
@@ -284,9 +286,19 @@ export class EditleadComponent implements OnInit {
     this.getCategorylist();
     // this.getSubCategorylist();
     this.ListDesigner();
+    this.getArchitectList();  
     this.getleadByid();
-    
     // this.getcategoriesByid(this.lead_id)
+  }
+  onSubmit(): void {
+    // window.location.reload()
+    // this.num++;
+     this.addnewCategory();
+    // console.log(this.displaydata);
+    // console.log(JSON.stringify(this.displaydata));
+    this.leads = this.leadForm.getRawValue();
+    console.log(this.leads);
+    
   }
   
   getleadcategorybylead() {
@@ -296,8 +308,9 @@ export class EditleadComponent implements OnInit {
       for (let i = 0; i < this.leadCategory.length; i++) {
         let data = {
           category_id: this.leadCategory[i].category_id,
-          subcat: this.leadCategory[i].subcat,
+          // subcat: this.leadCategory[i].subcat,
           location: this.leadCategory[i].location,
+          is_updated:this.leadCategory[i].is_updated,
         }
         this.category = data;
         this.catArray.push(data)

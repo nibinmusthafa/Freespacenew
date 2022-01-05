@@ -57,6 +57,18 @@
             </mat-error>
           </mat-form-field>
         </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Architect" formControlName="architect">
+              <mat-option *ngFor="let element of architects" [value]="element.id">
+                {{ element.architect_name | titlecase}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="leadForm.controls['architect'].hasError('required')">
+              Architect is required
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
       <div class="row">
         <div class="col">
@@ -81,23 +93,14 @@
         <div class="row" [formGroupName]="i">
           <div class="col-4">
             <mat-form-field class="full-width">
-              <mat-select placeholder="Category" #mySelect formControlName='category_id'
-                (selectionChange)="getcategoryByid(mySelect.value)">
+              <mat-select placeholder="Category"  formControlName='category_id'>
                 <mat-option *ngFor="let category of categories_source" [value]="category.id">
-                  {{ category.category_name}}
+                  {{ category.category_name }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
-          <!-- <div class="col-4" >
-            <mat-form-field class="full-width">
-              <mat-select placeholder="Sub category" formControlName='sub_cat_id'>
-                <mat-option *ngFor="let subcategory of subcategories" [value]="subcategory.id">
-                  {{ subcategory.name}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div> -->
+         
           <div class="col-3">
             <mat-form-field class="full-width">
               <input matInput placeholder="Location" formControlName="location">
