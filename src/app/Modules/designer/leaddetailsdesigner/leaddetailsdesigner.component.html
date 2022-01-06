@@ -12,10 +12,18 @@
 </form>
 
 <ng-container *ngIf="showKitchenForm"> 
-  <app-kitchendetails [catID]="selectedCategory" ></app-kitchendetails>
+  <app-kitchendetails [catID]="selectedCategory"></app-kitchendetails>
 </ng-container>
 
 <ng-container *ngIf="showBedForm">
   <app-beddetails></app-beddetails>
+</ng-container>
+
+<ng-container *ngIf="showWardrobeform">
+  <app-wardrobedetails></app-wardrobedetails>
+</ng-container>
+
+<ng-container *ngIf="showTvunitform">
+  <app-tvunitdetails></app-tvunitdetails>
 </ng-container>
 

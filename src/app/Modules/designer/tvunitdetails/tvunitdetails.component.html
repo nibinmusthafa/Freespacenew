@@ -1,1 +1,144 @@
-<p>tvunitdetails works!</p>
+<ng-container>
+    <form [formGroup]="leadTvUnitDetailForm" >
+      <div formArrayName="detailform" *ngFor="let t of detailform.controls; let i=index">
+      <div [formGroupName]="i">
+      <mat-card class="shipping-card">
+        <mat-card-header>
+        <mat-card-title>TV Unit Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+            <div class="col">
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Material" formControlName="material">
+              <mat-option *ngFor="let element of materials" [value]="element.id">
+                {{element.material}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                Material is <strong>required</strong>
+              </mat-error>           
+            </mat-form-field>
+            </div>
+                <div class="col">
+              <mat-form-field class="full-width">
+                <mat-select placeholder="Finish" formControlName="finish">
+                  <mat-option *ngFor="let element of finishes" [value]="element.id">
+                    {{ element.finish }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                  Finish is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              </div> 
+                <div class="col">
+                <mat-form-field class="full-width">
+                  <mat-select placeholder="Type/Size" formControlName="typesize">
+                    <mat-option *ngFor="let element of typesizes" [value]="element.id">
+                      {{ element.typesize }}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                    Type/size is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+                  </div>
+                    <div class="col">
+                    <mat-form-field class="full-width">
+                      <mat-select placeholder="Brand" formControlName="brand">
+                      <mat-option *ngFor="let element of brands" [value]="element.id">
+                        {{ element.brand }}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                      Brand is <strong>required</strong>
+                    </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Edge banding" formControlName="edge_banding">
+                      <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                        Edge banding is <strong>required</strong>
+                        <!-- leadDetailForm.controls.detailform.get('1').status -->
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+            </div>
+            <div class="row">                        
+               <div class="col">
+                 <mat-form-field class="full-width">
+                   <input matInput placeholder="Colour" formControlName="colour">
+                   <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                     Colour is <strong>required</strong>
+                   </mat-error>
+                 </mat-form-field>
+               </div>  
+               <div class="col">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Code" formControlName="code">
+                  <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                    Code is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Photo Upload" formControlName="photoupload">
+                  <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                    Photo Upload is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            <div class="col">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Remark" formControlName="remark">
+                  <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                    Remark is<strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field>
+                  <input matInput placeholder="Measurement" formControlName="measurement">
+                  <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                    Measurement is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              </div>
+              <!-- <div class="col">
+               <mat-form-field class="full-width">
+                 <input matInput placeholder="Code" formControlName="code">
+                 <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                   Code is <strong>required</strong>
+                 </mat-error>
+               </mat-form-field>
+             </div> -->
+             <!-- <div class="col">
+               <mat-form-field class="full-width">
+                 <input matInput placeholder="Photo Upload" formControlName="photoupload">
+                 <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                   Photo Upload is <strong>required</strong>
+                 </mat-error>
+               </mat-form-field>
+             </div>          -->      
+       <div align="right">
+        <button  mat-mini-fab color="primary" type="submit" (click)="addDetails()" aria-label="Delete icon">
+           <mat-icon>add</mat-icon>
+        </button>
+       </div>
+     </mat-card-content>
+   </mat-card>
+   </div>
+   </div>
+   <button type="button" (click)="onsubmitaddTVunitDetails()">Submit</button>
+ </form>
+ </ng-container>
+ {{ leadTvUnitDetailForm.value | json}}
+
+ 
+
+
+

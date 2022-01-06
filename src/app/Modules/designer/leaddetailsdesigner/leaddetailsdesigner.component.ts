@@ -26,6 +26,8 @@ export class LeaddetailsdesignerComponent {
   selectedCategory:any = null;
   showKitchenForm = false;
   showBedForm=false;
+  showWardrobeform=false;
+  showTvunitform=false;
   catnum=0;
 
 
@@ -36,6 +38,8 @@ export class LeaddetailsdesignerComponent {
   Checkcategory(category_id:any){
     this.showKitchenForm = false;
     this.showBedForm=false;
+    this.showWardrobeform=false;
+    this.showTvunitform=false;
     const num = 0;
     let customer = this.categories_source.find(x => x.id == category_id)
     console.log(customer);
@@ -44,6 +48,12 @@ export class LeaddetailsdesignerComponent {
     }
     if (customer.category_id == 4){
       this.showBedForm = true;
+    }
+    if (customer.category_id == 2){
+      this.showWardrobeform = true;
+    }
+    if (customer.category_id == 3){
+      this.showTvunitform = true;
     }
   }
   
@@ -65,15 +75,12 @@ export class LeaddetailsdesignerComponent {
     private http: DesignerService,
     ) {}
 
-  
-
   getCategorylist() {
     this.http.getCategory(this.route.snapshot.paramMap.get('id')).subscribe(res => {
       this.categories_source = res;
       console.log(res)
     })
   }
-
 
   ngOnInit(){
     this.getCategorylist();

@@ -74,6 +74,16 @@ export interface ibedroomitem{
   item:string;
 }
 
+export interface iwardrobetype{
+  id:number;
+  type:string;
+
+}
+export interface iwardrobepart{
+  id:number;
+  part:string;
+}
+
 
 @Injectable({
 
@@ -177,7 +187,7 @@ export class DesignerService {
   }
 
   updateLeadCategory(id :any,data:any){
-    return this.http.patch(this.baseUrl+'patchleadcategory'+ id + '/',data)
+    return this.http.put(this.baseUrl+'patchleadcategory'+ id + '/',data)
   }
   
   addKitchendetails(data:any){
@@ -195,6 +205,25 @@ export class DesignerService {
   addBeddetails(data:any){
     return this.http.post(this.baseUrl + 'api/addbeddetails/',data)
   }
+
+  getWardrobetype():Observable<iwardrobetype[]>{
+    return this.http.get<iwardrobetype[]>(this.baseUrl + 'api/listwardrobetype/')
+  }
+
+  getWardrobepart():Observable<iwardrobepart[]>{
+    return this.http.get<iwardrobepart[]>(this.baseUrl + 'api/listwardrobepart/')
+  }
+
+  addWardrobedetails(data:any){
+    return this.http.post(this.baseUrl + 'api/addwardrobedetails/',data)
+  }
+
+  addTVunitetails(data:any){
+    return this.http.post(this.baseUrl + 'api/addtvcrockery/',data)
+  }
+
+
+
 
 
 }

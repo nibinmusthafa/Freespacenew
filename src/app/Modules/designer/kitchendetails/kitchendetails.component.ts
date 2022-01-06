@@ -45,6 +45,7 @@ export class KitchendetailsComponent implements OnInit {
       })      
     ])   
   });
+
   get detailform() {
     return this.leadDetailForm.get('detailform') as FormArray;
   }
@@ -165,6 +166,7 @@ export class KitchendetailsComponent implements OnInit {
   onsubmitaddKitchenDetails(): void {
     console.log(this.leadDetailForm.get('detailform').value)
     this.http.addKitchendetails(this.leadDetailForm.get('detailform').value).subscribe(res=>console.log(res))
+    // this.http.updateLeadCategory()
   }
 
 }

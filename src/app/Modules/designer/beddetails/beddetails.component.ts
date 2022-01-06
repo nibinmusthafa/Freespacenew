@@ -8,6 +8,7 @@ import { DesignerService, ibedroomitem, ibrand, icategory, ifinish, imaterial, i
   templateUrl: './beddetails.component.html',
   styleUrls: ['./beddetails.component.css']
 })
+
 export class BeddetailsComponent implements OnInit {
 
   bedroomitems:ibedroomitem[]=[];
@@ -76,8 +77,8 @@ export class BeddetailsComponent implements OnInit {
     if (customer.category_id == 1){
       this.showBedForm = true;
     }
-    this.detailform.get(num.toString()).get('category').setValue(category_id)
-    this.detailform.get(num.toString()).get('lead_category_id').setValue(category_id)
+    this.detailform.get(num.toString()).get('category').setValue(this.selectedCategory)
+    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.selectedCategory)
   }
 
 
@@ -119,6 +120,13 @@ export class BeddetailsComponent implements OnInit {
         this.brands=res;
       })
     }
+
+    listfinish(){  
+      this.http.getfinish().subscribe(res =>{
+        this.finishes=res;    
+      })
+    }
+
     getbedTypeList(){
       this.http.getType().subscribe(res =>{
         this.bedtype=res;
@@ -131,12 +139,6 @@ export class BeddetailsComponent implements OnInit {
         this.bedroomitems=res;
       })
       
-    }
-
-    listfinish(){  
-      this.http.getfinish().subscribe(res =>{
-        this.finishes=res;    
-      })
     }
 
     setSelectedCategory(id:any){
