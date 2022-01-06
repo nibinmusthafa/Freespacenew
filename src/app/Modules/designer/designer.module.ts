@@ -33,7 +33,11 @@ import { FileuploadComponent } from './fileupload/fileupload.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ViewcategoryComponent } from './viewcategory/viewcategory.component';
 import { LeaddetailsdesignerComponent } from './leaddetailsdesigner/leaddetailsdesigner.component';
-import { MatRadioModule } from '@angular/material/radio'
+import { MatRadioModule } from '@angular/material/radio';
+import { KitchendetailsComponent } from './kitchendetails/kitchendetails.component';
+import { WardrobedetailsComponent } from './wardrobedetails/wardrobedetails.component';
+import { BeddetailsComponent } from './beddetails/beddetails.component';
+import { TvunitdetailsComponent } from './tvunitdetails/tvunitdetails.component'
 
 
 
@@ -45,6 +49,10 @@ const routes: Routes = [
       { path: "leadremarks/:id",canActivate:[AuthGuard], component: LeadremarksComponent },
       { path: "viewcategory",canActivate:[AuthGuard],component:ViewcategoryComponent},
       { path: "leaddetails/:id",canActivate:[AuthGuard],component:LeaddetailsdesignerComponent },
+      { path: "kitchendetails",canActivate:[AuthGuard],component:KitchendetailsComponent },
+      { path: "beddetails",canActivate:[AuthGuard],component:BeddetailsComponent },
+      { path: "tvunitdetails",canActivate:[AuthGuard],component:TvunitdetailsComponent },
+      { path: "wardrobedetails",canActivate:[AuthGuard],component:WardrobedetailsComponent },
     ]
   }
 ];
@@ -62,6 +70,10 @@ const routes: Routes = [
     FileuploadComponent,
     ViewcategoryComponent,
     LeaddetailsdesignerComponent,
+    KitchendetailsComponent,
+    WardrobedetailsComponent,
+    BeddetailsComponent,
+    TvunitdetailsComponent,
   ],
   entryComponents:[
     AssignsupervisorComponent,

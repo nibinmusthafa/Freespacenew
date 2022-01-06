@@ -65,6 +65,14 @@ export interface ibrand{
   id:number;
   brand:string;
 }
+export interface itypebed{
+  id:number;
+  type:string;
+}
+export interface ibedroomitem{
+  id:number;
+  item:string;
+}
 
 
 @Injectable({
@@ -121,9 +129,7 @@ export class DesignerService {
     return this.http.post(this.baseUrl + 'addstatustracker/', data)
   }
 
-
   addFollowup(data: any) {
-
     return this.http.post(this.baseUrl + 'addfollowup/', data)
   }
 
@@ -170,12 +176,24 @@ export class DesignerService {
     return this.http.get(this.baseUrl + 'getleadcategorynotupdated/' + id + '/')
   }
 
-  updateLeadCategory(id :any){
-    return this.http.patch(this.baseUrl+ 'patchleadcategory',id)
+  updateLeadCategory(id :any,data:any){
+    return this.http.patch(this.baseUrl+'patchleadcategory'+ id + '/',data)
   }
   
   addKitchendetails(data:any){
     return this.http.post(this.baseUrl + 'api/addkitchendetails/',data)
+  }
+
+  getType():Observable<itypebed[]>{
+    return this.http.get<itypebed[]>(this.baseUrl+'api/listbedroomtype/')
+  }
+
+  getBedroomitems():Observable<ibedroomitem[]>{
+    return this.http.get<ibedroomitem[]>(this.baseUrl+'api/listbedroomitem/')
+  }
+
+  addBeddetails(data:any){
+    return this.http.post(this.baseUrl + 'api/addbeddetails/',data)
   }
 
 
