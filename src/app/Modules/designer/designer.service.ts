@@ -167,7 +167,16 @@ export class DesignerService {
     return this.http.get<ibrand[]>(this.baseUrl+'api/listbrands/')
   }
   getCategorybyid(id: any, lead_id: any) {
-    return this.http.get(this.baseUrl + 'getleadcategorybylead/' + id + '/')
+    return this.http.get(this.baseUrl + 'getleadcategorynotupdated/' + id + '/')
   }
+
+  updateLeadCategory(id :any){
+    return this.http.patch(this.baseUrl+ 'patchleadcategory',id)
+  }
+  
+  addKitchendetails(data:any){
+    return this.http.post(this.baseUrl + 'api/addkitchendetails/',data)
+  }
+
 
 }

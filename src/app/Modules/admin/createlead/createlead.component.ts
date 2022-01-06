@@ -113,11 +113,9 @@ export class CreateleadComponent {
         followup_date:this.pipe.transform(this.leadForm.getRawValue().followup_date, 'MM/dd/yyyy'), 
         categories:this.leadForm.get('categories')?.value   
     }
-        console.log(val);
-        
-    this.adminservice.createLead(val).subscribe(value => {
-      console.log(value);
-    
+        console.log(val);       
+        this.adminservice.createLead(val).subscribe(value => {
+        console.log(value);  
     })
   }
 

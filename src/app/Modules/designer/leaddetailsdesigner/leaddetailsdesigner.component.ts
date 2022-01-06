@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { FormArray,FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -20,6 +21,9 @@ export class LeaddetailsdesignerComponent {
   brands:ibrand[]=[];
   lead?: any=null;
   cat_id:any = null;
+  selectedCategory:any = null;
+  showKitchenForm = false;
+  catnum=0;
 
 
   CategoryForm=this.fb.group({
@@ -29,13 +33,15 @@ export class LeaddetailsdesignerComponent {
   leadDetailForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
-      category: [null, Validators.required],
+      lead_id:[this.route.snapshot.paramMap.get('id')],
+      category: [{value: '', disabled: true},Validators.required],
+      lead_category_id:null,
       part: [null, Validators.required],
       material: [null, Validators.required],
-      finishs: [null, Validators.required],
-      type: [null, Validators.required],
+      finish: [null, Validators.required],
+      typesize: [null, Validators.required],
       brand: [null, Validators.required],
-      edgebanding: [null, Validators.required],
+      edge_banding: [null, Validators.required],
       colour:[null, Validators.required],
       code: [null, Validators.required],
       photoupload: [null, Validators.required],
@@ -51,13 +57,15 @@ export class LeaddetailsdesignerComponent {
 
   addnewDetails(): FormGroup {    
     return this.fb.group({
-      category: [null, Validators.required],
+      lead_id:[this.route.snapshot.paramMap.get('id')],
+      category: [{value: '', disabled: true}],
+      lead_category_id:[null],
       part: [null, Validators.required],
       material: [null, Validators.required],
-      finishs: [null, Validators.required],
-      type: [null, Validators.required],
+      finish: [null, Validators.required],
+      typesize: [null, Validators.required],
       brand: [null, Validators.required],
-      edgebanding: [null, Validators.required],
+      edge_banding: [null, Validators.required],
       colour:[null, Validators.required],
       code: [null, Validators.required],
       photoupload: [null, Validators.required],
@@ -66,16 +74,24 @@ export class LeaddetailsdesignerComponent {
     })
   }
   
-  manageForm(cat_id:any){ 
-    this.detailform.controls['category'].setValue(cat_id)
+  manageForm(category_id:any){ 
+    this.showKitchenForm = false;
+    const num = 0;
+    let customer = this.categories_source.find(x => x.id == category_id)
+    console.log(customer);
+    if (customer.category_id == 1){
+      this.showKitchenForm = true;
+    }
+    this.detailform.get(num.toString()).get('category').setValue(category_id)
+    this.detailform.get(num.toString()).get('lead_category_id').setValue(category_id)
   }
+ 
 
   getRawValue(){
     console.log(this.leadDetailForm.controls.detailform.get('0'))
   }
 
   setCat_ID(cat_id:any){
-
     console.log("hiiii")
     this.cat_id=cat_id;
     this.manageForm(this.cat_id);
@@ -100,12 +116,39 @@ export class LeaddetailsdesignerComponent {
     })
   }
 
+  // AddKitchenDetails(){
+  //   var data = [{
+  //     lead_id:null,
+  //     lead_category_id:this.leadDetailForm.get('category')?.value,
+  //     part:this.leadDetailForm.get('part')?.value,
+  //     material:this.leadDetailForm.get('material')?.value,
+  //     finish:this.leadDetailForm.get('finishs')?.value,
+  //     typesize:this.leadDetailForm.get('type')?.value,
+  //     brand:this.leadDetailForm.get('brand')?.value,
+  //     edge_banding:this.leadDetailForm.get('edgebanding')?.value,
+  //     colour:this.leadDetailForm.get('colour')?.value,
+  //     code:this.leadDetailForm.get('code')?.value,
+  //     photo:this.leadDetailForm.get('photoupload')?.value,
+  //     measurement:this.leadDetailForm.get('measurement')?.value,
+  //     remark:this.leadDetailForm.get('remark')?.value,
+  //     updated_on:null,
+  //   }]
+  //     this.http.addKitchendetails(data).subscribe(res => {
+  //       console.log(res);  
+  //   }) 
+  // }
+
   getCategorylist() {
     this.http.getCategory(this.route.snapshot.paramMap.get('id')).subscribe(res => {
       this.categories_source = res;
       console.log(res)
-
     })
+  }
+
+  setSelectedCategory(id:any){
+    this.selectedCategory = id;
+    this.manageForm(id)
+    console.log(this.selectedCategory)
   }
 
   getPartList(){
@@ -133,7 +176,10 @@ export class LeaddetailsdesignerComponent {
   }
 
   addDetails(){
-    this.detailform.push(this.addnewDetails());  
+    this.catnum++;
+    this.detailform.push(this.addnewDetails());
+    this.detailform.get(this.catnum.toString()).get('lead_category_id').setValue(this.selectedCategory)
+    this.detailform.get(this.catnum.toString()).get('category').setValue(this.selectedCategory)  
   }
 
   ngOnInit(){
@@ -146,13 +192,15 @@ export class LeaddetailsdesignerComponent {
     // this.getCategoriesid();
   }
   
-
-  onSubmit(): void {
-
-    this.getRawValue();
-    alert('Thanks!');
+  // onSubmit(): void {
+  //   // this.AddKitchenDetails();
+  //   // this.getRawValue();
+  //   console.log(this.leadDetailForm.get('detailform').value)
+  //   // this.http.addKitchendetails(this.leadDetailForm.get('detailform').value).subscribe(res=>console.log(res))  
+  //   // alert('Thanks!');
+  // }
+  onsubmitaddKitchenDetails(): void {
+    console.log(this.leadDetailForm.get('detailform').value)
+    this.http.addKitchendetails(this.leadDetailForm.get('detailform').value).subscribe(res=>console.log(res))
   }
-
-
-
 }

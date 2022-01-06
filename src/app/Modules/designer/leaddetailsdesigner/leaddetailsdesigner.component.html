@@ -1,8 +1,8 @@
 <form [formGroup]="CategoryForm">
   <mat-form-field class="top">
-    <mat-select #cat_id  placeholder="Category" formControlName="categories">
+    <mat-select #cat_id (selectionChange)="setSelectedCategory(cat_id.value)" placeholder="Category" formControlName="categories">
       <mat-option *ngFor="let element of categories_source" [value]="element.id">
-        {{ element.category_name}} {{element.location }}
+        {{ element.category_name }} {{ element.location }}
       </mat-option>
     </mat-select>
     <mat-error >
@@ -10,6 +10,7 @@
     </mat-error>
   </mat-form-field>
 </form>
+<ng-container *ngIf="showKitchenForm">
 <form [formGroup]="leadDetailForm" >
   <div formArrayName="detailform" *ngFor="let t of detailform.controls; let i=index">
   <div [formGroupName]="i">
@@ -21,14 +22,18 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <mat-select placeholder="Category" formControlName="category">
+            <mat-select #cat_id (selectionChange)="setSelectedCategory(cat_id.value)" placeholder="Category" formControlName="category">
               <mat-option *ngFor="let element of categories_source" [value]="element.id">
                 {{ element.category_name }} {{ element.location }}
               </mat-option>
-          </mat-select>
-          <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
+            </mat-select>
+            <!-- <input matInput placeholder="Category" formControlName="category"> -->
+              <!-- <mat-option *ngFor="let element of categories_source" [value]="element.id">
+                {{ element.category_name }} {{ element.location }}
+              </mat-option> -->
+           <!-- <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
             Category is <strong>required</strong>
-          </mat-error>        
+          </mat-error>         -->
           </mat-form-field>
         </div>
         <div class="col">
@@ -57,7 +62,7 @@
         </div>
         <div class="col">
           <mat-form-field class="full-width">
-            <mat-select placeholder="Finish" formControlName="finishs">
+            <mat-select placeholder="Finish" formControlName="finish">
               <mat-option *ngFor="let element of finishes" [value]="element.id">
                 {{ element.finish }}
               </mat-option>
@@ -79,7 +84,7 @@
        <div class="row">
         <div class="col">
         <mat-form-field class="full-width">
-          <mat-select placeholder="Type/Size" formControlName="type">
+          <mat-select placeholder="Type/Size" formControlName="typesize">
             <mat-option *ngFor="let element of typesizes" [value]="element.id">
               {{ element.typesize }}
             </mat-option>
@@ -103,7 +108,7 @@
           </div>
           <div class="col">
             <mat-form-field class="full-width">
-              <input matInput placeholder="Edge banding" formControlName="edgebanding">
+              <input matInput placeholder="Edge banding" formControlName="edge_banding">
               <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
                 Edge banding is <strong>required</strong>
                 <!-- leadDetailForm.controls.detailform.get('1').status -->
@@ -165,5 +170,7 @@
   </mat-card>
   </div>
   </div>
-  <button type="button" (click)="onSubmit()">Submit</button>
+  <button type="button" (click)="onsubmitaddKitchenDetails()">Submit</button>
 </form>
+</ng-container>
+{{ leadDetailForm.value | json }}
