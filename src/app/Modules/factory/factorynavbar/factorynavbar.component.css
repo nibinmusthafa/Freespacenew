@@ -9,12 +9,14 @@
 .sidenav .mat-toolbar {
   background: inherit;
 }
+
 .log_main {
   position: relative;
   margin: 0px 0px 0px auto;
   float: left;
   display: flex;
 }
+
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;

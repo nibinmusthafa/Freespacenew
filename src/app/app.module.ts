@@ -11,12 +11,20 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwttokenInterceptor } from './jwttoken.interceptor';
 import { AuthGuard } from './Modules/auth/auth.guard';
 
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+
 const routes: Routes = [
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -24,7 +32,13 @@ const routes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     AuthModule,
-    NgMultiSelectDropDownModule.forRoot(),  
+    NgMultiSelectDropDownModule.forRoot(),
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,  
   ],
 
   exports: [
