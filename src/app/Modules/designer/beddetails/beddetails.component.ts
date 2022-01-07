@@ -11,6 +11,8 @@ import { DesignerService, ibedroomitem, ibrand, icategory, ifinish, imaterial, i
 
 export class BeddetailsComponent implements OnInit {
 
+  @Input() catID:any;
+
   bedroomitems:ibedroomitem[]=[];
   bedtype:itypebed[]=[];
   materials:imaterial[]=[];
@@ -27,7 +29,7 @@ export class BeddetailsComponent implements OnInit {
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
-      // category: [{value: '', disabled: true},Validators.required],
+      // category: null,
       lead_category_id:null,
       bedroomitem:[null, Validators.required],
       type: [null, Validators.required],
@@ -52,8 +54,8 @@ export class BeddetailsComponent implements OnInit {
   addnewDetails(): FormGroup {    
     return this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
-      // category: [{value: '', disabled: true}],
-      lead_category_id:[null],
+      // category: [null],
+      lead_category_id:[this.catID],
       bedroomitem:[null, Validators.required],
       type: [null, Validators.required],
       material: [null, Validators.required],
@@ -74,11 +76,15 @@ export class BeddetailsComponent implements OnInit {
     const num = 0;
     let customer = this.categories_source.find(x => x.id == category_id)
     console.log(customer);
-    if (customer.category_id == 1){
+    if (customer.category_id == 4){
       this.showBedForm = true;
     }
-    this.detailform.get(num.toString()).get('category').setValue(this.selectedCategory)
-    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.selectedCategory)
+    // this.detailform.get(num.toString()).get('category').setValue(this.catID)
+    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
+  }
+  initCategory(){
+    const num = 0;
+    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
   }
 
 
@@ -141,17 +147,17 @@ export class BeddetailsComponent implements OnInit {
       
     }
 
-    setSelectedCategory(id:any){
-      this.selectedCategory = id;
-      this.manageBedForm(id)
-      console.log(this.selectedCategory)
-    }
+    // setSelectedCategory(id:any){
+    //   this.selectedCategory = id;
+    //   this.manageBedForm(id)
+    //   console.log(this.selectedCategory)
+    // }
 
     addDetails(){
       this.catnum++;
       this.detailform.push(this.addnewDetails());
-      this.detailform.get(this.catnum.toString()).get('lead_category_id').setValue(this.selectedCategory)
-      this.detailform.get(this.catnum.toString()).get('category').setValue(this.selectedCategory)  
+      this.detailform.get(this.catnum.toString()).get('lead_category_id').setValue(this.catID)
+      this.detailform.get(this.catnum.toString()).get('category').setValue(this.catID)  
     }
 
   ngOnInit(): void {
@@ -162,12 +168,13 @@ export class BeddetailsComponent implements OnInit {
     this.getBrandList();
     this.getbedTypeList();
     this.getBedroomitemlist();
+    this.initCategory();
 
   }
 
   onsubmitaddBedDetails(): void {
     console.log(this.leadBedDetailForm.get('detailform').value)
-    this.http.addBeddetails(this.leadBedDetailForm.get('detailform').value).subscribe(res=>console.log(res))
+    // this.http.addBeddetails(this.leadBedDetailForm.get('detailform').value).subscribe(res=>console.log(res))
   }
 
 

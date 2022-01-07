@@ -18,6 +18,7 @@ const routes: Routes = [
   declarations: [
     AppComponent
   ],
+  
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),

@@ -11,7 +11,7 @@
             <div class="col">
               <mat-form-field class="full-width">
                 <mat-select #cat_id (selectionChange)="setSelectedCategory(cat_id.value)" placeholder="Category" formControlName="category">
-                  <mat-option *ngFor="let element of categories_source" [value]="element.id">
+                  <mat-option *ngFor="let element of categories" [value]="element.id">
                     {{ element.category_name }} {{ element.location }}
                   </mat-option>
                 </mat-select>
@@ -141,6 +141,22 @@
    </div>
    </div>
    <button type="button" (click)="onsubmitaddKitchenDetails()">Submit</button>
+   <ng-container>
+   <div class="row">
+    <div class="col">
+    <section class="example-section">
+      <mat-checkbox class="example-margin">Countertop</mat-checkbox><br>
+      <mat-checkbox class="example-margin">Tiles</mat-checkbox><br>
+      <mat-checkbox class="example-margin">Sink</mat-checkbox><br>
+      <mat-checkbox class="example-margin">CP Fitting(Pipe)</mat-checkbox><br>
+      <mat-checkbox class="example-margin">Drawers</mat-checkbox><br>
+      <mat-checkbox class="example-margin">Basket</mat-checkbox><br>
+      <mat-checkbox class="example-margin">Hinges</mat-checkbox><br>
+      <mat-checkbox class="example-margin">Hardware</mat-checkbox>
+    </section>
+   </div>
+  </div>
+</ng-container>
  </form>
  </ng-container>
  {{ leadDetailForm.value | json }}

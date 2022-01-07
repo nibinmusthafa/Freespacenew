@@ -37,7 +37,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { KitchendetailsComponent } from './kitchendetails/kitchendetails.component';
 import { WardrobedetailsComponent } from './wardrobedetails/wardrobedetails.component';
 import { BeddetailsComponent } from './beddetails/beddetails.component';
-import { TvunitdetailsComponent } from './tvunitdetails/tvunitdetails.component'
+import { TvunitdetailsComponent } from './tvunitdetails/tvunitdetails.component';
+import { KitchensubitemsComponent } from './kitchensubitems/kitchensubitems.component'
 
 
 
@@ -74,6 +75,7 @@ const routes: Routes = [
     WardrobedetailsComponent,
     BeddetailsComponent,
     TvunitdetailsComponent,
+    KitchensubitemsComponent,
   ],
   entryComponents:[
     AssignsupervisorComponent,

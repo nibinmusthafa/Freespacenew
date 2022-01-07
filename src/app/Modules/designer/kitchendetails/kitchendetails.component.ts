@@ -14,7 +14,7 @@ export class KitchendetailsComponent implements OnInit {
   @Input() catID:any;
   
   finishes:ifinish[]=[];
-  categories_source: icategory[] = [];
+  categories:any;
   parts:ipart[]=[];
   materials:imaterial[]=[];
   typesizes:itypesize[]=[];
@@ -29,7 +29,7 @@ export class KitchendetailsComponent implements OnInit {
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
-      category: [{value:'', disabled: true},Validators.required],
+      category: [{ value:'', disabled: true },Validators.required],
       lead_category_id:null,
       part: [null, Validators.required],
       material: [null, Validators.required],
@@ -72,7 +72,7 @@ export class KitchendetailsComponent implements OnInit {
   manageKitchenForm(category_id:any){ 
     this.showKitchenForm = false;
     const num = 0;
-    let customer = this.categories_source.find(x => x.id == category_id)
+    let customer = this.categories.find(x => x.id == category_id)
     console.log(customer);
     if (customer.category_id == 1){
       this.showKitchenForm = true;
@@ -85,7 +85,6 @@ export class KitchendetailsComponent implements OnInit {
     const num = 0;
     this.detailform.get(num.toString()).get('category').setValue(this.catID)
     this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
-
   }
 
   getRawValue(){
@@ -107,9 +106,10 @@ export class KitchendetailsComponent implements OnInit {
         this.finishes=res;    
       })
     }
+
     getCategorylist() {
-      this.http.getCategory(this.route.snapshot.paramMap.get('id')).subscribe(res => {
-        this.categories_source = res;
+      this.http.getCategorybyid(this.route.snapshot.paramMap.get('id')).subscribe(res=>{
+        this.categories=res;
         console.log(res)
       })
     }
@@ -151,22 +151,23 @@ export class KitchendetailsComponent implements OnInit {
       this.detailform.get(this.catnum.toString()).get('category').setValue(this.catID)  
     }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {   
     this.getCategorylist();
     this.listfinish();
     this.getPartList();
     this.getMaterialList();
     this.getTypesizeList();
     this.getBrandList();
-    this.initCategory();
-       
+    this.initCategory();      
   }
 
   onsubmitaddKitchenDetails(): void {
+
+    let data = { 
+      is_updated:true
+    }
     console.log(this.leadDetailForm.get('detailform').value)
     this.http.addKitchendetails(this.leadDetailForm.get('detailform').value).subscribe(res=>console.log(res))
-    // this.http.updateLeadCategory()
+    this.http.updateLeadCategory(this.catID,data).subscribe(res=>console.log(res));   
   }
-
 }

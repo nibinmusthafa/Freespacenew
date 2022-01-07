@@ -1,7 +1,7 @@
 <form [formGroup]="CategoryForm">
   <mat-form-field class="top">
     <mat-select #cat_id (selectionChange)="setSelectedCategory(cat_id.value)" placeholder="Category" formControlName="categories">
-      <mat-option *ngFor="let element of categories_source" [value]="element.id">
+      <mat-option *ngFor="let element of categories" [value]="element.id">
         {{ element.category_name }} {{ element.location }}
       </mat-option>
     </mat-select>
@@ -16,14 +16,14 @@
 </ng-container>
 
 <ng-container *ngIf="showBedForm">
-  <app-beddetails></app-beddetails>
+  <app-beddetails [catID]="selectedCategory"></app-beddetails>
 </ng-container>
 
 <ng-container *ngIf="showWardrobeform">
-  <app-wardrobedetails></app-wardrobedetails>
+  <app-wardrobedetails [catID]="selectedCategory"></app-wardrobedetails>
 </ng-container>
 
 <ng-container *ngIf="showTvunitform">
-  <app-tvunitdetails></app-tvunitdetails>
+  <app-tvunitdetails [catID]="selectedCategory"></app-tvunitdetails>
 </ng-container>
 

@@ -41,9 +41,6 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LeadDetailsComponent } from './lead-details/lead-details.component';
 
-
-
-
 const routes: Routes = [
 
   { path:'', canActivate:[AuthGuard], component: AdmindashboardComponent, 
@@ -62,13 +59,10 @@ const routes: Routes = [
       { path:'editcustomer/:id',canActivate:[AuthGuard], component: EditcustomerComponent },
       { path:'edituser/:id',canActivate:[AuthGuard], component: EdituserComponent },
       { path:'leaddetails/:id',canActivate:[AuthGuard], component: LeadDetailsComponent },
-
   ]}
   ];
 
-
-@NgModule({
-  
+@NgModule({ 
   declarations: [
 
   AdmindashboardComponent,
@@ -133,6 +127,5 @@ const routes: Routes = [
   { provide: MAT_DIALOG_DATA, useValue: {} },
   { provide: MatDialogRef, useValue: {} }]
 })
-
 
 export class AdminModule { }

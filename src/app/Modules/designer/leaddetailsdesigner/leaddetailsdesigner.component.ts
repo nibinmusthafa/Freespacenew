@@ -15,8 +15,7 @@ export class LeaddetailsdesignerComponent {
 
   category_id:null;
   finishes:ifinish[]=[];
-  // architects:iarchitect[]=[];
-  categories_source: icategory[] = [];
+  categories: icategory[] = [];
   parts:ipart[]=[];
   materials:imaterial[]=[];
   typesizes:itypesize[]=[];
@@ -41,7 +40,7 @@ export class LeaddetailsdesignerComponent {
     this.showWardrobeform=false;
     this.showTvunitform=false;
     const num = 0;
-    let customer = this.categories_source.find(x => x.id == category_id)
+    let customer = this.categories.find(x => x.id == category_id)
     console.log(customer);
     if (customer.category_id == 1){
       this.showKitchenForm = true;
@@ -57,13 +56,11 @@ export class LeaddetailsdesignerComponent {
     }
   }
   
-
   setSelectedCategory(id:any){
     this.Checkcategory(id);
     this.selectedCategory = id;
     console.log(this.selectedCategory)
   }
-
 
   setCat_ID(cat_id:any){
     console.log("hiiii")
@@ -77,7 +74,7 @@ export class LeaddetailsdesignerComponent {
 
   getCategorylist() {
     this.http.getCategory(this.route.snapshot.paramMap.get('id')).subscribe(res => {
-      this.categories_source = res;
+      this.categories = res;
       console.log(res)
     })
   }

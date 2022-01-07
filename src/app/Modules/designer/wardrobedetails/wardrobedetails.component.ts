@@ -9,6 +9,7 @@ import { DesignerService, ibrand, icategory, ifinish, imaterial, itypesize, iwar
   styleUrls: ['./wardrobedetails.component.css']
 })
 export class WardrobedetailsComponent implements OnInit {
+  @Input() catID:any;
 
   wardrobeparts:iwardrobepart[]=[];
   materials:imaterial[]=[];
@@ -52,7 +53,7 @@ export class WardrobedetailsComponent implements OnInit {
     return this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
       // category: [{value: '', disabled: true}],
-      lead_category_id:[null],
+      lead_category_id:[this.catID],
       wardrobetype:[null, Validators.required],
       part: [null, Validators.required],
       material: [null, Validators.required],
@@ -76,9 +77,15 @@ export class WardrobedetailsComponent implements OnInit {
     if (customer.category_id == 2){
       this.showWardrobeform = true;
     }
-    this.detailform.get(num.toString()).get('category').setValue(category_id)
-    this.detailform.get(num.toString()).get('lead_category_id').setValue(category_id)
+    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
   }
+
+  initCategory(){
+    const num = 0;
+    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
+  }
+
+
 
   getRawValue(){
     console.log(this.leadWardrobeDetailForm.controls.detailform.get('0'))
@@ -141,8 +148,8 @@ export class WardrobedetailsComponent implements OnInit {
     addDetails(){
       this.catnum++;
       this.detailform.push(this.addnewDetails());
-      this.detailform.get(this.catnum.toString()).get('lead_category_id').setValue(this.selectedCategory)
-      this.detailform.get(this.catnum.toString()).get('category').setValue(this.selectedCategory)  
+      this.detailform.get(this.catnum.toString()).get('lead_category_id').setValue(this.catID)
+  
     }
 
   ngOnInit(): void {
@@ -152,11 +159,11 @@ export class WardrobedetailsComponent implements OnInit {
     this.getBrandList();
     this.getWardrobetypelist();
     this.getWardrobepartlist();
+    this.initCategory();
   }
 
   onsubmitaddWardrobeDetails(): void {
     console.log(this.leadWardrobeDetailForm.get('detailform').value)
     this.http.addWardrobedetails(this.leadWardrobeDetailForm.get('detailform').value).subscribe(res=>console.log(res))
   }
-
 }

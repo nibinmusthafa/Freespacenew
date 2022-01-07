@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './Modules/auth/auth.guard';
 
 const routes: Routes = [
-
   // {path:'', redirectTo: '/login', pathMatch: 'full'},
   {path:"", loadChildren:()=> import('./Modules/auth/auth.module').then(x=>x.AuthModule)},
   {path:"admin",canActivate:[AuthGuard], loadChildren:()=> import('./Modules/admin/admin.module').then(x=>x.AdminModule)},
@@ -13,11 +12,12 @@ const routes: Routes = [
   {path:"finance",canActivate:[AuthGuard], loadChildren:()=> import('./Modules/finance/finance.module').then(x=>x.FinanceModule)},
   {path:"lead",canActivate:[AuthGuard], loadChildren:()=> import('./Modules/lead/lead.module').then(x=>x.LeadModule)},
   {path:"superadmin",canActivate:[AuthGuard], loadChildren:()=> import('./Modules/superadmin/superadmin.module').then(x=>x.SuperadminModule)},
-
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

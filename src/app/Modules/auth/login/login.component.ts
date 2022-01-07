@@ -22,6 +22,7 @@ export interface user {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   loginForm = this.fb.group({
     email: [null, Validators.required],
     password: [null, Validators.required],
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['admindashboard']);
 
     };
+
     if (this.user.email === "nibin@gmail.com" && this.user.password === "1234") {
 
       const item: user = { user_id: 2, user_name: "nibin" };
@@ -84,9 +86,7 @@ export class LoginComponent implements OnInit {
     return JSON.parse(user)?.jwt;
   }
 
-
   ngOnInit(): void {
-
   }
 
   getuser() {
@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit {
   logout() {
     this.http.logout();
   }
-
+  
   getDesignation() {
     const designation: any = localStorage.getItem('currentUser');
     return JSON.parse(designation)?.userdesignation;

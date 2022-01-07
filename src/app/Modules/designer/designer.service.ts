@@ -40,6 +40,7 @@ export interface iStatus {
   id: number;
   status_value: string;
 }
+
 export interface icategory {
   id: number;
   category_id:number;
@@ -179,15 +180,17 @@ export class DesignerService {
   getTypesize():Observable<itypesize[]>{
     return this.http.get<itypesize[]>(this.baseUrl+'api/listkitchentypesize/')
   }
+
   getBrand():Observable<ibrand[]>{
     return this.http.get<ibrand[]>(this.baseUrl+'api/listbrands/')
   }
-  getCategorybyid(id: any, lead_id: any) {
-    return this.http.get(this.baseUrl + 'getleadcategorynotupdated/' + id + '/')
+
+  getCategorybyid(lead_id: any) {
+    return this.http.get(this.baseUrl + 'getleadcategorynotupdated/'+ lead_id+'/')
   }
 
   updateLeadCategory(id :any,data:any){
-    return this.http.put(this.baseUrl+'patchleadcategory'+ id + '/',data)
+    return this.http.put(this.baseUrl+'patchleadcategory/'+ id + '/',data)
   }
   
   addKitchendetails(data:any){
@@ -203,7 +206,7 @@ export class DesignerService {
   }
 
   addBeddetails(data:any){
-    return this.http.post(this.baseUrl + 'api/addbeddetails/',data)
+    return this.http.post(this.baseUrl +'api/addbeddetails/',data)
   }
 
   getWardrobetype():Observable<iwardrobetype[]>{
@@ -221,9 +224,5 @@ export class DesignerService {
   addTVunitetails(data:any){
     return this.http.post(this.baseUrl + 'api/addtvcrockery/',data)
   }
-
-
-
-
 
 }

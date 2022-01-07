@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DesignerService, ibrand, icategory, ifinish, imaterial, itypesize } from '../designer.service';
@@ -9,6 +9,8 @@ import { DesignerService, ibrand, icategory, ifinish, imaterial, itypesize } fro
   styleUrls: ['./tvunitdetails.component.css']
 })
 export class TvunitdetailsComponent implements OnInit {
+
+  @Input() catID:any;
 
   materials:imaterial[]=[];
   typesizes:itypesize[]=[];
@@ -48,7 +50,7 @@ export class TvunitdetailsComponent implements OnInit {
     return this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
       // category: [{value: '', disabled: true}],
-      lead_category_id:[null],
+      lead_category_id:[this.catID],
       material: [null, Validators.required],
       finish: [null, Validators.required],
       typesize: [null, Validators.required],
@@ -69,9 +71,14 @@ export class TvunitdetailsComponent implements OnInit {
     if (customer.category_id == 3){
       this.showTvunitform = true;
     }
-    this.detailform.get(num.toString()).get('category').setValue(category_id)
-    this.detailform.get(num.toString()).get('lead_category_id').setValue(category_id)
+    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
   }
+
+  initCategory(){
+    const num = 0;
+    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
+  }
+
 
   setCat_ID(cat_id:any){
     console.log("hiiii")
@@ -113,11 +120,11 @@ export class TvunitdetailsComponent implements OnInit {
       console.log(this.selectedCategory)
     }
 
+    
     addDetails(){
       this.catnum++;
       this.detailform.push(this.addnewDetails());
-      this.detailform.get(this.catnum.toString()).get('lead_category_id').setValue(this.selectedCategory)
-      this.detailform.get(this.catnum.toString()).get('category').setValue(this.selectedCategory)  
+      this.detailform.get(this.catnum.toString()).get('lead_category_id').setValue(this.catID) 
     }
 
 
@@ -126,6 +133,7 @@ export class TvunitdetailsComponent implements OnInit {
     this.getMaterialList();
     this.getTypesizeList();
     this.getBrandList();
+    this.initCategory();
 
   }
 
