@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FinancedashboardComponent } from './financedashboard/financedashboard.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    FinancedashboardComponent
+  ],
   imports: [
     CommonModule
   ]
