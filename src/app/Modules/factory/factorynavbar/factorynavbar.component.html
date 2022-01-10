@@ -4,18 +4,10 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list class="p-2">
-      <mat-accordion>
-        <mat-expansion-panel class="m-0">
-          <mat-expansion-panel-header class="title_panel_bg rounded">
-            <mat-panel-title class="rounded">
-              LEADS
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <!-- <a matLine  routerLink="createlead"><p>Create Lead</p></a> -->
-          <a matLine routerLink='updateleads'><p class="mb-0">Manage Lead</p></a>
-        </mat-expansion-panel>
-      </mat-accordion> 
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -28,7 +20,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Free Space</span>
+      <span>Factory Dashboard</span>
       <div class="log_main">
         <mat-icon class="icn" matTooltip="Logout" (click)="btnclick()">power_settings_new</mat-icon>
       </div>

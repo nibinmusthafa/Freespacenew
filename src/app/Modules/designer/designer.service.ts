@@ -185,8 +185,8 @@ export class DesignerService {
     return this.http.get<ibrand[]>(this.baseUrl+'api/listbrands/')
   }
 
-  getCategorybyid(lead_id: any) {
-    return this.http.get(this.baseUrl + 'getleadcategorynotupdated/'+ lead_id+'/')
+  getCategorybyid(lead_id: any):Observable<icategory[]>  {
+    return this.http.get<icategory[]>(this.baseUrl + 'getleadcategorynotupdated/'+ lead_id+'/')
   }
 
   updateLeadCategory(id :any,data:any){

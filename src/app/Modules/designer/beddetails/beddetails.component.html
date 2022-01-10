@@ -19,7 +19,7 @@
         </div> -->
         <div class="col">
           <mat-form-field class="full-width">
-            <mat-select placeholder="Bedroom items" formControlName="bedroomitem">
+            <mat-select placeholder="Bedroom items" formControlName="item_name">
             <mat-option *ngFor="let element of bedroomitems" [value]="element.id">
               {{ element.item }}
               </mat-option>
@@ -66,8 +66,7 @@
             </mat-form-field>
         </div>
         </div>
-        <div class="row">
-            
+        <div class="row">          
          <div class="col">
          <mat-form-field class="full-width">
            <mat-select placeholder="Type/Size" formControlName="typesize">
@@ -94,7 +93,7 @@
            </div>
            <div class="col">
              <mat-form-field class="full-width">
-               <input matInput placeholder="Edge banding" formControlName="edge_banding">
+               <input matInput placeholder="Edge banding" formControlName="edgebanding">
                <mat-error *ngIf="leadBedDetailForm.controls.detailform['controls']">
                  Edge banding is <strong>required</strong>
                </mat-error>
@@ -119,12 +118,18 @@
            </mat-form-field>
          </div>
          <div class="col">
-           <mat-form-field class="full-width">
+           <!-- <mat-form-field class="full-width">
              <input matInput placeholder="Photo Upload" formControlName="photoupload">
              <mat-error *ngIf="leadBedDetailForm.controls.detailform['controls']">
                Photo Upload is <strong>required</strong>
              </mat-error>
-           </mat-form-field>
+           </mat-form-field> -->
+           <div class="file-upload" (change)="onFileSelected($event)">
+            {{"No file uploaded yet."}}       
+             <button type="button" (click)="onUpload()" mat-mini-fab color="primary" class="upload-btn" >
+                <mat-icon>attach_file</mat-icon>     
+             </button>        
+         </div>  
          </div>
          <div class="col">
            <mat-form-field class="full-width">

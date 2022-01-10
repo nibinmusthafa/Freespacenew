@@ -29,16 +29,16 @@ export class WardrobedetailsComponent implements OnInit {
       lead_id:[this.route.snapshot.paramMap.get('id')],
       // category: [{value: '', disabled: true},Validators.required],
       lead_category_id:null,
-      wardrobetype:[null, Validators.required],
-      part: [null, Validators.required],
+      type:[null, Validators.required],
+      Part: [null, Validators.required],
       material: [null, Validators.required],
       finish: [null, Validators.required],
       typesize: [null, Validators.required],
       brand: [null, Validators.required],
-      edge_banding: [null, Validators.required],
+      edgebanding: [null, Validators.required],
       colour:[null, Validators.required],
       code: [null, Validators.required],
-      photoupload: [null, Validators.required],
+      // photoupload: [null, Validators.required],
       measurement: [null, Validators.required],
       remark: [null, Validators.required],
       })      
@@ -54,16 +54,16 @@ export class WardrobedetailsComponent implements OnInit {
       lead_id:[this.route.snapshot.paramMap.get('id')],
       // category: [{value: '', disabled: true}],
       lead_category_id:[this.catID],
-      wardrobetype:[null, Validators.required],
-      part: [null, Validators.required],
+      type:[null, Validators.required],
+      Part: [null, Validators.required],
       material: [null, Validators.required],
       finish: [null, Validators.required],
       typesize: [null, Validators.required],
       brand: [null, Validators.required],
-      edge_banding: [null, Validators.required],
+      edgebanding: [null, Validators.required],
       colour:[null, Validators.required],
       code: [null, Validators.required],
-      photoupload: [null, Validators.required],
+      // photoupload: [null, Validators.required],
       measurement: [null, Validators.required],
       remark: [null, Validators.required],
     })
@@ -91,12 +91,12 @@ export class WardrobedetailsComponent implements OnInit {
     console.log(this.leadWardrobeDetailForm.controls.detailform.get('0'))
   }
 
-  setCat_ID(cat_id:any){
-    console.log("hiiii")
-    this.cat_id=cat_id;
-    this.manageWardrobeForm(this.cat_id);
-    console.log(this.cat_id)
-  }
+  // setCat_ID(cat_id:any){
+  //   console.log("hiiii")
+  //   this.cat_id=cat_id;
+  //   this.manageWardrobeForm(this.cat_id);
+  //   console.log(this.cat_id)
+  // }
 
 
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
@@ -139,17 +139,16 @@ export class WardrobedetailsComponent implements OnInit {
 
     }
 
-    setSelectedCategory(id:any){
-      this.selectedCategory = id;
-      this.manageWardrobeForm(id)
-      console.log(this.selectedCategory)
-    }
+    // setSelectedCategory(id:any){
+    //   this.selectedCategory = id;
+    //   this.manageWardrobeForm(id)
+    //   console.log(this.selectedCategory)
+    // }
 
     addDetails(){
       this.catnum++;
       this.detailform.push(this.addnewDetails());
-      this.detailform.get(this.catnum.toString()).get('lead_category_id').setValue(this.catID)
-  
+      this.detailform.get(this.catnum.toString()).get('lead_category_id').setValue(this.catID)  
     }
 
   ngOnInit(): void {

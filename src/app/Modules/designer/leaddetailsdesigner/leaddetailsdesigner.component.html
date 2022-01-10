@@ -1,6 +1,6 @@
 <form [formGroup]="CategoryForm">
   <mat-form-field class="top">
-    <mat-select #cat_id (selectionChange)="setSelectedCategory(cat_id.value)" placeholder="Category" formControlName="categories">
+    <mat-select #cat_id (selectionChange)="setSelectedCategory(cat_id.value)" placeholder="Select Category" formControlName="categories">
       <mat-option *ngFor="let element of categories" [value]="element.id">
         {{ element.category_name }} {{ element.location }}
       </mat-option>

@@ -32,10 +32,10 @@ export class TvunitdetailsComponent implements OnInit {
       finish: [null, Validators.required],
       typesize: [null, Validators.required],
       brand: [null, Validators.required],
-      edge_banding: [null, Validators.required],
+      edgebanding: [null, Validators.required],
       colour:[null, Validators.required],
       code: [null, Validators.required],
-      photoupload: [null, Validators.required],
+      // photoupload: [null, Validators.required],
       measurement: [null, Validators.required],
       remark: [null, Validators.required],
       })      
@@ -55,14 +55,15 @@ export class TvunitdetailsComponent implements OnInit {
       finish: [null, Validators.required],
       typesize: [null, Validators.required],
       brand: [null, Validators.required],
-      edge_banding: [null, Validators.required],
+      edgebanding: [null, Validators.required],
       colour:[null, Validators.required],
       code: [null, Validators.required],
-      photoupload: [null, Validators.required],
+      // photoupload: [null, Validators.required],
       measurement: [null, Validators.required],
       remark: [null, Validators.required],
     })
   }
+
   manageTVUnitForm(category_id:any){ 
     this.showTvunitform = false;
     const num = 0;
@@ -114,11 +115,11 @@ export class TvunitdetailsComponent implements OnInit {
       })
     }
 
-    setSelectedCategory(id:any){
-      this.selectedCategory = id;
-      this.manageTVUnitForm(id)
-      console.log(this.selectedCategory)
-    }
+    // setSelectedCategory(id:any){
+    //   this.selectedCategory = id;
+    //   this.manageTVUnitForm(id)
+    //   console.log(this.selectedCategory)
+    // }
 
     
     addDetails(){
@@ -141,5 +142,4 @@ export class TvunitdetailsComponent implements OnInit {
     console.log(this.leadTvUnitDetailForm.get('detailform').value)
     this.http.addTVunitetails(this.leadTvUnitDetailForm.get('detailform').value).subscribe(res=>console.log(res))
   }
-
 }

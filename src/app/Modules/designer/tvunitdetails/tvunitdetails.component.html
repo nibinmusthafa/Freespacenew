@@ -58,7 +58,7 @@
                 </div>
                 <div class="col">
                     <mat-form-field class="full-width">
-                      <input matInput placeholder="Edge banding" formControlName="edge_banding">
+                      <input matInput placeholder="Edge banding" formControlName="edgebanding">
                       <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
                         Edge banding is <strong>required</strong>
                         <!-- leadDetailForm.controls.detailform.get('1').status -->
@@ -83,11 +83,19 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div class="col">
+              <!-- <div class="col">
                 <mat-form-field class="full-width">
                   <input matInput placeholder="Photo Upload" formControlName="photoupload">
                   <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
                     Photo Upload is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+              </div> -->
+            <div class="col">
+                <mat-form-field>
+                  <input matInput placeholder="Measurement" formControlName="measurement">
+                  <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                    Measurement is <strong>required</strong>
                   </mat-error>
                 </mat-form-field>
               </div>
@@ -99,14 +107,6 @@
                   </mat-error>
                 </mat-form-field>
             </div>
-            <div class="col">
-                <mat-form-field>
-                  <input matInput placeholder="Measurement" formControlName="measurement">
-                  <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
-                    Measurement is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-              </div>
               </div>
               <!-- <div class="col">
                <mat-form-field class="full-width">

@@ -4,15 +4,16 @@ import { ActivatedRoute } from '@angular/router';
 import { DesignerService, ibrand, icategory, ifinish, imaterial, ipart, itypesize } from '../designer.service';
 import { Input } from '@angular/core';
 
-@Component({
+@Component
+({
   selector: 'app-kitchendetails',
   templateUrl: './kitchendetails.component.html',
   styleUrls: ['./kitchendetails.component.css']
 })
+
 export class KitchendetailsComponent implements OnInit {
 
-  @Input() catID:any;
-  
+  @Input() catID:any;  
   finishes:ifinish[]=[];
   categories:any;
   parts:ipart[]=[];
@@ -161,13 +162,14 @@ export class KitchendetailsComponent implements OnInit {
     this.initCategory();      
   }
 
-  onsubmitaddKitchenDetails(): void {
 
+  onsubmitaddKitchenDetails(): void {
     let data = { 
       is_updated:true
     }
     console.log(this.leadDetailForm.get('detailform').value)
     this.http.addKitchendetails(this.leadDetailForm.get('detailform').value).subscribe(res=>console.log(res))
     this.http.updateLeadCategory(this.catID,data).subscribe(res=>console.log(res));   
+    // window.location.reload()
   }
 }

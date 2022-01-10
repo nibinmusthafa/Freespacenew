@@ -73,7 +73,7 @@ export class LeaddetailsdesignerComponent {
     ) {}
 
   getCategorylist() {
-    this.http.getCategory(this.route.snapshot.paramMap.get('id')).subscribe(res => {
+    this.http.getCategorybyid(this.route.snapshot.paramMap.get('id')).subscribe(res => {
       this.categories = res;
       console.log(res)
     })

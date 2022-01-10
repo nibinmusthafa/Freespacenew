@@ -10,7 +10,7 @@
         <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <mat-select placeholder="Wardrobe Type" formControlName="wardrobetype">
+            <mat-select placeholder="Wardrobe Type" formControlName="type">
             <mat-option *ngFor="let element of wardrobetypes" [value]="element.id">
               {{ element.type }}
               </mat-option>
@@ -22,7 +22,7 @@
         </div>
          <div class="col">
           <mat-form-field class="full-width">
-            <mat-select placeholder="Part" formControlName="part">
+            <mat-select placeholder="Part" formControlName="Part">
             <mat-option *ngFor="let element of wardrobeparts" [value]="element.id">
               {{ element.part }}
               </mat-option>
@@ -84,7 +84,7 @@
            </div>
            <div class="col">
              <mat-form-field class="full-width">
-               <input matInput placeholder="Edge banding" formControlName="edge_banding">
+               <input matInput placeholder="Edge banding" formControlName="edgebanding">
                <mat-error *ngIf="leadWardrobeDetailForm.controls.detailform['controls']">
                  Edge banding is <strong>required</strong>
                </mat-error>
@@ -108,14 +108,14 @@
              </mat-error>
            </mat-form-field>
          </div>
-         <div class="col">
+         <!-- <div class="col">
            <mat-form-field class="full-width">
              <input matInput placeholder="Photo Upload" formControlName="photoupload">
              <mat-error *ngIf="leadWardrobeDetailForm.controls.detailform['controls']">
                Photo Upload is <strong>required</strong>
              </mat-error>
            </mat-form-field>
-         </div>
+         </div> -->
          <div class="col">
            <mat-form-field class="full-width">
              <input matInput placeholder="Measurement" formControlName="measurement">
