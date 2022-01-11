@@ -34,6 +34,8 @@ export class ManageuserComponent implements AfterViewInit {
     });
   }
 
+
+  
   onClick(id:any){
     console.log(id);   
     this.router.navigateByUrl('admin/edituser/' + id)
