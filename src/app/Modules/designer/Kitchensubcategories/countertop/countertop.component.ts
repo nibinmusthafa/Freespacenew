@@ -15,6 +15,8 @@ export class CountertopComponent implements OnInit {
   CountertopForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
+      lead_id:[this.route.snapshot.paramMap.get('id')],
+      lead_category_id:null,
       material:[null, Validators.required],
       colour:[null, Validators.required],
       remark:[null, Validators.required],

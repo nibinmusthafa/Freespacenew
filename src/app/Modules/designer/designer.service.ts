@@ -90,6 +90,11 @@ export interface icountermaterial{
   material:string;
 }
 
+export interface ihingestype{
+  id:number;
+  type:string;
+}
+
 
 @Injectable({
 
@@ -252,6 +257,23 @@ export class DesignerService {
   addkitchenhardware(data:any){
     return this.http.post(this.baseUrl + 'api/adddrawers/',data)
   }
+
+  getHingestype():Observable<ihingestype[]>{
+    return this.http.get<ihingestype[]>(this.baseUrl + 'api/listkitchenhinges/')
+  }
+
+  addhinges(data:any){
+    return this.http.post(this.baseUrl + 'api/addkitchenhinges/',data)
+  }
+
+  addsink(data:any){
+    return this.http.post(this.baseUrl + 'api/addsinkdetails/',data)
+  }
+
+  addtiles(data:any){
+    return this.http.post(this.baseUrl + 'api/addtilesdetails/',data)
+  }
+
 
 
 

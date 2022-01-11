@@ -1,1 +1,48 @@
-<p>sink works!</p>
+<form [formGroup]="SinkForm">
+    <div formArrayName="detailform" *ngFor="let t of detailform.controls; let i=index">
+        <div [formGroupName]="i">
+        <mat-card class="shipping-card">
+            <mat-card-header>
+            <mat-card-title>Hardware Details</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+        <div class="row">
+  <div class="col">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Brand" formControlName="brand">
+      <mat-error *ngIf="SinkForm.controls.detailform['controls']">
+        Brand is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div> 
+  <div class="col">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Colour" formControlName="colour">
+      <mat-error *ngIf="SinkForm.controls.detailform['controls']">
+        Colour is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div> 
+  <div class="col">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Size" formControlName="size">
+      <mat-error *ngIf="SinkForm.controls.detailform['controls']">
+        Size is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div> 
+  <div class="col">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Remark" formControlName="remark">
+      <mat-error *ngIf="SinkForm.controls.detailform['controls']">
+        Remark is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div> 
+</div>
+</mat-card-content>
+</mat-card>
+</div>
+</div> 
+  <button type="button" (click)="onsubmitsinksdetails()">Submit</button>
+</form>
