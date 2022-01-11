@@ -40,6 +40,7 @@ import { EditcustomerComponent } from './editcustomer/editcustomer.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { LeadDetailsComponent } from './lead-details/lead-details.component';
+import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 
 const routes: Routes = [
 
@@ -59,6 +60,8 @@ const routes: Routes = [
       { path:'editcustomer/:id',canActivate:[AuthGuard], component: EditcustomerComponent },
       { path:'edituser/:id',canActivate:[AuthGuard], component: EdituserComponent },
       { path:'leaddetails/:id',canActivate:[AuthGuard], component: LeadDetailsComponent },
+      { path:'passwordreset/:id' ,canActivate:[AuthGuard], component: PasswordresetComponent}
+
   ]}
   ];
 
@@ -80,7 +83,8 @@ const routes: Routes = [
       ManageuserComponent,
       EditcustomerComponent,
       EdituserComponent,
-      LeadDetailsComponent,    
+      LeadDetailsComponent,
+      PasswordresetComponent,    
    ],
 
   imports: 

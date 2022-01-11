@@ -98,12 +98,12 @@ export interface icustomers {
 
 export interface ilocation {
   id: number;
-  location:string;
+  location: string;
 }
-export interface iarchitect{
-  id:number;
-  architect_name:string;
-  architect_id:number;
+export interface iarchitect {
+  id: number;
+  architect_name: string;
+  architect_id: number;
 
 }
 
@@ -120,7 +120,6 @@ let token = JSON.parse(userToken)?.jwt;
 })
 
 export class AdminService {
-
   private baseUrl: string = "";
 
   constructor(private http: HttpClient) {
@@ -298,10 +297,14 @@ export class AdminService {
   }
 
   updateLeadbyid(id: any, data: any) {
-    return this.http.put(this.baseUrl + 'updatelead/' + id , data)
+    return this.http.put(this.baseUrl + 'updatelead/' + id, data)
   }
 
-  listArchitect():Observable<iarchitect[]>{
+  updatePasswordbyid(id: any,data: any) {
+    return this.http.put(this.baseUrl + 'changepassword/' + id + '/', data)
+  }
+
+  listArchitect(): Observable<iarchitect[]> {
     return this.http.get<iarchitect[]>(this.baseUrl + 'listarchitect/')
   }
 
