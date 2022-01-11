@@ -1,6 +1,7 @@
 
 Coutertop
-    <!-- <div class="col">
+<!-- <form [formGroup]="CountertopForm" >
+    <div class="col">
           <mat-form-field class="full-width">
             <mat-select placeholder="Material" formControlName="finish">
               <mat-option *ngFor="let element of finishes" [value]="element.id">
@@ -28,10 +29,11 @@ Coutertop
         Colour is <strong>required</strong>
       </mat-error>
     </mat-form-field>
-  </div> --> 
- 
-  Tiles
+  </div>
+</form> -->
 
+  Tiles
+  <!-- <form [formGroup]="TilesForm"> -->
   <!-- <div class="col">
     <mat-form-field class="full-width">
       <input matInput placeholder="Brand" formControlName="colour">
@@ -64,9 +66,10 @@ Coutertop
       </mat-error>
     </mat-form-field>
   </div>  -->
+  <!-- </form> -->
 
   Sink
-
+  <!-- <form [formGroup]="SinkForm"> -->
   <!-- <div class="col">
     <mat-form-field class="full-width">
       <input matInput placeholder="Brand" formControlName="colour">
@@ -99,9 +102,10 @@ Coutertop
       </mat-error>
     </mat-form-field>
   </div>  -->
+<!-- </form> -->
 
   CP Fitting(Pipe)
-
+  <!-- <form [formGroup]="CPFittingForm"> -->
   <!-- <div class="col">
     <mat-form-field class="full-width">
       <input matInput placeholder="Brand" formControlName="colour">
@@ -134,9 +138,9 @@ Coutertop
       </mat-error>
     </mat-form-field>
   </div>  -->
+<!-- </form> -->
 
   Drawers
-
   <!-- <div class="col">
     <mat-form-field class="full-width">
       <input matInput placeholder="Brand" formControlName="colour">
@@ -163,7 +167,6 @@ Coutertop
   </div> -->
 
   Basket
-
   <!-- <div class="col">
     <mat-form-field class="full-width">
       <input matInput placeholder="Brand" formControlName="colour">
@@ -190,7 +193,6 @@ Coutertop
   </div> -->
 
   Hinges
- 
  <!-- <div class="col">
     <mat-form-field class="full-width">
       <input matInput placeholder="Brand" formControlName="colour">
@@ -199,13 +201,19 @@ Coutertop
       </mat-error>
     </mat-form-field>
   </div> 
-  <div class="col">
-    <mat-form-field class="full-width">
-      <input matInput placeholder="Type" formControlName="colour">
-      <mat-error *ngIf=".controls.detailform['controls']">
-        Colour is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
+   <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Type" formControlName="type">
+              <mat-option *ngFor="let element of finishes" [value]="element.id">
+                {{ element.finish }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
+              Finish is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          </div> 
+        </div>  
   </div> 
   <div class="col">
     <mat-form-field class="full-width">
@@ -217,7 +225,6 @@ Coutertop
   </div> -->
 
   Hardware
-
   <!-- <div class="col">
     <mat-form-field class="full-width">
       <input matInput placeholder="Brand" formControlName="colour">
@@ -234,6 +241,11 @@ Coutertop
       </mat-error>
     </mat-form-field>
   </div> -->
+
+
+
+
+
 
 
 

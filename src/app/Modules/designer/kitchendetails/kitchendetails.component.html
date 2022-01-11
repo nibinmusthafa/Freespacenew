@@ -1,5 +1,5 @@
 <ng-container>
-    <form [formGroup]="leadDetailForm" >
+    <form [formGroup]="leadDetailForm">
       <div formArrayName="detailform" *ngFor="let t of detailform.controls; let i=index">
       <div [formGroupName]="i">
       <mat-card class="shipping-card">
@@ -145,7 +145,7 @@
    <div class="row">
     <div class="col">
     <section class="example-section">
-      <mat-checkbox class="example-margin">Countertop</mat-checkbox><br>
+      <mat-checkbox class="example-margin" >Countertop</mat-checkbox><br>
       <mat-checkbox class="example-margin">Tiles</mat-checkbox><br>
       <mat-checkbox class="example-margin">Sink</mat-checkbox><br>
       <mat-checkbox class="example-margin">CP Fitting(Pipe)</mat-checkbox><br>

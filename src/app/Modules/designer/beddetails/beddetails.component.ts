@@ -1,7 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient, HttpEventType } from '@angular/common/http';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { DesignerService, ibedroomitem, ibrand, icategory, ifinish, imaterial, itypebed, itypesize } from '../designer.service';
+import { FileuploadComponent } from '../fileupload/fileupload.component';
+import { ViewfileComponent } from '../viewfile/viewfile.component';
+
 
 @Component({
   selector: 'app-beddetails',
@@ -10,13 +15,50 @@ import { DesignerService, ibedroomitem, ibrand, icategory, ifinish, imaterial, i
 })
 
 export class BeddetailsComponent implements OnInit {
+  
+   url="./assets/img/user.jpg"
 
-  selectedFile=null;
+  onFileSelected(event){    
+    const file = event.target.files[0];
+    console.log(file); 
+    if(event.target.files){
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload=(events:any)=>{
+         this.url=events.target.result;
+      }
+    }
+}
+  
+  onUpload(){
+    const fd = new FormData();
+    fd.append('file', this.File, this.fileName);
 
-  onFileSelected(event){
-    console.log(event);
-    
+    // this.https.post().subscribe(res => {
+    //   console.log(res);
+    //   this.response = res
+      
+      // if (res.type == HttpEventType.UploadProgress) {
+      //   this.uploadProgress = Math.round(100 * (event.loaded/event.total));
+      // }
+   
+    // this.http.request(Upload$).subscribe(event => {
+    //   if (event.type == HttpEventType.UploadProgress) {
+    //     this.uploadProgress = Math.round(100 * (event.loaded/event.total));
+    //   }
+    // })
+    // }
   }
+
+
+  selectedFile:File=null;
+  fileName = '';
+  File: any = '';
+  response: any;
+  // public user
+  _id: any;
+
+ 
 
   @Input() catID:any;
 
@@ -77,11 +119,7 @@ export class BeddetailsComponent implements OnInit {
       remark: [null, Validators.required],
     })
   }
-
-  onUpload(){
-    
-  }
-
+  
   manageBedForm(category_id:any){ 
     this.showBedForm = false;
     const num = 0;
@@ -112,8 +150,11 @@ export class BeddetailsComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
-    private http: DesignerService,) { }
+    private http: DesignerService,private https:HttpClient,public dialog: MatDialog
+   ) { }
 
+   
+    
     getCategorylist() {
       this.http.getCategory(this.route.snapshot.paramMap.get('id')).subscribe(res => {
         this.categories_source = res;
@@ -182,6 +223,8 @@ export class BeddetailsComponent implements OnInit {
     this.getBedroomitemlist();
     this.initCategory();
   }
+
+  
 
   onsubmitaddBedDetails(): void {
     console.log(this.leadBedDetailForm.get('detailform').value)

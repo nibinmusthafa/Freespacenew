@@ -19,11 +19,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule  } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatDialogModule} from '@angular/material/dialog';
+import {  MatCheckboxModule} from '@angular/material/checkbox';
+import {  MatDialogModule } from '@angular/material/dialog';
 import { AssignsupervisorComponent } from './assignsupervisor/assignsupervisor.component';
 import { MatInputModule } from '@angular/material/input'
-import {MatSelectModule} from '@angular/material/select';
+import {  MatSelectModule } from '@angular/material/select';
 import { UpdateStatusComponent } from './update-status/update-status.component';
 import { FollowupComponent } from './followup/followup.component';
 import { AuthGuard } from '../auth/auth.guard';
@@ -38,7 +38,16 @@ import { KitchendetailsComponent } from './kitchendetails/kitchendetails.compone
 import { WardrobedetailsComponent } from './wardrobedetails/wardrobedetails.component';
 import { BeddetailsComponent } from './beddetails/beddetails.component';
 import { TvunitdetailsComponent } from './tvunitdetails/tvunitdetails.component';
-import { KitchensubitemsComponent } from './kitchensubitems/kitchensubitems.component'
+import { KitchensubitemsComponent } from './kitchensubitems/kitchensubitems.component';
+import { WardrobesubitemsComponent } from './wardrobesubitems/wardrobesubitems.component';
+import { CountertopComponent } from './Kitchensubcategories/countertop/countertop.component';
+import { TilesComponent } from './Kitchensubcategories/tiles/tiles.component';
+import { SinkComponent } from './Kitchensubcategories/sink/sink.component';
+import { CpfittingComponent } from './Kitchensubcategories/cpfitting/cpfitting.component';
+import { DrawersComponent } from './Kitchensubcategories/drawers/drawers.component';
+import { BasketComponent } from './Kitchensubcategories/basket/basket.component';
+import { HingesComponent } from './Kitchensubcategories/hinges/hinges.component';
+import { HardwareComponent } from './Kitchensubcategories/hardware/hardware.component'
 
 
 
@@ -76,6 +85,15 @@ const routes: Routes = [
     BeddetailsComponent,
     TvunitdetailsComponent,
     KitchensubitemsComponent,
+    WardrobesubitemsComponent,
+    CountertopComponent,
+    TilesComponent,
+    SinkComponent,
+    CpfittingComponent,
+    DrawersComponent,
+    BasketComponent,
+    HingesComponent,
+    HardwareComponent,
   ],
   entryComponents:[
     AssignsupervisorComponent,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { DesignerService, ibrand, icategory, ifinish, imaterial, ipart, itypesize } from '../designer.service';
+import { DesignerService, ibrand,ifinish, imaterial, ipart, itypesize } from '../designer.service';
 import { Input } from '@angular/core';
 
 @Component

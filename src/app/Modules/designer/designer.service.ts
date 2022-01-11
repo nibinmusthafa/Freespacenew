@@ -85,6 +85,11 @@ export interface iwardrobepart{
   part:string;
 }
 
+export interface icountermaterial{
+  id:number;
+  material:string;
+}
+
 
 @Injectable({
 
@@ -224,5 +229,31 @@ export class DesignerService {
   addTVunitetails(data:any){
     return this.http.post(this.baseUrl + 'api/addtvcrockery/',data)
   }
+
+  getCountertopmaterial():Observable<icountermaterial[]>{
+    return this.http.get<icountermaterial[]>(this.baseUrl + 'api/listcountertopmaterial/')
+  }
+
+  addbasketdetails(data:any){
+    return this.http.post(this.baseUrl + 'api/addkitchenbasket/',data)
+  }
+
+  addcounterdetails(data:any){
+    return this.http.post(this.baseUrl + 'api/addcountertopdetails/',data)
+  }
+
+  addcpfitting(data:any){
+    return this.http.post(this.baseUrl + 'addcpfitting/',data)
+  }
+
+  adddrawers(data:any){
+    return this.http.post(this.baseUrl + 'api/adddrawers/',data)
+  }
+  addkitchenhardware(data:any){
+    return this.http.post(this.baseUrl + 'api/adddrawers/',data)
+  }
+
+
+
 
 }

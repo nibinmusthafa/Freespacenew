@@ -41,7 +41,7 @@ export class FollowupComponent implements OnInit {
   }
 
   setFollowupdate(followupDate:any){
-    let data={followup_date:followupDate}
+    let data={ followup_date:followupDate }
     console.log(data)
     this.http.setFollowupDate(this.data.lead_id,data).subscribe(res=>{
       console.log(res)    

@@ -21,9 +21,9 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">User Designation</h3></th>
       <td mat-cell *matCellDef="let row">{{row.userdesignation}}</td>
     </ng-container>
-    <ng-container matColumnDef="action" >
+    <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef><h3 class="mat-subheading-2 font-weight-bold">Edit User</h3></th>
-      <td mat-cell *matCellDef="let row" >
+      <td mat-cell *matCellDef="let row">
         <ng-container>
           <button class="btn" (click)="onClick(row.id)" mat-raised-button color="primary">Edit</button>
         </ng-container>

@@ -118,18 +118,30 @@
            </mat-form-field>
          </div>
          <div class="col">
+          <!-- <mat-form-field class="full-width"> -->
+           <!-- <angular-file-uploader [config]="afuConfig">
+           </angular-file-uploader> -->
+           <!-- <img [src]="url" height="200">  -->
+           <input id="fileToUpload" placeholder="Photo Upload" formControlName="photoupload" type="file" >
+           <mat-error *ngIf="leadBedDetailForm.controls.detailform['controls']">
+            Photo Upload is <strong>required</strong>
+          </mat-error>
+        <!-- </mat-form-field> -->
+           <!-- <button type="button" (click)="fileInput.click()">Pick File</button> -->
+           <!-- <h3 (click)="btnclick(file.url)" class="mat-subheading-2">{{file.file_name}}</h3> -->
+           <!-- <button type="button" (click)="onUpload()">Upload</button> -->
            <!-- <mat-form-field class="full-width">
              <input matInput placeholder="Photo Upload" formControlName="photoupload">
              <mat-error *ngIf="leadBedDetailForm.controls.detailform['controls']">
                Photo Upload is <strong>required</strong>
              </mat-error>
            </mat-form-field> -->
-           <div class="file-upload" (change)="onFileSelected($event)">
+           <!-- <div class="file-upload" (change)="onFileSelected($event)">
             {{"No file uploaded yet."}}       
              <button type="button" (click)="onUpload()" mat-mini-fab color="primary" class="upload-btn" >
                 <mat-icon>attach_file</mat-icon>     
              </button>        
-         </div>  
+         </div>-->
          </div>
          <div class="col">
            <mat-form-field class="full-width">
@@ -157,7 +169,7 @@
    </mat-card>
    </div>
    </div>
-   <button type="button" (click)="onsubmitaddBedDetails()">Submit</button>
+   <button type ="button" (click)="onsubmitaddBedDetails()">Submit</button>
  </form>
  </ng-container>
  {{ leadBedDetailForm.value | json}}

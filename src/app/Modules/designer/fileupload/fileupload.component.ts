@@ -3,7 +3,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { environment } from 'src/environments/environment';
 import { DesignerService } from '../designer.service';
 
 @Component({
@@ -42,7 +41,6 @@ export class FileuploadComponent implements OnInit {
 
   onFileSelected(event) {
     const selectedfile: File = event.target.files[0];
-
     if (selectedfile) {
       this.File = selectedfile
       this.fileName = selectedfile.name;
