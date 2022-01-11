@@ -38,8 +38,6 @@ import { KitchendetailsComponent } from './kitchendetails/kitchendetails.compone
 import { WardrobedetailsComponent } from './wardrobedetails/wardrobedetails.component';
 import { BeddetailsComponent } from './beddetails/beddetails.component';
 import { TvunitdetailsComponent } from './tvunitdetails/tvunitdetails.component';
-import { KitchensubitemsComponent } from './kitchensubitems/kitchensubitems.component';
-import { WardrobesubitemsComponent } from './wardrobesubitems/wardrobesubitems.component';
 import { CountertopComponent } from './Kitchensubcategories/countertop/countertop.component';
 import { TilesComponent } from './Kitchensubcategories/tiles/tiles.component';
 import { SinkComponent } from './Kitchensubcategories/sink/sink.component';
@@ -84,8 +82,6 @@ const routes: Routes = [
     WardrobedetailsComponent,
     BeddetailsComponent,
     TvunitdetailsComponent,
-    KitchensubitemsComponent,
-    WardrobesubitemsComponent,
     CountertopComponent,
     TilesComponent,
     SinkComponent,

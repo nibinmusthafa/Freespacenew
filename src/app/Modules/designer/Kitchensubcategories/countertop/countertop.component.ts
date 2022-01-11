@@ -28,7 +28,6 @@ export class CountertopComponent implements OnInit {
     return this.CountertopForm.get('detailform') as FormArray;
   }
 
-
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
     private http: DesignerService,) { }
 
