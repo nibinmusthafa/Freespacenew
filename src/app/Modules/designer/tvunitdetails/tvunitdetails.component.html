@@ -83,6 +83,12 @@
                   </mat-error>
                 </mat-form-field>
               </div>
+              <div class="col">
+                <input id="fileToUpload" placeholder="Photo Upload" formControlName="photoupload" type="file" >
+                <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                 Photo Upload is <strong>required</strong>
+               </mat-error>
+               </div>
               <!-- <div class="col">
                 <mat-form-field class="full-width">
                   <input matInput placeholder="Photo Upload" formControlName="photoupload">
@@ -136,7 +142,7 @@
    <button type="button" (click)="onsubmitaddTVunitDetails()">Submit</button>
  </form>
  </ng-container>
- {{ leadTvUnitDetailForm.value | json}}
+ <!-- {{ leadTvUnitDetailForm.value | json}} -->
 
  
 

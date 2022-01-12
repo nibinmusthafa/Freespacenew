@@ -239,8 +239,11 @@ export class DesignerService {
     return this.http.get<icountermaterial[]>(this.baseUrl + 'api/listcountertopmaterial/')
   }
 
-  addbasketdetails(data:any){
+  addkitchenbasketdetails(data:any){
     return this.http.post(this.baseUrl + 'api/addkitchenbasket/',data)
+  }
+  addwardrobebasketdetails(data:any){
+    return this.http.post(this.baseUrl + 'api/addwardrobebasket/',data)
   }
 
   addcounterdetails(data:any){
@@ -251,19 +254,31 @@ export class DesignerService {
     return this.http.post(this.baseUrl + 'addcpfitting/',data)
   }
 
-  adddrawers(data:any){
+  addkitchendrawers(data:any){
     return this.http.post(this.baseUrl + 'api/adddrawers/',data)
   }
+
+  addwardrobedrawers(data:any){
+    return this.http.post(this.baseUrl + 'api/addwardrobedrawers/',data)
+  }
+
   addkitchenhardware(data:any){
-    return this.http.post(this.baseUrl + 'api/adddrawers/',data)
+    return this.http.post(this.baseUrl + 'api/addkitchenhardware/',data)
+  }
+  addwardrobehardware(data:any){
+    return this.http.post(this.baseUrl + 'api/addwardrobehardware/',data)
   }
 
   getHingestype():Observable<ihingestype[]>{
     return this.http.get<ihingestype[]>(this.baseUrl + 'api/listkitchenhinges/')
   }
 
-  addhinges(data:any){
+  addkitchenhinges(data:any){
     return this.http.post(this.baseUrl + 'api/addkitchenhinges/',data)
+  }
+
+  addwardrobehinges(data:any){
+    return this.http.post(this.baseUrl + 'api/addwardrobehinges/',data)
   }
 
   addsink(data:any){

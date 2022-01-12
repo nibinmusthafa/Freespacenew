@@ -4,13 +4,13 @@ import { ActivatedRoute } from '@angular/router';
 import { DesignerService } from '../../designer.service';
 
 @Component({
-  selector: 'app-basket',
-  templateUrl: './basket.component.html',
-  styleUrls: ['./basket.component.css']
+  selector: 'app-drawers',
+  templateUrl: './drawers.component.html',
+  styleUrls: ['./drawers.component.css']
 })
-export class BasketComponent implements OnInit {
+export class DrawersComponent implements OnInit {
 
-  BasketForm = this.fb.group({
+  WardrobeDrawersForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
@@ -22,7 +22,7 @@ export class BasketComponent implements OnInit {
   })
 
   get detailform() {
-    return this.BasketForm.get('detailform') as FormArray;
+    return this.WardrobeDrawersForm.get('detailform') as FormArray;
   }
 
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
@@ -31,9 +31,9 @@ export class BasketComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onsubmitaddbasketdetails(): void {
- 
-    this.http.addKitchendetails(this.BasketForm.get('detailform').value).subscribe(res=>console.log(res))
+  onsubmitwardrobedrawingsdetails(){
+    this.http.addwardrobedrawers(this.WardrobeDrawersForm.get('detailform').value).subscribe(res=>console.log(res))
+
   }
 
 }

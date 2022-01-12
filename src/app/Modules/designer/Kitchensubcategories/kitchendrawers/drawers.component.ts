@@ -4,38 +4,37 @@ import { ActivatedRoute } from '@angular/router';
 import { DesignerService } from '../../designer.service';
 
 @Component({
-  selector: 'app-hardware',
-  templateUrl: './hardware.component.html',
-  styleUrls: ['./hardware.component.css']
+  selector: 'app-drawers',
+  templateUrl: './drawers.component.html',
+  styleUrls: ['./drawers.component.css']
 })
-export class HardwareComponent implements OnInit {
+export class DrawersComponent implements OnInit {
 
-  HardwareForm = this.fb.group({
+  KitchenDrawersForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
       brand:[null, Validators.required],
+      units:[null, Validators.required],
       remark:[null, Validators.required],
       })
     ])
   })
 
   get detailform() {
-    return this.HardwareForm.get('detailform') as FormArray;
+    return this.KitchenDrawersForm.get('detailform') as FormArray;
   }
 
 
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
     private http: DesignerService,) { }
 
-
   ngOnInit(): void {
   }
 
+  onsubmitkitchendrawingsdetails(){
+    this.http.addkitchendrawers(this.KitchenDrawersForm.get('detailform').value).subscribe(res=>console.log(res))
 
-  onsubmithardwaredetails(){
-    this.http.addkitchenhardware(this.HardwareForm.get('detailform').value).subscribe(res=>console.log(res))
-    
   }
 
 }

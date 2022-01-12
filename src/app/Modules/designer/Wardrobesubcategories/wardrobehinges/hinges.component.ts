@@ -12,7 +12,7 @@ export class HingesComponent implements OnInit {
 
   hingestypes:ihingestype[]=[];
 
-  HingesForm = this.fb.group({
+  WardrobeHingesForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
@@ -24,7 +24,7 @@ export class HingesComponent implements OnInit {
   })
 
   get detailform() {
-    return this.HingesForm.get('detailform') as FormArray;
+    return this.WardrobeHingesForm.get('detailform') as FormArray;
   }
 
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
@@ -40,11 +40,8 @@ export class HingesComponent implements OnInit {
     this.listhingestypes();
   }
 
-  onsubmithingesdetails(){
-    this.http.addhinges(this.HingesForm.get('detailform').value).subscribe(res=>console.log(res))
-
+  onsubmitwardrobehingesdetails(){
+    this.http.addwardrobehinges(this.WardrobeHingesForm.get('detailform').value).subscribe(res=>console.log(res))
   }
-
-
 
 }

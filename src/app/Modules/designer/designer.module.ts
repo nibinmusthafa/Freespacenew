@@ -42,10 +42,11 @@ import { CountertopComponent } from './Kitchensubcategories/countertop/counterto
 import { TilesComponent } from './Kitchensubcategories/tiles/tiles.component';
 import { SinkComponent } from './Kitchensubcategories/sink/sink.component';
 import { CpfittingComponent } from './Kitchensubcategories/cpfitting/cpfitting.component';
-import { DrawersComponent } from './Kitchensubcategories/drawers/drawers.component';
-import { BasketComponent } from './Kitchensubcategories/basket/basket.component';
-import { HingesComponent } from './Kitchensubcategories/hinges/hinges.component';
-import { HardwareComponent } from './Kitchensubcategories/hardware/hardware.component'
+import { DrawersComponent } from './Kitchensubcategories/kitchendrawers/drawers.component';
+import { BasketComponent } from './Kitchensubcategories/kitchenbasket/basket.component';
+import { HingesComponent } from './Kitchensubcategories/kitchenhinges/hinges.component';
+import { HardwareComponent } from './Kitchensubcategories/kitchenhardware/hardware.component';
+import { WardrobeshutterComponent } from './wardrobeshutter/wardrobeshutter.component'
 
 
 
@@ -91,6 +92,7 @@ const routes: Routes = [
     BasketComponent,
     HingesComponent,
     HardwareComponent,
+    WardrobeshutterComponent,
   ],
   entryComponents:[
     AssignsupervisorComponent,

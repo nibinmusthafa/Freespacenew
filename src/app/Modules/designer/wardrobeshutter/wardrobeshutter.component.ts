@@ -4,11 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { DesignerService, ibrand, icategory, ifinish, imaterial, itypesize, iwardrobepart, iwardrobetype } from '../designer.service';
 
 @Component({
-  selector: 'app-wardrobedetails',
-  templateUrl: './wardrobedetails.component.html',
-  styleUrls: ['./wardrobedetails.component.css']
+  selector: 'app-wardrobeshutter',
+  templateUrl: './wardrobeshutter.component.html',
+  styleUrls: ['./wardrobeshutter.component.css']
 })
-export class WardrobedetailsComponent implements OnInit {
+export class WardrobeshutterComponent implements OnInit {
   @Input() catID:any;
 
   wardrobeparts:iwardrobepart[]=[];
@@ -26,10 +26,8 @@ export class WardrobedetailsComponent implements OnInit {
   checked1=false;
   checked2=false;
   checked3=false;
-  cabinetform=false;
-  shutterform=false;
   
-  leadWardrobeDetailForm = this.fb.group({
+  leadShutterDetailForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
@@ -50,14 +48,9 @@ export class WardrobedetailsComponent implements OnInit {
       })      
     ])   
   });
-
-  wardrobeform(){
-    
-
-  }
   
   get detailform() {
-    return this.leadWardrobeDetailForm.get('detailform') as FormArray;
+    return this.leadShutterDetailForm.get('detailform') as FormArray;
   }
 
   addnewDetails(): FormGroup {    
@@ -99,16 +92,8 @@ export class WardrobedetailsComponent implements OnInit {
 
 
   getRawValue(){
-    console.log(this.leadWardrobeDetailForm.controls.detailform.get('0'))
+    console.log(this.leadShutterDetailForm.controls.detailform.get('0'))
   }
-
-  // setCat_ID(cat_id:any){
-  //   console.log("hiiii")
-  //   this.cat_id=cat_id;
-  //   this.manageWardrobeForm(this.cat_id);
-  //   console.log(this.cat_id)
-  // }
-
 
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
     private http: DesignerService,) { }
@@ -147,7 +132,6 @@ export class WardrobedetailsComponent implements OnInit {
       this.http.getWardrobepart().subscribe(res =>{
         this.wardrobeparts=res;
       })
-
     }
 
     // setSelectedCategory(id:any){
@@ -173,7 +157,8 @@ export class WardrobedetailsComponent implements OnInit {
   }
 
   onsubmitaddWardrobeDetails(): void {
-    console.log(this.leadWardrobeDetailForm.get('detailform').value)
-    this.http.addWardrobedetails(this.leadWardrobeDetailForm.get('detailform').value).subscribe(res=>console.log(res))
+    console.log(this.leadShutterDetailForm.get('detailform').value)
+    this.http.addWardrobedetails(this.leadShutterDetailForm.get('detailform').value).subscribe(res=>console.log(res))
   }
+
 }

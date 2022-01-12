@@ -11,7 +11,7 @@ import { DesignerService } from '../../designer.service';
 
 export class HardwareComponent implements OnInit {
 
-  HardwareForm = this.fb.group({
+  WardrobeHardwareForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
@@ -22,7 +22,7 @@ export class HardwareComponent implements OnInit {
   })
 
   get detailform() {
-    return this.HardwareForm.get('detailform') as FormArray;
+    return this.WardrobeHardwareForm.get('detailform') as FormArray;
   }
 
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
@@ -33,7 +33,7 @@ export class HardwareComponent implements OnInit {
   }
 
   onsubmithardwaredetails(){
-    this.http.addkitchenhardware(this.HardwareForm.get('detailform').value).subscribe(res=>console.log(res))
+    this.http.addwardrobehardware(this.WardrobeHardwareForm.get('detailform').value).subscribe(res=>console.log(res))
     
   }
 

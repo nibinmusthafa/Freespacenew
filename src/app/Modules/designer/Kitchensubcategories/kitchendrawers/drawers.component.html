@@ -1,4 +1,4 @@
-<form [formGroup]="DrawersForm">
+<form [formGroup]="KitchenDrawersForm">
     <div formArrayName="detailform" *ngFor="let t of detailform.controls; let i=index">
         <div [formGroupName]="i">
         <mat-card class="shipping-card">
@@ -10,7 +10,7 @@
 <div class="col">
     <mat-form-field class="full-width">
       <input matInput placeholder="Brand" formControlName="brand">
-      <mat-error *ngIf="DrawersForm.controls.detailform['controls']">
+      <mat-error *ngIf="KitchenDrawersForm.controls.detailform['controls']">
         Brand is <strong>required</strong>
       </mat-error>
     </mat-form-field>
@@ -18,7 +18,7 @@
   <div class="col">
     <mat-form-field class="full-width">
       <input matInput placeholder="No of Units" formControlName="units">
-      <mat-error *ngIf="DrawersForm.controls.detailform['controls']">
+      <mat-error *ngIf="KitchenDrawersForm.controls.detailform['controls']">
         No of units is <strong>required</strong>
       </mat-error>
     </mat-form-field>
@@ -26,7 +26,7 @@
   <div class="col">
     <mat-form-field class="full-width">
       <input matInput placeholder="Remark" formControlName="remark">
-      <mat-error *ngIf="DrawersForm.controls.detailform['controls']">
+      <mat-error *ngIf="KitchenDrawersForm.controls.detailform['controls']">
         Remark is <strong>required</strong>
       </mat-error>
     </mat-form-field>
@@ -36,5 +36,5 @@
 </mat-card>
 </div>
 </div> 
-  <button type="button" (click)="onsubmitdrawingsdetails()">Submit</button>
+  <button type="button" (click)="onsubmitkitchendrawingsdetails()">Submit</button>
 </form>

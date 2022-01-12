@@ -10,11 +10,11 @@ import { DesignerService } from '../../designer.service';
 })
 export class BasketComponent implements OnInit {
 
-  BasketForm = this.fb.group({
+  KitchenBasketForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
-      brand:[null, Validators.required],
+      brand:[null,Validators.required],
       units:[null, Validators.required],
       remark:[null, Validators.required],
       })
@@ -22,19 +22,19 @@ export class BasketComponent implements OnInit {
   })
 
   get detailform() {
-    return this.BasketForm.get('detailform') as FormArray;
+    return this.KitchenBasketForm.get('detailform') as FormArray;
   }
 
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
     private http: DesignerService,) { }
 
   ngOnInit(): void {
-
   }
 
   onsubmitaddbasketdetails(): void {
- 
-    this.http.addKitchendetails(this.BasketForm.get('detailform').value).subscribe(res=>console.log(res))
+    // console.log(this.KitchenBasketForm.get('detailform').value);
+    
+   this.http.addkitchenbasketdetails(this.KitchenBasketForm.get('detailform').value).subscribe(res=>console.log(res))
   }
 
 }
