@@ -22,7 +22,11 @@ export class WardrobedetailsComponent implements OnInit {
   cat_id:any = null;
   catnum=0;
   selectedCategory:any = null;
-
+  checked=false;
+  checked1=false;
+  checked2=false;
+  checked3=false;
+  
   leadWardrobeDetailForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
@@ -69,16 +73,16 @@ export class WardrobedetailsComponent implements OnInit {
     })
   }
 
-  manageWardrobeForm(category_id:any){ 
-    this.showWardrobeform = false;
-    const num = 0;
-    let customer = this.categories_source.find(x => x.id == category_id)
-    console.log(customer);
-    if (customer.category_id == 2){
-      this.showWardrobeform = true;
-    }
-    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
-  }
+  // manageWardrobeForm(category_id:any){ 
+  //   this.showWardrobeform = false;
+  //   const num = 0;
+  //   let customer = this.categories_source.find(x => x.id == category_id)
+  //   console.log(customer);
+  //   if (customer.category_id == 2){
+  //     this.showWardrobeform = true;
+  //   }
+  //   this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
+  // }
 
   initCategory(){
     const num = 0;

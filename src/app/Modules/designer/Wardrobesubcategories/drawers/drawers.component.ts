@@ -14,7 +14,6 @@ export class DrawersComponent implements OnInit {
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
-      lead_category_id:null,
       brand:[null, Validators.required],
       units:[null, Validators.required],
       remark:[null, Validators.required],

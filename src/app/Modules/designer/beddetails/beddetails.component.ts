@@ -120,17 +120,17 @@ export class BeddetailsComponent implements OnInit {
     })
   }
   
-  manageBedForm(category_id:any){ 
-    this.showBedForm = false;
-    const num = 0;
-    let customer = this.categories_source.find(x => x.id == category_id)
-    console.log(customer);
-    if (customer.category_id == 4){
-      this.showBedForm = true;
-    }
-    // this.detailform.get(num.toString()).get('category').setValue(this.catID)
-    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
-  }
+  // manageBedForm(category_id:any){ 
+  //   this.showBedForm = false;
+  //   const num = 0;
+  //   let customer = this.categories_source.find(x => x.id == category_id)
+  //   console.log(customer);
+  //   if (customer.category_id == 4){
+  //     this.showBedForm = true;
+  //   }
+  //   // this.detailform.get(num.toString()).get('category').setValue(this.catID)
+  //   this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
+  // }
 
   initCategory(){
     const num = 0;
@@ -145,7 +145,7 @@ export class BeddetailsComponent implements OnInit {
   setCat_ID(cat_id:any){
     console.log("hiiii")
     this.cat_id=cat_id;
-    this.manageBedForm(this.cat_id);
+    // this.manageBedForm(this.cat_id);
     console.log(this.cat_id)
   }
 

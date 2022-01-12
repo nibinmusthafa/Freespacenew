@@ -143,6 +143,36 @@
    </div>
    </div>
    <button type="button" (click)="onsubmitaddWardrobeDetails()">Submit</button>
+   <ng-container>
+    <div class="row">
+     <div class="col">
+     <section class="example-section">
+       <mat-checkbox id="basket" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked">Basket</mat-checkbox><br>
+       <ng-container *ngIf="checked">
+         <app-basket></app-basket>
+       </ng-container>  
+       </section>
+       <section class="example-section">
+        <mat-checkbox id="drawers" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked1">Drawers</mat-checkbox><br>
+        <ng-container *ngIf="checked1">
+          <app-drawers></app-drawers>
+        </ng-container>  
+        </section>
+        <section class="example-section">
+          <mat-checkbox id="hardware" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked2">Hardware</mat-checkbox><br>
+          <ng-container *ngIf="checked2">
+            <app-hardware></app-hardware>
+          </ng-container>  
+          </section>
+          <section class="example-section">
+            <mat-checkbox id="hinges" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked3">Hinges</mat-checkbox><br>
+            <ng-container *ngIf="checked3">
+              <app-hinges></app-hinges>
+            </ng-container>  
+            </section>
+       </div>
+       </div>
+       </ng-container>
  </form>
  </ng-container>
  {{ leadWardrobeDetailForm.value | json}}

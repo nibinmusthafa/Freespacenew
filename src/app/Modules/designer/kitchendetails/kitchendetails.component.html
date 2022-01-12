@@ -145,18 +145,59 @@
    <div class="row">
     <div class="col">
     <section class="example-section">
-      <mat-checkbox class="example-margin" >Countertop</mat-checkbox><br>
-      <mat-checkbox class="example-margin">Tiles</mat-checkbox><br>
-      <mat-checkbox class="example-margin">Sink</mat-checkbox><br>
-      <mat-checkbox class="example-margin">CP Fitting(Pipe)</mat-checkbox><br>
-      <mat-checkbox class="example-margin">Drawers</mat-checkbox><br>
-      <mat-checkbox class="example-margin">Basket</mat-checkbox><br>
-      <mat-checkbox class="example-margin">Hinges</mat-checkbox><br>
-      <mat-checkbox class="example-margin">Hardware</mat-checkbox>
-    </section>
+      <mat-checkbox id="checkbox" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked">Countertop</mat-checkbox><br>
+      <ng-container *ngIf="checked">
+        <app-countertop></app-countertop>
+      </ng-container>  
+      </section>
+      <section class="example-section">
+      <mat-checkbox id="tiles" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin"[(ngModel)]="checked1" >Tiles</mat-checkbox><br>
+      <ng-container *ngIf="checked1">
+        <app-tiles></app-tiles>
+      </ng-container>
+      </section>
+      <section class="example-section">
+      <mat-checkbox id="sink" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked2">Sink</mat-checkbox><br>
+      <ng-container *ngIf="checked2">
+        <app-sink></app-sink>
+      </ng-container>
+      </section>
+      <section class="example-section">
+      <mat-checkbox id="cpfitting" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked3">CP Fitting(Pipe)</mat-checkbox><br>
+      <ng-container *ngIf="checked3">
+        <app-cpfitting></app-cpfitting>
+      </ng-container>
+      </section>
+      <section class="example-section">
+      <mat-checkbox id="drawers" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked4">Drawers</mat-checkbox><br>
+      <ng-container *ngIf="checked4">
+        <app-drawers></app-drawers>
+      </ng-container>
+      </section>
+      <section class="example-section">
+      <mat-checkbox id="basket" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked5" >Basket</mat-checkbox><br>
+      <ng-container *ngIf="checked5">
+        <app-basket></app-basket>
+      </ng-container>
+      </section>
+      <section class="example-section">
+      <mat-checkbox id="hinges" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked6">Hinges</mat-checkbox><br>
+      <ng-container *ngIf="checked6">
+        <app-hinges></app-hinges>
+      </ng-container>
+      </section>
+      <section class="example-section">
+      <mat-checkbox id="hardware" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked7">Hardware</mat-checkbox>
+      <ng-container *ngIf="checked7">
+        <app-hardware></app-hardware>
+      </ng-container>
+      </section>
    </div>
   </div>
 </ng-container>
  </form>
  </ng-container>
+ <!-- <ng-container *ngIf="showCountertopform">
+  <app-basket></app-basket>
+ </ng-container> -->
  {{ leadDetailForm.value | json }}

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DesignerService, icountermaterial } from '../../designer.service';
 
@@ -10,13 +10,15 @@ import { DesignerService, icountermaterial } from '../../designer.service';
 })
 export class CountertopComponent implements OnInit {
 
+  @Input() catID:any; 
+
   countertopmaterials:icountermaterial[]=[];
+  catnum=0;
 
   CountertopForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
-      lead_category_id:null,
       material:[null, Validators.required],
       colour:[null, Validators.required],
       remark:[null, Validators.required],
@@ -28,6 +30,7 @@ export class CountertopComponent implements OnInit {
     return this.CountertopForm.get('detailform') as FormArray;
   }
 
+
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
     private http: DesignerService,) { }
 
@@ -37,6 +40,12 @@ export class CountertopComponent implements OnInit {
       })
     }
 
+    initCategory(){
+      const num = 0;  
+      this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
+    }
+
+  
     ngOnInit(): void {
       this.listcountertopmaterial();
     }

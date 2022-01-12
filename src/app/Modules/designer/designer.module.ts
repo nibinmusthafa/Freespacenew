@@ -61,6 +61,7 @@ const routes: Routes = [
       { path: "beddetails",canActivate:[AuthGuard],component:BeddetailsComponent },
       { path: "tvunitdetails",canActivate:[AuthGuard],component:TvunitdetailsComponent },
       { path: "wardrobedetails",canActivate:[AuthGuard],component:WardrobedetailsComponent },
+      { path: "wardrobedetails",canActivate:[AuthGuard],component:WardrobedetailsComponent },
     ]
   }
 ];
@@ -127,6 +128,7 @@ const routes: Routes = [
     
   ],
   exports: [
+    
     RouterModule,
     MatDatepickerModule,
     MatNativeDateModule,

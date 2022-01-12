@@ -13,7 +13,8 @@ import { Input } from '@angular/core';
 
 export class KitchendetailsComponent implements OnInit {
 
-  @Input() catID:any;  
+  @Input() catID:any; 
+
   finishes:ifinish[]=[];
   categories:any;
   parts:ipart[]=[];
@@ -25,13 +26,23 @@ export class KitchendetailsComponent implements OnInit {
   selectedCategory:any = null;
   showKitchenForm = false;
   catnum=0;
+  countertopform=false;
+  checked=false;
+  checked1=false;
+  checked2=false;
+  checked3=false;
+  checked4=false;
+  checked5=false;
+  checked6=false;
+  checked7=false;
+  
 
   leadDetailForm = this.fb.group({
     detailform:this.fb.array([
       this.fb.group({
       lead_id:[this.route.snapshot.paramMap.get('id')],
       category: [{ value:'', disabled: true },Validators.required],
-      lead_category_id:null,
+      lead_category_id:[null, Validators.required],
       part: [null, Validators.required],
       material: [null, Validators.required],
       finish: [null, Validators.required],
@@ -46,6 +57,10 @@ export class KitchendetailsComponent implements OnInit {
       })      
     ])   
   });
+
+  checkbox(){
+
+  }
 
   get detailform() {
     return this.leadDetailForm.get('detailform') as FormArray;
@@ -70,17 +85,19 @@ export class KitchendetailsComponent implements OnInit {
     })
   }
 
-  manageKitchenForm(category_id:any){ 
-    this.showKitchenForm = false;
-    const num = 0;
-    let customer = this.categories.find(x => x.id == category_id)
-    console.log(customer);
-    if (customer.category_id == 1){
-      this.showKitchenForm = true;
-    }
-    this.detailform.get(num.toString()).get('category').setValue(this.catID)
-    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
-  }
+  
+
+  // manageKitchenForm(category_id:any){ 
+  //   this.showKitchenForm = false;
+  //   const num = 0;
+  //   let customer = this.categories.find(x => x.id == category_id)
+  //   console.log(customer);
+  //   if (customer.category_id == 1){
+  //     this.showKitchenForm = true;
+  //   }
+  //   this.detailform.get(num.toString()).get('category').setValue(this.catID)
+  //   this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
+  // }
 
   initCategory(){
     const num = 0;
@@ -117,7 +134,7 @@ export class KitchendetailsComponent implements OnInit {
   
     setSelectedCategory(id:any){
       this.selectedCategory = id;
-      this.manageKitchenForm(id)
+      // this.manageKitchenForm(id)
       console.log(this.selectedCategory)
     }
   

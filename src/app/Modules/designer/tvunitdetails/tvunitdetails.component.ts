@@ -64,16 +64,16 @@ export class TvunitdetailsComponent implements OnInit {
     })
   }
 
-  manageTVUnitForm(category_id:any){ 
-    this.showTvunitform = false;
-    const num = 0;
-    let customer = this.categories_source.find(x => x.id == category_id)
-    console.log(customer);
-    if (customer.category_id == 3){
-      this.showTvunitform = true;
-    }
-    this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
-  }
+  // manageTVUnitForm(category_id:any){ 
+  //   this.showTvunitform = false;
+  //   const num = 0;
+  //   let customer = this.categories_source.find(x => x.id == category_id)
+  //   console.log(customer);
+  //   if (customer.category_id == 3){
+  //     this.showTvunitform = true;
+  //   }
+  //   this.detailform.get(num.toString()).get('lead_category_id').setValue(this.catID)
+  // }
 
   initCategory(){
     const num = 0;
@@ -84,7 +84,7 @@ export class TvunitdetailsComponent implements OnInit {
   setCat_ID(cat_id:any){
     console.log("hiiii")
     this.cat_id=cat_id;
-    this.manageTVUnitForm(this.cat_id);
+    // this.manageTVUnitForm(this.cat_id);
     console.log(this.cat_id)
   }
 
