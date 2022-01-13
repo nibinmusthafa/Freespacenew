@@ -1,0 +1,68 @@
+<form [formGroup]="addressForm">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Payment Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+     
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Payment Type" formControlName="payment_category">
+              <mat-option *ngFor="let paymentcategory of paymentcategorys" [value]="paymentcategory.id">
+                {{ paymentcategory.payment_categoryname }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['payment_category'].hasError('required')">
+              Payment Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Payment Type" formControlName="payment_type">
+              <mat-option *ngFor="let paymenttype of paymenttypes" [value]="paymenttype.id">
+                {{ paymenttype.payment_type }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addressForm.controls['payment_type'].hasError('required')">
+              Payment Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Payment Amount" formControlName="pay_amount">
+            <mat-error *ngIf="addressForm.controls['pay_amount'].hasError('required')">
+              pay amount <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Reference Id" formControlName="reference_id">
+            <mat-error *ngIf="addressForm.controls['reference_id'].hasError('required')">
+              reference_id<strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Remarks" formControlName="remarks">
+            <mat-error *ngIf="addressForm.controls['remarks'].hasError('required')">
+              remarks <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+      </div>  
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
+<!-- {{addressForm.value|json}} -->
