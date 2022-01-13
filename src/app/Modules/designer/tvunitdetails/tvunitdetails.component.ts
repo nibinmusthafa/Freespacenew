@@ -139,7 +139,11 @@ export class TvunitdetailsComponent implements OnInit {
   }
 
   onsubmitaddTVunitDetails(): void {
+    let data = { 
+      is_updated:true
+    }
     console.log(this.leadTvUnitDetailForm.get('detailform').value)
     this.http.addTVunitetails(this.leadTvUnitDetailForm.get('detailform').value).subscribe(res=>console.log(res))
+    this.http.updateLeadCategory(this.catID,data).subscribe(res=>console.log(res));
   }
 }

@@ -222,13 +222,14 @@ export class BeddetailsComponent implements OnInit {
     this.getbedTypeList();
     this.getBedroomitemlist();
     this.initCategory();
-  }
-
-  
+  } 
 
   onsubmitaddBedDetails(): void {
-    console.log(this.leadBedDetailForm.get('detailform').value)
+    let data = { 
+      is_updated:true
+    }
+    // console.log(this.leadBedDetailForm.get('detailform').value)
     this.http.addBeddetails(this.leadBedDetailForm.get('detailform').value).subscribe(res=>console.log(res))
+    this.http.updateLeadCategory(this.catID,data).subscribe(res=>console.log(res));
   }
-
 }
