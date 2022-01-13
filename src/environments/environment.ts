@@ -6,10 +6,10 @@ export const environment = {
   production: false,
     // baseUrl: "http://13.127.161.51:8000/"
 
-    baseUrl: "http://192.168.1.100:8000/"
+    //baseUrl: "http://192.168.1.100:8000/"
     //  baseUrl: "http://192.168.1.200:8000/"
-
-     //baseUrl: " http://0.0.0.0:8000/"
+    baseUrl: "http://192.168.0.169:8000/"
+    // baseUrl: " http://0.0.0.0:8000/"
     //baseUrl: "http://192.168.1.200:8000/"
     // baseUrl: "http://192.168.1.104:8000/"
 };

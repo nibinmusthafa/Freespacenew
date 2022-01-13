@@ -14,6 +14,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { PaymentComponent } from './payment/payment.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 //import { FinancedashboardComponent } from './financedashboard/financedashboard.component';
@@ -23,6 +29,7 @@ const routes: Routes = [
     path: '',canActivate:[AuthGuard], component: FinancedashboardComponent,
     children:[
     { path: 'financelead',canActivate:[AuthGuard], component: FinanceleadComponent },
+    { path: 'payment/:id',canActivate:[AuthGuard], component: PaymentComponent},
   ]
   }
 ];
@@ -30,7 +37,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
 FinancedashboardComponent,
-FinanceleadComponent],
+FinanceleadComponent,
+PaymentComponent],
   imports: [
     CommonModule,
     LayoutModule,
@@ -43,7 +51,12 @@ FinanceleadComponent],
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule
   ]
 })
 export class FinanceModule { }

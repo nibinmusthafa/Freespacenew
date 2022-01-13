@@ -47,7 +47,8 @@ import { CpfittingComponent } from './Kitchensubcategories/cpfitting/cpfitting.c
 import { DrawersComponent } from './Kitchensubcategories/drawers/drawers.component';
 import { BasketComponent } from './Kitchensubcategories/basket/basket.component';
 import { HingesComponent } from './Kitchensubcategories/hinges/hinges.component';
-import { HardwareComponent } from './Kitchensubcategories/hardware/hardware.component'
+import { HardwareComponent } from './Kitchensubcategories/hardware/hardware.component';
+
 
 
 
@@ -94,6 +95,7 @@ const routes: Routes = [
     BasketComponent,
     HingesComponent,
     HardwareComponent,
+
   ],
   entryComponents:[
     AssignsupervisorComponent,

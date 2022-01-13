@@ -14,11 +14,18 @@ export class UpdateStatusComponent implements OnInit {
 
   status:iStatus[]=[];
 
+  qoutationForm =false;
+
+  checkPolicy = true;
+
 
   updateStatus = this.fb.group({
     status_id:[null,Validators.required],
-    
-  });
+    quotation_amount:[null,Validators.required]
+
+
+  }
+  );
 
   constructor(private http:DesignerService, 
     private fb:FormBuilder,
@@ -29,6 +36,17 @@ export class UpdateStatusComponent implements OnInit {
     this.listStatus();
   }
 
+  checkleadfinalised(id:any){
+
+    this.qoutationForm=false
+    if(id==7 && id==5)
+    this.qoutationForm=true
+
+  }
+  checkbuttonStatus(){
+
+
+  }
 
   updateStatusValue()
   {
