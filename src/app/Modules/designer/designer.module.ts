@@ -42,12 +42,15 @@ import { CountertopComponent } from './Kitchensubcategories/countertop/counterto
 import { TilesComponent } from './Kitchensubcategories/tiles/tiles.component';
 import { SinkComponent } from './Kitchensubcategories/sink/sink.component';
 import { CpfittingComponent } from './Kitchensubcategories/cpfitting/cpfitting.component';
-
 import { DrawersComponent } from './Kitchensubcategories/kitchendrawers/drawers.component';
 import { BasketComponent } from './Kitchensubcategories/kitchenbasket/basket.component';
 import { HingesComponent } from './Kitchensubcategories/kitchenhinges/hinges.component';
 import { HardwareComponent } from './Kitchensubcategories/kitchenhardware/hardware.component';
-import { WardrobeshutterComponent } from './wardrobeshutter/wardrobeshutter.component'
+import { WardrobeshutterComponent } from './wardrobeshutter/wardrobeshutter.component';
+import { WardrobehingesComponent } from './Wardrobesubcategories/wardrobehinges/wardrobehinges.component';
+
+
+
 
 
 
@@ -65,6 +68,7 @@ const routes: Routes = [
       { path: "beddetails",canActivate:[AuthGuard],component:BeddetailsComponent },
       { path: "tvunitdetails",canActivate:[AuthGuard],component:TvunitdetailsComponent },
       { path: "wardrobedetails",canActivate:[AuthGuard],component:WardrobedetailsComponent },
+      
     ]
   }
 ];
@@ -96,6 +100,8 @@ const routes: Routes = [
     HardwareComponent,
 
     WardrobeshutterComponent,
+     WardrobehingesComponent,
+   
 ],
   entryComponents:[
     AssignsupervisorComponent,
@@ -130,8 +136,9 @@ const routes: Routes = [
     PdfViewerModule,
     MatSnackBarModule,
     MatRadioModule,
-    
+ 
   ],
+
   exports: [
     
     RouterModule,

@@ -35,11 +35,12 @@ updatePayment(id: any) {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     })
-
   }
+
   ManageFinance(){
 
   }
+  
   ngAfterViewInit(): void {
     // this.dataSource.sort = this.sort;
     // this.dataSource.paginator = this.paginator;

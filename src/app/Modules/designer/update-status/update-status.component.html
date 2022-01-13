@@ -16,9 +16,7 @@
             </div>
         </div>     
     </mat-dialog-content>
-
     <ng-container *ngIf="qoutationForm" >
-
         <div class="row">
             <div class="col">
               <mat-form-field class="full-width">
@@ -29,8 +27,7 @@
               </mat-form-field>
             </div>
           </div>
-    </ng-container>
-    
+    </ng-container> 
     <mat-dialog-actions>
         <button mat-button mat-dialog-close>Close</button>
         <button mat-button [disabled]="updateStatus.invalid" (click)="updateStatusValue()">Update</button>

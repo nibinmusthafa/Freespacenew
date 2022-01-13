@@ -95,6 +95,30 @@ export interface ihingestype{
   type:string;
 }
 
+export interface projectlead{
+  id:number;
+  customername:string;
+  phonenumber:number;
+  statusvalue:string;
+  leadsource: string;
+  created_by: number,
+  designer_id: number,
+  designername:string,
+  customer_id: number,
+  status_id: number,
+  description:string,
+  renovation: string,
+  leadsource_id: number,
+  supervisor_id: number,
+  updated_on: number,
+  followup_date: number,
+  quotation_amount: number,
+  architect_id: number,
+  architectname:string,
+  quotation_flag: number,
+}
+
+
 
 @Injectable({
 
@@ -286,11 +310,15 @@ export class DesignerService {
   }
 
   addtiles(data:any){
+
     return this.http.post(this.baseUrl + 'api/addtilesdetails/',data)
   }
 
+  listLeadbyProject():Observable<projectlead[]>{
 
+    return this.http.get<projectlead[]>(this.baseUrl + 'api/listleadforprojects/');
 
+  }
 
 
 }

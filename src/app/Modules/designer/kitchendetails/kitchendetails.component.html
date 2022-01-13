@@ -53,20 +53,20 @@
             </mat-error>
           </mat-form-field>
           </div> 
+          <div class="col">
+            <mat-form-field class="full-width">
+              <mat-select placeholder="Type/Size" formControlName="typesize">
+                <mat-option *ngFor="let element of typesizes" [value]="element.id">
+                  {{ element.typesize }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
+                Type/size is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+              </div>
         </div>
         <div class="row">
-         <div class="col">
-         <mat-form-field class="full-width">
-           <mat-select placeholder="Type/Size" formControlName="typesize">
-             <mat-option *ngFor="let element of typesizes" [value]="element.id">
-               {{ element.typesize }}
-             </mat-option>
-           </mat-select>
-           <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
-             Type/size is <strong>required</strong>
-           </mat-error>
-         </mat-form-field>
-           </div>
            <div class="col">
              <mat-form-field class="full-width">
                <mat-select placeholder="Brand" formControlName="brand">
@@ -96,9 +96,7 @@
                </mat-error>
              </mat-form-field>
            </div>  
-           </div>
-       <div class="row">      
-         <div class="col">
+           <div class="col">
            <mat-form-field class="full-width">
              <input matInput placeholder="Code" formControlName="code">
              <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
@@ -107,21 +105,25 @@
            </mat-form-field>
          </div>
          <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Measurement" formControlName="measurement">
+            <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
+              Measurement is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+           </div>
+       <div class="row">      
+         
+         <!-- <div class="col">
            <mat-form-field class="full-width">
              <input matInput placeholder="Photo Upload" formControlName="photoupload">
              <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
                Photo Upload is <strong>required</strong>
              </mat-error>
            </mat-form-field>
-         </div>
-         <div class="col">
-           <mat-form-field class="full-width">
-             <input matInput placeholder="Measurement" formControlName="measurement">
-             <mat-error *ngIf="leadDetailForm.controls.detailform['controls']">
-               Measurement is <strong>required</strong>
-             </mat-error>
-           </mat-form-field>
-         </div>
+         </div> -->
+         
          <div class="col">
            <mat-form-field class="full-width">
              <input matInput placeholder="Remark" formControlName="remark">

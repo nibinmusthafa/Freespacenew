@@ -1,0 +1,51 @@
+<form [formGroup]="MeasurementForm" >
+    <mat-card class="shipping-card">
+        <mat-card-header>
+        <mat-card-title>Measurement Details</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+<div class="row">
+<div class="col">
+  <div class="column-align">
+    <mat-form-field class="full-width">
+      <textarea matInput placeholder="Mesurement details" formControlName="measurement_details"></textarea>
+      <mat-error *ngIf="MeasurementForm.controls['measurement_details'].hasError('required')">
+        Measurement details is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="column-align">
+    <mat-form-field class="full-width">
+      <mat-select placeholder="Measurement type" formControlName="measurements">
+        <mat-option *ngFor="let types of measurementtypes" [value]="types.id">
+          {{ types.type_names }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="MeasurementForm.controls['measurements'].hasError('required')">
+        Measurement type is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="column-align">
+    <!-- <input placeholder="Photo Upload" formControlName="file_upload"> -->
+    <input type="file"   class="form-control" required  (change)="onFileSelect($event)">
+    
+           <!-- <mat-error *ngIf="MeasurementForm.controls['file_upload'].hasError('required')">
+            Photo Upload is <strong>required</strong>
+          </mat-error> -->
+         </div>
+        </div>
+      </div>
+        </mat-card-content>
+    </mat-card>   
+      <button type="button" (click)="onsubmitmeasurementdetails()">Submit</button>
+</form>
+{{MeasurementForm.value|json}}

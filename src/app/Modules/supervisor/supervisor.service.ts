@@ -36,6 +36,11 @@ export interface iStatus {
   status_value: string;
 }
 
+export interface imeasurementtype {
+  id: number;
+  type_names: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -116,4 +121,14 @@ export class SupervisorService {
     return this.http.get<LeadCategory[]>(this.baseUrl+'getleadcategorybylead/'+ lead_id+'/')
   }
 
-}
+  listmeasurementtypes(): Observable<imeasurementtype[]> {
+    return this.http.get<imeasurementtype[]>(this.baseUrl + 'api/listmeasurementtypes/')
+  }
+  
+  addmeasurementdetails(data:any){
+      return this.http.post(this.baseUrl + 'api/addmeasurementdetails/',data)
+    }
+
+  }
+
+
