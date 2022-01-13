@@ -54,10 +54,6 @@ export class WardrobedetailsComponent implements OnInit {
     ])   
   });
 
-  wardrobeform(){
-
-
-  }
   
   get detailform() {
     return this.leadWardrobeDetailForm.get('detailform') as FormArray;
