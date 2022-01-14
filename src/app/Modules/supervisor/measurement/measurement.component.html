@@ -33,11 +33,10 @@
 </div>
 </div>
 <div class="row">
-  <div class="col">
-    
+  <div class="col">   
     <div class="column-align">
     <!-- <input placeholder="Photo Upload" formControlName="file_upload"> -->
-    <input type="file"   class="form-control" required  (change)="onFileSelect($event)">
+    <input type="file"   class="form-control"   (change)="onFileSelect($event)">
     
            <!-- <mat-error *ngIf="MeasurementForm.controls['file_upload'].hasError('required')">
             Photo Upload is <strong>required</strong>
