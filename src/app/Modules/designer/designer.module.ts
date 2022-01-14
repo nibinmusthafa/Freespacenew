@@ -46,9 +46,13 @@ import { DrawersComponent } from './Kitchensubcategories/kitchendrawers/drawers.
 import { BasketComponent } from './Kitchensubcategories/kitchenbasket/basket.component';
 import { HingesComponent } from './Kitchensubcategories/kitchenhinges/hinges.component';
 import { HardwareComponent } from './Kitchensubcategories/kitchenhardware/hardware.component';
-import { WardrobeshutterComponent } from './wardrobeshutter/wardrobeshutter.component';
 import { LeadtoprojectComponent } from './leadtoproject/leadtoproject.component';
 import { CreateprojectComponent } from './createproject/createproject.component';
+import { WardrobebasketComponent } from './Wardrobesubcategories/wardrobebasket/wardrobebasket.component';
+import { WardrobehardwareComponent } from './Wardrobesubcategories/wardrobehardware/wardrobehardware.component';
+import { WardrobehingesComponent } from './Wardrobesubcategories/wardrobehinges/wardrobehinges.component';
+import { WardrobedrawersComponent } from './Wardrobesubcategories/wardrobedrawers/wardrobedrawers.component';
+
 
 
 
@@ -98,15 +102,15 @@ const routes: Routes = [
     BasketComponent,
     HingesComponent,
     HardwareComponent,
-
-    WardrobeshutterComponent,
-
     LeadtoprojectComponent,
-
     CreateprojectComponent,
-
+    WardrobebasketComponent,
+    WardrobehardwareComponent,
+    WardrobehingesComponent,
+    WardrobedrawersComponent,
   
 ],
+
   entryComponents:[
     AssignsupervisorComponent,
     FileuploadComponent,

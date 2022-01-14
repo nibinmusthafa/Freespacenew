@@ -4,13 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { DesignerService, ihingestype } from '../../designer.service';
 
 
-
 @Component({
   selector: 'app-wardrobehinges',
   templateUrl: './wardrobehinges.component.html',
   styleUrls: ['./wardrobehinges.component.css']
 })
-
 export class WardrobehingesComponent implements OnInit {
 
   hingestypes:ihingestype[]=[];
@@ -33,11 +31,13 @@ export class WardrobehingesComponent implements OnInit {
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
     private http: DesignerService,) { }
 
+
     listhingestypes(){  
       this.http.getHingestype().subscribe(res =>{
         this.hingestypes=res;    
       })
     } 
+
 
   ngOnInit(): void {
     this.listhingestypes();
@@ -47,6 +47,11 @@ export class WardrobehingesComponent implements OnInit {
     this.http.addwardrobehinges(this.WardrobeHingesForm.get('detailform').value).subscribe(res=>console.log(res))
   }
 
+
 }
+
+
+
+
 
 

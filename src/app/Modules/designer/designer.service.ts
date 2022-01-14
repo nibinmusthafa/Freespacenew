@@ -346,13 +346,6 @@ export class DesignerService {
     return this.http.post(this.baseUrl + 'api/addtilesdetails/',data)
   }
 
-  listLeadbyProject():Observable<projectlead[]>{
-
-    return this.http.get<projectlead[]>(this.baseUrl + 'api/listleadforprojects/');
-
-  }
-
-
   getDesignername():Observable<isupervisors[]>{
     return this.http.get<isupervisors[]>(this.baseUrl+'listsupervisors/')
   }
@@ -363,4 +356,9 @@ export class DesignerService {
   addProjectdetails(data:any){
     return this.http.post(this.baseUrl + 'api/addproject/',data)
   }
+  listLeadbyProject():Observable<leads[]>{
+    return this.http.get<leads[]>(this.baseUrl + 'api/listleadforprojects/');
+
+  }
+
 }
