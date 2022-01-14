@@ -46,7 +46,6 @@ import { DrawersComponent } from './Kitchensubcategories/kitchendrawers/drawers.
 import { BasketComponent } from './Kitchensubcategories/kitchenbasket/basket.component';
 import { HingesComponent } from './Kitchensubcategories/kitchenhinges/hinges.component';
 import { HardwareComponent } from './Kitchensubcategories/kitchenhardware/hardware.component';
-import { WardrobeshutterComponent } from './wardrobeshutter/wardrobeshutter.component';
 import { LeadtoprojectComponent } from './leadtoproject/leadtoproject.component';
 import { CreateprojectComponent } from './createproject/createproject.component';
 
@@ -99,7 +98,7 @@ const routes: Routes = [
     HingesComponent,
     HardwareComponent,
 
-    WardrobeshutterComponent,
+
 
     LeadtoprojectComponent,
 

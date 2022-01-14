@@ -46,6 +46,6 @@
       </div>
         </mat-card-content>
     </mat-card>   
-      <button type="button" (click)="onsubmitmeasurementdetails()">Submit</button>
+      <button type="button" [disabled]="MeasurementForm.invalid"  (click)="onsubmitmeasurementdetails()">Submit</button>
 </form>
-{{MeasurementForm.value|json}}
+<!-- {{MeasurementForm.value|json}} -->
