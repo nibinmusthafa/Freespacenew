@@ -346,6 +346,25 @@ export class DesignerService {
     return this.http.post(this.baseUrl + 'api/addtilesdetails/',data)
   }
 
+<<<<<<< HEAD
+=======
+
+  listLeadforProjects(): Observable<leads[]> {
+    return this.http.get<leads[]>(this.baseUrl + 'api/listleadsforprojects/');
+  }
+
+  listLeadbyProject():Observable<projectlead[]>{
+
+
+    return this.http.get<projectlead[]>(this.baseUrl + 'api/listleadforprojects/');
+  }
+  addProject(data:any){
+    return this.http.post(this.baseUrl + 'api/addproject/',data)
+
+  }
+
+
+>>>>>>> origin/abna
   getDesignername():Observable<isupervisors[]>{
     return this.http.get<isupervisors[]>(this.baseUrl+'listsupervisors/')
   }

@@ -80,7 +80,7 @@ export class EditleadComponent implements OnInit {
       category_id: [''],
       // sub_cat_id: [''],
       location: [''],
-      is_updated:[0],
+      //is_updated:[0],
     })
   }
 

@@ -48,11 +48,14 @@ import { HingesComponent } from './Kitchensubcategories/kitchenhinges/hinges.com
 import { HardwareComponent } from './Kitchensubcategories/kitchenhardware/hardware.component';
 import { LeadtoprojectComponent } from './leadtoproject/leadtoproject.component';
 import { CreateprojectComponent } from './createproject/createproject.component';
-import { WardrobebasketComponent } from './Wardrobesubcategories/wardrobebasket/wardrobebasket.component';
-import { WardrobehardwareComponent } from './Wardrobesubcategories/wardrobehardware/wardrobehardware.component';
-import { WardrobehingesComponent } from './Wardrobesubcategories/wardrobehinges/wardrobehinges.component';
-import { WardrobedrawersComponent } from './Wardrobesubcategories/wardrobedrawers/wardrobedrawers.component';
+<<<<<<< HEAD
+// import { WardrobebasketComponent } from './Wardrobesubcategories/wardrobebasket/wardrobebasket.component';
+// import { WardrobehardwareComponent } from './Wardrobesubcategories/wardrobehardware/wardrobehardware.component';
+// import { WardrobehingesComponent } from './Wardrobesubcategories/wardrobehinges/wardrobehinges.component';
+// import { WardrobedrawersComponent } from './Wardrobesubcategories/wardrobedrawers/wardrobedrawers.component';
 
+=======
+>>>>>>> origin/abna
 
 
 
@@ -102,12 +105,18 @@ const routes: Routes = [
     BasketComponent,
     HingesComponent,
     HardwareComponent,
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> origin/abna
     LeadtoprojectComponent,
     CreateprojectComponent,
-    WardrobebasketComponent,
-    WardrobehardwareComponent,
-    WardrobehingesComponent,
-    WardrobedrawersComponent,
+    // WardrobebasketComponent,
+    // WardrobehardwareComponent,
+    // WardrobehingesComponent,
+    // WardrobedrawersComponent,
   
 ],
 
