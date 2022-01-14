@@ -194,7 +194,7 @@ export class SupervisorremarksComponent implements OnInit {
     this.http.addStatusTracker(data).subscribe(res => {      
     })
   }
-
+// jhgkjkjjkknmnm,m ,m
   addFollowup() {
     let data = {
       followup_date: this.pipe.transform(this.leadForm.getRawValue().followup_date, 'MM/dd/yyyy'),
