@@ -51,7 +51,7 @@ export class KitchendetailsComponent implements OnInit {
       edge_banding: [null, Validators.required],
       colour:[null, Validators.required],
       code: [null, Validators.required],
-      photoupload: [null, Validators.required],
+       photoupload: [null, Validators.required],
       measurement: [null, Validators.required],
       remark: [null, Validators.required],
       })      

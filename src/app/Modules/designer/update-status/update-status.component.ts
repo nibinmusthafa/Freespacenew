@@ -33,31 +33,34 @@ export class UpdateStatusComponent implements OnInit {
     private route:ActivatedRoute,
     @Inject(MAT_DIALOG_DATA) public data:any) { }
 
-  ngOnInit(): void {
-    this.listStatus();
-  }
+  
 
   checkleadfinalised(id:any){
 
     this.qoutationForm=false
     if(id==7)
     this.qoutationForm=true
-
   }
   
   checkbuttonStatus(){
-
 
   }
 
   updateStatusValue()
   {
+    console.log("before flag");
+    
+    console.log(this.updateStatus.getRawValue());
+    
     this.http.updatestatus(this.data.lead_id,this.updateStatus.getRawValue()).subscribe(res =>{
       console.log(res)
+      console.log("flag");
+      
     })
     this.addStatusTracker();
-    window.location.reload()
+    // window.location.reload()
   }
+
   listStatus(){
     this.http.listStatus().subscribe(res =>{
      
@@ -76,6 +79,11 @@ export class UpdateStatusComponent implements OnInit {
     this.http.addStatusTracker(data).subscribe(res=>{
       console.log(res)
     })
+  }
+
+  ngOnInit(): void {
+
+    this.listStatus();
   }
 
 

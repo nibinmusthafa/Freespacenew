@@ -8,6 +8,7 @@ import { followupDate } from 'src/app/_models/user';
 import { AssignsupervisorComponent } from '../assignsupervisor/assignsupervisor.component';
 import { FileuploadComponent } from '../fileupload/fileupload.component';
 import { FollowupComponent } from '../followup/followup.component';
+import { MeasurementComponent } from '../measurement/measurement.component';
 import { isupervisor, SupervisorService } from '../supervisor.service';
 import { SupervisorviewcategoryComponent } from '../supervisorviewcategory/supervisorviewcategory.component';
 import { UpdatestatusComponent } from '../updatestatus/updatestatus.component';
@@ -97,12 +98,20 @@ export class SupervisorremarksComponent implements OnInit {
       this.dialog.open(AssignsupervisorComponent, { data: { lead_id: this.route.snapshot.paramMap.get('id') } });
     }
 
-    openStatusDialog() {
-      this.dialog.open(UpdatestatusComponent, { data: { lead_id: this.route.snapshot.paramMap.get('id'), user_id: this.getcurrentUser() } });
-    }
+    // openStatusDialog() {
+    //   this.dialog.open(UpdatestatusComponent, { data: { lead_id: this.route.snapshot.paramMap.get('id'), user_id: this.getcurrentUser() } });
+    // }
   
     openFollowupDialog() {
       this.dialog.open(FollowupComponent, { data: { lead_id: this.route.snapshot.paramMap.get('id'), user_id: this.getcurrentUser() } })
+    }
+
+    openCategoryDialog(){
+      this.dialog.open(SupervisorviewcategoryComponent, { data: { lead_id: this.route.snapshot.paramMap.get('id'), user_id: this.getcurrentUser() } })
+    }
+
+    openMeasurementDialog(){
+      this.dialog.open(MeasurementComponent, { data: { lead_id: this.route.snapshot.paramMap.get('id') } })
     }
 
   ngOnInit(): void {
@@ -159,6 +168,8 @@ export class SupervisorremarksComponent implements OnInit {
 
   }
 
+
+
   openFileUpload() {
     this.dialog.open(FileuploadComponent, { disableClose: false, data: { lead_id: this.route.snapshot.paramMap.get('id') } })
   }
@@ -183,6 +194,7 @@ export class SupervisorremarksComponent implements OnInit {
     this.http.addStatusTracker(data).subscribe(res => {      
     })
   }
+// jhgkjkjjkknmnm,m ,m
   addFollowup() {
     let data = {
       followup_date: this.pipe.transform(this.leadForm.getRawValue().followup_date, 'MM/dd/yyyy'),
@@ -190,11 +202,9 @@ export class SupervisorremarksComponent implements OnInit {
       updated_by: this.user_id
     }   
     this.http.addFollowup(data).subscribe(res => {
-      // console.log(res)
       this.updateStatusValue();
     })
   }
-  openCategoryDialog(){
-    this.dialog.open(SupervisorviewcategoryComponent, { data: { lead_id: this.route.snapshot.paramMap.get('id'), user_id: this.getcurrentUser() } })
-  }
+
+  
 }

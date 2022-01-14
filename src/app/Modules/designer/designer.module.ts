@@ -42,7 +42,6 @@ import { CountertopComponent } from './Kitchensubcategories/countertop/counterto
 import { TilesComponent } from './Kitchensubcategories/tiles/tiles.component';
 import { SinkComponent } from './Kitchensubcategories/sink/sink.component';
 import { CpfittingComponent } from './Kitchensubcategories/cpfitting/cpfitting.component';
-
 import { DrawersComponent } from './Kitchensubcategories/kitchendrawers/drawers.component';
 import { BasketComponent } from './Kitchensubcategories/kitchenbasket/basket.component';
 import { HingesComponent } from './Kitchensubcategories/kitchenhinges/hinges.component';
@@ -141,8 +140,9 @@ const routes: Routes = [
     PdfViewerModule,
     MatSnackBarModule,
     MatRadioModule,
-    
+ 
   ],
+
   exports: [
     
     RouterModule,

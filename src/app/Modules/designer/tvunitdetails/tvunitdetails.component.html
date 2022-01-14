@@ -44,7 +44,7 @@
                   </mat-error>
                 </mat-form-field>
                   </div>
-                    <div class="col">
+                  <div class="col">
                     <mat-form-field class="full-width">
                       <mat-select placeholder="Brand" formControlName="brand">
                       <mat-option *ngFor="let element of brands" [value]="element.id">
@@ -56,17 +56,18 @@
                     </mat-error>
                     </mat-form-field>
                 </div>
-                <div class="col">
-                    <mat-form-field class="full-width">
-                      <input matInput placeholder="Edge banding" formControlName="edgebanding">
-                      <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
-                        Edge banding is <strong>required</strong>
-                        <!-- leadDetailForm.controls.detailform.get('1').status -->
-                      </mat-error>
-                    </mat-form-field>
-                  </div>
             </div>
-            <div class="row">                        
+            <div class="row">  
+              
+            <div class="col">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Edge banding" formControlName="edgebanding">
+                  <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                    Edge banding is <strong>required</strong>
+                    <!-- leadDetailForm.controls.detailform.get('1').status -->
+                  </mat-error>
+                </mat-form-field>
+              </div>                      
                <div class="col">
                  <mat-form-field class="full-width">
                    <input matInput placeholder="Colour" formControlName="colour">
@@ -74,7 +75,7 @@
                      Colour is <strong>required</strong>
                    </mat-error>
                  </mat-form-field>
-               </div>  
+               </div>
                <div class="col">
                 <mat-form-field class="full-width">
                   <input matInput placeholder="Code" formControlName="code">
@@ -84,20 +85,6 @@
                 </mat-form-field>
               </div>
               <div class="col">
-                <input id="fileToUpload" placeholder="Photo Upload" formControlName="photoupload" type="file" >
-                <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
-                 Photo Upload is <strong>required</strong>
-               </mat-error>
-               </div>
-              <!-- <div class="col">
-                <mat-form-field class="full-width">
-                  <input matInput placeholder="Photo Upload" formControlName="photoupload">
-                  <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
-                    Photo Upload is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-              </div> -->
-            <div class="col">
                 <mat-form-field>
                   <input matInput placeholder="Measurement" formControlName="measurement">
                   <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
@@ -105,6 +92,14 @@
                   </mat-error>
                 </mat-form-field>
               </div>
+               </div>  
+               <div class="row">              
+              <!-- <div class="col">
+                <input id="fileToUpload" placeholder="Photo Upload" formControlName="photoupload" type="file" >
+                <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
+                 Photo Upload is <strong>required</strong>
+               </mat-error>
+               </div> -->
             <div class="col">
                 <mat-form-field class="full-width">
                   <input matInput placeholder="Remark" formControlName="remark">
@@ -113,23 +108,8 @@
                   </mat-error>
                 </mat-form-field>
             </div>
-              </div>
-              <!-- <div class="col">
-               <mat-form-field class="full-width">
-                 <input matInput placeholder="Code" formControlName="code">
-                 <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
-                   Code is <strong>required</strong>
-                 </mat-error>
-               </mat-form-field>
-             </div> -->
-             <!-- <div class="col">
-               <mat-form-field class="full-width">
-                 <input matInput placeholder="Photo Upload" formControlName="photoupload">
-                 <mat-error *ngIf="leadTvUnitDetailForm.controls.detailform['controls']">
-                   Photo Upload is <strong>required</strong>
-                 </mat-error>
-               </mat-form-field>
-             </div>          -->      
+              </div>  
+               
        <div align="right">
         <button  mat-mini-fab color="primary" type="submit" (click)="addDetails()" aria-label="Delete icon">
            <mat-icon>add</mat-icon>
@@ -142,7 +122,7 @@
    <button type="button" (click)="onsubmitaddTVunitDetails()">Submit</button>
  </form>
  </ng-container>
- <!-- {{ leadTvUnitDetailForm.value | json}} -->
+ {{ leadTvUnitDetailForm.value | json}} 
 
  
 

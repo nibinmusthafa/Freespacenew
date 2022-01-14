@@ -89,7 +89,7 @@ export class BeddetailsComponent implements OnInit {
       edgebanding: [null, Validators.required],
       colour:[null, Validators.required],
       code: [null, Validators.required],
-      photoupload: [null, Validators.required],
+      // photoupload: [null, Validators.required],
       measurement: [null, Validators.required],
       remark: [null, Validators.required],
       })      
@@ -114,7 +114,7 @@ export class BeddetailsComponent implements OnInit {
       edgebanding: [null, Validators.required],
       colour:[null, Validators.required],
       code: [null, Validators.required],
-      photoupload: [null, Validators.required],
+      // photoupload: [null, Validators.required],
       measurement: [null, Validators.required],
       remark: [null, Validators.required],
     })
