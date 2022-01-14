@@ -11,9 +11,8 @@ import { LeadtoprojectDataSource, LeadtoprojectItem } from './leadtoproject-data
   templateUrl: './leadtoproject.component.html',
   styleUrls: ['./leadtoproject.component.css']
 })
+
 export class LeadtoprojectComponent implements AfterViewInit {
-
-
 
   leadsforprojects:leads[]=[]
   displayedColumns: string[] = ['id', 'customername','quotation_amount','manage'];
@@ -30,7 +29,7 @@ export class LeadtoprojectComponent implements AfterViewInit {
 
   listLeads(){
 
-    this.http.listLeadforProjects().subscribe(res=>{
+    this.http.listLeadbyProject().subscribe(res=>{
     //this.leadsbyfinance=res
     this.leadsforprojects=res
     console.log(res)

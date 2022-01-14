@@ -54,6 +54,8 @@ import { CreateprojectComponent } from './createproject/createproject.component'
 
 
 
+
+
 const routes: Routes = [
   {
     path: '',canActivate:[AuthGuard], component: DesignernavbarComponent,
@@ -98,14 +100,11 @@ const routes: Routes = [
     HingesComponent,
     HardwareComponent,
 
-
-
     LeadtoprojectComponent,
-
     CreateprojectComponent,
 
-  
 ],
+
   entryComponents:[
     AssignsupervisorComponent,
     FileuploadComponent,
