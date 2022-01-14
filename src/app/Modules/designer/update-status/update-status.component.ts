@@ -41,6 +41,7 @@ export class UpdateStatusComponent implements OnInit {
     if(id==7)
     this.qoutationForm=true
   }
+  
   checkbuttonStatus(){
 
   }

@@ -26,6 +26,38 @@ export interface icustomer {
   followup_date:Date;
   // leadsource_id:number;
 }
+
+export interface leads {     
+  customer_id: number,
+  phonenumber: number,
+  customername: string,
+  designer_id: number,
+  created_by: number,
+  status_id: number,
+  leadname: string,
+  description: string,
+  renovation: boolean,
+  leadsource_id: number,
+  supervisor_id: number,
+  updated_on: Date,
+  statusvalue: string;
+  followup_date:Date;
+  quotation_amount:number;
+}
+
+export interface isupervisors{
+  id: number,
+  name:string ,
+
+}
+export interface istatusforprojects{
+  id:number,
+  status_value:string,
+
+}
+// listsupervisors/
+// listdesigners/
+
 export interface ifinish{
   id:number;
   finish:string;
@@ -321,4 +353,14 @@ export class DesignerService {
   }
 
 
+  getDesignername():Observable<isupervisors[]>{
+    return this.http.get<isupervisors[]>(this.baseUrl+'listsupervisors/')
+  }
+
+  getSupervisorname():Observable<istatusforprojects[]>{
+    return this.http.get<istatusforprojects[]>(this.baseUrl+'api/projectstatus/')
+  }
+  addProjectdetails(data:any){
+    return this.http.post(this.baseUrl + 'api/addproject/',data)
+  }
 }

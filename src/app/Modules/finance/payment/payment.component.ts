@@ -80,6 +80,9 @@ quoteamount:any;
     this.http.addPaymentdetails(this.addressForm.value).subscribe(res=>
       console.log(res));
       this.statusUpdate();
+      this.addressForm.reset()
+      this.router.navigateByUrl('finance/financelead')
+
   }
 
   statusUpdate(){
