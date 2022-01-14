@@ -62,7 +62,6 @@ export class MeasurementComponent implements OnInit {
 
   onsubmitmeasurementdetails(){
 
-
     const fd = new FormData();
     fd.append('file_upload', this.File, this.fileName);
     fd.append('measurements', this.MeasurementForm.get('measurements')?.value)

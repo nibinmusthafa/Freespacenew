@@ -28,6 +28,7 @@ export class WardrobehingesComponent implements OnInit {
     return this.WardrobeHingesForm.get('detailform') as FormArray;
   }
 
+
   constructor(private fb: FormBuilder,  private route: ActivatedRoute,
     private http: DesignerService,) { }
 
@@ -38,19 +39,17 @@ export class WardrobehingesComponent implements OnInit {
       })
     } 
 
-
   ngOnInit(): void {
     this.listhingestypes();
   }
-
   onsubmitwardrobehingesdetails(){
     this.http.addwardrobehinges(this.WardrobeHingesForm.get('detailform').value).subscribe(res=>console.log(res))
   }
 
-
 }
 
 
+ 
 
 
 
