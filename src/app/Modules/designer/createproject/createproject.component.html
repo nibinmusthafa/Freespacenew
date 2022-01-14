@@ -1,0 +1,58 @@
+<form [formGroup]="addresssForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Create Project</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+     
+      <div class="row">
+        <div class="col">
+          <mat-label>Tentative Date</mat-label>
+            <input matInput #matdate [min]="minDate" [max]="maxDate" [matDatepicker]="picker" formControlName="tentative_date">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-dialog-actions>
+          </mat-dialog-actions>
+        </div>
+        <div class="col">
+          <mat-label>Completion  Date</mat-label>
+            <input matInput  #matdate [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" formControlName="completion_date">
+            <mat-datepicker-toggle matSuffix [for]="picker1">
+              <mat-icon matDatepickerToggleIcon>calendar_today</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-dialog-actions>
+          </mat-dialog-actions>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Supervisors" formControlName="supervisor_id">
+              <mat-option *ngFor="let paymentcategory of supervisors" [value]="paymentcategory.id">
+                {{ paymentcategory.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="addresssForm.controls['supervisor_id'].hasError('required')">
+              Supervisors <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+      </div>
+
+      <div class="row">
+
+      </div>
+      
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit"(click)="onSubmit()" >Submit</button>
+      <button mat-raised-button color="primary" (click)="Cancelprojects()" type="button">Cancel</button> 
+    </mat-card-actions>
+  </mat-card>
+
+</form>

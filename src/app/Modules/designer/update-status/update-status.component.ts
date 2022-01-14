@@ -21,7 +21,8 @@ export class UpdateStatusComponent implements OnInit {
 
   updateStatus = this.fb.group({
     status_id:[null,Validators.required],
-    quotation_amount:[null,Validators.required]
+    quotation_amount:[null,Validators.required],
+    quotation_flag:[1]
 
 
   }
@@ -39,10 +40,11 @@ export class UpdateStatusComponent implements OnInit {
   checkleadfinalised(id:any){
 
     this.qoutationForm=false
-    if(id==7 && id==5)
+    if(id==7)
     this.qoutationForm=true
 
   }
+  
   checkbuttonStatus(){
 
 

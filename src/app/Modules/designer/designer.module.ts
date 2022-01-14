@@ -47,7 +47,10 @@ import { DrawersComponent } from './Kitchensubcategories/kitchendrawers/drawers.
 import { BasketComponent } from './Kitchensubcategories/kitchenbasket/basket.component';
 import { HingesComponent } from './Kitchensubcategories/kitchenhinges/hinges.component';
 import { HardwareComponent } from './Kitchensubcategories/kitchenhardware/hardware.component';
-import { WardrobeshutterComponent } from './wardrobeshutter/wardrobeshutter.component'
+import { WardrobeshutterComponent } from './wardrobeshutter/wardrobeshutter.component';
+import { LeadtoprojectComponent } from './leadtoproject/leadtoproject.component';
+import { CreateprojectComponent } from './createproject/createproject.component';
+
 
 
 
@@ -65,6 +68,8 @@ const routes: Routes = [
       { path: "beddetails",canActivate:[AuthGuard],component:BeddetailsComponent },
       { path: "tvunitdetails",canActivate:[AuthGuard],component:TvunitdetailsComponent },
       { path: "wardrobedetails",canActivate:[AuthGuard],component:WardrobedetailsComponent },
+      { path: "leadtoproject",canActivate:[AuthGuard], component: LeadtoprojectComponent },
+      { path: "createproject/:id",canActivate:[AuthGuard], component: CreateprojectComponent },      
     ]
   }
 ];
@@ -96,6 +101,12 @@ const routes: Routes = [
     HardwareComponent,
 
     WardrobeshutterComponent,
+
+    LeadtoprojectComponent,
+
+    CreateprojectComponent,
+
+  
 ],
   entryComponents:[
     AssignsupervisorComponent,

@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <mat-select placeholder="Payment Type" formControlName="payment_category">
+            <mat-select placeholder="Payment Category" formControlName="payment_category">
               <mat-option *ngFor="let paymentcategory of paymentcategorys" [value]="paymentcategory.id">
                 {{ paymentcategory.payment_categoryname }}
               </mat-option>
@@ -61,7 +61,7 @@
       </div>  
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Submit</button>
+      <button mat-raised-button color="primary"[disabled]="addressForm.invalid" type="submit" (click)="onSubmit()">Submit</button>
     </mat-card-actions>
   </mat-card>
 </form>

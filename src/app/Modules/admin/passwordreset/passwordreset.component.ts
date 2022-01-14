@@ -43,7 +43,8 @@ resetPassword(){
     this.adminservice.updatePasswordbyid(this.userid,jsn).subscribe(res=>{
       console.log(res);
      alert("Updated successfully!!")
-      // window.location.reload()   
+     
+     this.router.navigateByUrl('admin/manageuser')  
     })
   
       }
