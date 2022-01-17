@@ -34,9 +34,9 @@
 </div>
 <div class="row">
   <div class="col">   
-    <div class="column-align">
+    <!-- <div class="column-align"> -->
     <!-- <input placeholder="Photo Upload" formControlName="file_upload"> -->
-    <button class="btn btn-secondary">
+    <button class="btn btn-outline-dark">
       <input type="file" id="exampleInputFile" (change)="onFileSelect($event)">
   </button>
   
@@ -47,9 +47,9 @@
           </mat-error> -->
          </div>
         </div>
-      </div>
+      <!-- </div> -->
         </mat-card-content>
     </mat-card>   
-      <button type="button" class="btn btn-dark" [disabled]="MeasurementForm.invalid"  (click)="onsubmitmeasurementdetails()">Submit</button>
+      <button type="button" class="btn btn-outline-dark" [disabled]="MeasurementForm.invalid"  (click)="onsubmitmeasurementdetails()">Submit</button>
 </form>
 <!-- {{MeasurementForm.value|json}} -->

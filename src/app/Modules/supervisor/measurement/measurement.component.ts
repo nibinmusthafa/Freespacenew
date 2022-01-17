@@ -25,7 +25,7 @@ export class MeasurementComponent implements OnInit {
     lead_id:[this.data.lead_id],
     measurements:[null, Validators.required],
     measurement_details: [null, Validators.required],
-    file_upload: [null ],
+    file_upload: [null],
     supervisor_id:null,
 
   });

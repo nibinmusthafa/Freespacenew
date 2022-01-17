@@ -1,0 +1,36 @@
+<div align="center" class="align1" id="htmlData">
+   <h1>Kitchendetails</h1>
+    <div class="col-md-8" >
+    <table class="center" class="table table-bordered">
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>partname</th>
+            <th>material</th>
+            <th>brands</th>
+            <th>edge_banding</th>
+            <th>colour</th>
+            <th>code</th>
+            <th>measurement</th>
+        </tr>
+        <tr *ngFor="let kitchen of kitchendetails">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{kitchen.partname}}</td>
+            <td>{{kitchen.materials}}</td>
+            <td>{{kitchen.brands}}</td>
+            <th>{{kitchen.edge_banding}}</th>
+            <td>{{kitchen.colour}}</td>
+            <td>{{kitchen.code}}</td>
+            <td>{{kitchen.measurement}}</td>
+
+
+        </tr>
+    </table>
+    </div>
+
+</div>
+
+    <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>  
+
+
+
+

@@ -52,6 +52,8 @@ import { WardrobebasketComponent } from './Wardrobesubcategories/wardrobebasket/
 import { WardrobehardwareComponent } from './Wardrobesubcategories/wardrobehardware/wardrobehardware.component';
 import { WardrobedrawersComponent } from './Wardrobesubcategories/wardrobedrawers/wardrobedrawers.component';
 import { WardrobehingesComponent } from './Wardrobesubcategories/wardrobehinges/wardrobehinges.component';
+import { SignoffHomeComponent } from './signoff-home/signoff-home.component';
+import { SignoffDetailComponent } from './signoff-detail/signoff-detail.component';
 
 
 
@@ -72,7 +74,10 @@ const routes: Routes = [
       { path: "tvunitdetails",canActivate:[AuthGuard],component:TvunitdetailsComponent },
       { path: "wardrobedetails",canActivate:[AuthGuard],component:WardrobedetailsComponent },
       { path: "leadtoproject",canActivate:[AuthGuard], component: LeadtoprojectComponent },
-      { path: "createproject/:id",canActivate:[AuthGuard], component: CreateprojectComponent },      
+      { path: "createproject/:id",canActivate:[AuthGuard], component: CreateprojectComponent },
+      { path: "signoffhome",canActivate:[AuthGuard], component: SignoffHomeComponent },
+      { path: "signoffdetail/:id",canActivate:[AuthGuard], component: SignoffDetailComponent }, 
+           
     ]
   }
 ];
@@ -108,6 +113,8 @@ const routes: Routes = [
     WardrobehardwareComponent,
     WardrobedrawersComponent,
     WardrobehingesComponent,
+    SignoffHomeComponent,
+    SignoffDetailComponent,
   
 ],
 

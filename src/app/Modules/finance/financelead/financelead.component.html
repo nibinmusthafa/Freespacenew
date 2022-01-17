@@ -17,6 +17,10 @@
       <th mat-header-cell *matHeaderCellDef ><h3 class="mat-subheading-2 font-weight-bold">Quotation Amount</h3></th>
       <td mat-cell *matCellDef="let row">{{row.quotation_amount}}</td>
     </ng-container>
+    <ng-container matColumnDef="phonenumber">
+      <th mat-header-cell *matHeaderCellDef ><h3 class="mat-subheading-2 font-weight-bold">Phone Number</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.phonenumber}}</td>
+    </ng-container>
     <ng-container matColumnDef="manage" >
       <th mat-header-cell *matHeaderCellDef><h3 class="mat-subheading-2 font-weight-bold">Manage</h3></th>
       <td mat-cell *matCellDef="let row" >

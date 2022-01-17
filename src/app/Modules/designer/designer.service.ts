@@ -27,6 +27,28 @@ export interface icustomer {
   // leadsource_id:number;
 }
 
+
+export interface kitchendetails{
+  id:number;
+  lead_id:number;
+  lead_category_id:number;
+  part:number;
+  partname:string;
+  material:number;
+  finish:number;
+  materials:string;
+  finishs:string;
+  typesize:string;
+  brand:number;
+  brands:string;
+  edge_banding
+  colour:string;
+  code:string;
+  measurement:string;
+  remark:string;
+
+}
+
 export interface leads {     
   customer_id: number,
   phonenumber: number,
@@ -44,6 +66,9 @@ export interface leads {
   followup_date:Date;
   quotation_amount:number;
 }
+
+
+
 
 export interface isupervisors{
   id: number,
@@ -363,7 +388,28 @@ export class DesignerService {
 
   listLeadbyProject():Observable<leads[]>{
     return this.http.get<leads[]>(this.baseUrl + 'api/listleadsforprojects/');
+  }
+
+  addfiledetails(data:any){
+      return this.http.post(this.baseUrl + 'api/addimagedesigner/',data)
+    }
+
+    listLeadbyfinance(): Observable<leads[]> {
+      return this.http.get<leads[]>(this.baseUrl + 'listleadsforfinance/');
+    }
+
+    listLeadsforsignoff(): Observable<leads[]> {
+      return this.http.get<leads[]>(this.baseUrl + 'listleadsforfinance/');
+    }
+
+    listKitchendetails(id:any): Observable<kitchendetails[]> {
+      return this.http.get<kitchendetails[]>(this.baseUrl + 'api/listkitchendetails/'+id+'/');
+    } 
+
+    listWardrobedetails(id:any): Observable<kitchendetails[]> {
+      return this.http.get<kitchendetails[]>(this.baseUrl + 'api/listwardrobedetails/'+id+'/');
+    } 
 
   }
 
-}
+

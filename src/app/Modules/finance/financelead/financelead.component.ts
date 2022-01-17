@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 export class FinanceleadComponent implements AfterViewInit {
   
   leadsbyfinance:leads[]=[]
-  displayedColumns: string[] = ['id', 'customername','quotation_amount','manage'];
+  displayedColumns: string[] = ['id', 'customername','quotation_amount','phonenumber','manage'];
   dataSource: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
