@@ -37,9 +37,10 @@ export class LeadtoprojectComponent implements AfterViewInit {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     })
+
+    
   }
 
- 
   ngAfterViewInit(): void {
     // this.dataSource.sort = this.sort;
     // this.dataSource.paginator = this.paginator;

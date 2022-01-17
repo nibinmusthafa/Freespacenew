@@ -12,10 +12,11 @@ import { DesignerService,  istatusforprojects,  isupervisors } from '../designer
 })
 export class CreateprojectComponent {
 
-
+  lead:any;
   statuses:istatusforprojects[]=[];
   supervisors:isupervisors[]=[];
   pipe = new DatePipe('en-US');
+  customer_id:any;
 
   currentUser:any;
   minDate: Date;
@@ -28,6 +29,7 @@ export class CreateprojectComponent {
   user_id: this.getCurrentuser(),
   supervisor_id: [null, Validators.required],
   designer_id: this.getCurrentuser(),
+  customer_id:null,
   status_id: 1,
 
   });
@@ -75,6 +77,7 @@ export class CreateprojectComponent {
 
     ngOnInit(){
      this.listDesigners()
+     this.getlead()
     //  this.listProjectsstatus()
       
     }
@@ -95,6 +98,21 @@ export class CreateprojectComponent {
     return JSON.parse(this.currentUser)?.id 
 
   }
+
+
+  getlead(){
+    this.http.getLead(this.route.snapshot.paramMap.get('id')).subscribe(res=>{
+      this.lead=res
+      console.log(res);
+      this.addresssForm.get('customer_id').setValue(this.lead.customer_id) 
+      console.log(this.lead.customer_id) 
+      this.customer_id=res.customer_id
+      console.log('hai')   
+    })
+
+    }
+
+
   onSubmit(): void {
   
 
@@ -106,14 +124,30 @@ export class CreateprojectComponent {
       completion_date:this.pipe.transform(this.addresssForm.getRawValue().completion_date, 'MM/dd/yyyy'),
       tentative_date:this.pipe.transform(this.addresssForm.getRawValue().tentative_date, 'MM/dd/yyyy'),
       status_id: 1,
+      customer_id:this.customer_id
     }
 
     this.http.addProjectdetails(data).subscribe(res=>
     console.log(res));
+    console.log(data);
     alert('PROJECT CREATED SUCCESSFULLY!!!!');
+    this.updatestatus();
     this.addresssForm.reset()
     this.router.navigateByUrl('designer/leadtoproject')
+   
   }
+  updatestatus(){
+    let data={
+      status_id:18
+    }
+    this.http.updateStatus(this.route.snapshot.paramMap.get('id'),data).subscribe(res=>{
+      console.log(res)
+      window.location.reload()
+    })
+  }
+   
+
+
 }
 
 

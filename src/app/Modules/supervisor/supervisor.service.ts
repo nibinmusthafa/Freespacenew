@@ -26,6 +26,20 @@ export interface icustomer {
   // leadsource_id:number;
 }
 
+export interface iproject {
+  id: number,
+  completion_date: number,
+  tentative_date: number,
+  lead_id: number,
+  user_id: number,
+  supervisor_id: number,
+  designer_id: number,
+  customer_id:number,
+  customername:string,
+
+}
+
+
 export interface isupervisor {
   id: number;
   name: string
@@ -128,6 +142,14 @@ export class SupervisorService {
   addmeasurementdetails(data:any){
       return this.http.post(this.baseUrl + 'api/addmeasurementdetails/',data)
     }
+  
+
+  listprojectsforsupervisors(): Observable<iproject[]> {
+    return this.http.get<iproject[]>(this.baseUrl + 'api/listproject/');
+  }
+  // getlead(){
+  //   return this.http.get(this.baseUrl + 'api/listproject/');
+  // }
 
   }
 
