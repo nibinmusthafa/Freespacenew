@@ -18,37 +18,37 @@ export class BeddetailsComponent implements OnInit {
   
    url="./assets/img/user.jpg"
 
-  onFileSelected(event){    
-    const file = event.target.files[0];
-    console.log(file); 
-    if(event.target.files){
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      reader.onload=(events:any)=>{
-         this.url=events.target.result;
-      }
-    }
-}
+//   onFileSelected(event){    
+//     const file = event.target.files[0];
+//     console.log(file); 
+//     if(event.target.files){
+//       var reader = new FileReader();
+//       reader.readAsDataURL(event.target.files[0]);
+//       reader.onload=(events:any)=>{
+//          this.url=events.target.result;
+//       }
+//     }
+// }
   
-  onUpload(){
-    const fd = new FormData();
-    fd.append('file', this.File, this.fileName);
+  // onUpload(){
+  //   const fd = new FormData();
+  //   fd.append('file', this.File, this.fileName);
 
-    // this.https.post().subscribe(res => {
-    //   console.log(res);
-    //   this.response = res
+  //   // this.https.post().subscribe(res => {
+  //   //   console.log(res);
+  //   //   this.response = res
       
-      // if (res.type == HttpEventType.UploadProgress) {
-      //   this.uploadProgress = Math.round(100 * (event.loaded/event.total));
-      // }
+  //     // if (res.type == HttpEventType.UploadProgress) {
+  //     //   this.uploadProgress = Math.round(100 * (event.loaded/event.total));
+  //     // }
    
-    // this.http.request(Upload$).subscribe(event => {
-    //   if (event.type == HttpEventType.UploadProgress) {
-    //     this.uploadProgress = Math.round(100 * (event.loaded/event.total));
-    //   }
-    // })
-    // }
-  }
+  //   // this.http.request(Upload$).subscribe(event => {
+  //   //   if (event.type == HttpEventType.UploadProgress) {
+  //   //     this.uploadProgress = Math.round(100 * (event.loaded/event.total));
+  //   //   }
+  //   // })
+  //   // }
+  // }
 
 
   selectedFile:File=null;

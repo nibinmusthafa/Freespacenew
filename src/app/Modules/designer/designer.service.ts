@@ -69,9 +69,44 @@ export interface iwardrobedetails{
   measurement: number,
   remark: string,
  
-
-
 }
+export interface ibeddetails{
+  lead_id: number,
+  lead_category_id: number,
+  item_name: number,
+  finishs: string,
+  type: number,
+  brands: string,
+  types: string,
+  finish: number,
+  brand: number,
+  typesizes: string,
+  typesize: number,
+  edgebanding: string,
+  colour: string,
+  code: number,
+  measurement: number,
+  remark: string,
+ 
+}
+export interface itvunitdetails{
+  lead_id: number,
+  lead_category_id: number,
+  material: number,
+  materials: string,
+  finishs: string,
+  finish: number,
+  brand: number,
+  brands: string,
+  edgebanding:string,
+  colour: string,
+  code: number,
+  measurement: string,
+  remark: string,
+ 
+}
+
+
 
 export interface icountertopdetails{
   lead_id: number,
@@ -574,6 +609,13 @@ export class DesignerService {
     } 
     listwardrobehardwaredetails(id:any): Observable<iwardrobehardwaredetails[]> {
       return this.http.get<iwardrobehardwaredetails[]>(this.baseUrl + 'api/listwardrobehardware/'+id+'/');
+
+    }
+    listbeddetails(id:any): Observable<ibeddetails[]> {
+      return this.http.get<ibeddetails[]>(this.baseUrl + 'api/listbeddetails/'+id+'/');
+    }
+    listtvunitdetails(id:any): Observable<itvunitdetails[]> {
+      return this.http.get<itvunitdetails[]>(this.baseUrl + 'api/listtvcrockery/'+id+'/');
     }
 
   }

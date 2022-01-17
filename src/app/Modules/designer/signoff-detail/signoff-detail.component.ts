@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { DesignerService, icountertopdetails, icpfittingdetails, ikitcehnhardwaredetails, ikitchenbasketdetails, ikitchendrawersdetails, ikitchenhingesdetails, isinkdetails, itilesdetails, iwardrobebasketdetails, iwardrobedetails, iwardrobedrawersdetails, iwardrobehardwaredetails, iwardrobehingesdetails, kitchendetails } from '../designer.service';
+import { DesignerService, ibeddetails, icountertopdetails, icpfittingdetails, ikitcehnhardwaredetails, ikitchenbasketdetails, ikitchendrawersdetails, ikitchenhingesdetails, isinkdetails, itilesdetails, itvunitdetails, iwardrobebasketdetails, iwardrobedetails, iwardrobedrawersdetails, iwardrobehardwaredetails, iwardrobehingesdetails, kitchendetails } from '../designer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -26,6 +26,8 @@ export class SignoffDetailComponent implements OnInit {
   wardrobehinges:iwardrobehingesdetails[]=[];
   wardrobehardware:iwardrobehardwaredetails[]=[];
   wardrobedrawers:iwardrobedrawersdetails[]=[];
+  beddetails:ibeddetails[]=[];
+  tvdetails:itvunitdetails[]=[];
 
 
   @ViewChild('content') content: ElementRef; 
@@ -132,6 +134,18 @@ export class SignoffDetailComponent implements OnInit {
       console.log(res)
     })
   }
+  loadbeddetails(){
+    this.http.listbeddetails(this.routeee.snapshot.paramMap.get('id'),).subscribe(res=>{
+      this.beddetails=res
+      console.log(res)
+    })
+  }
+  loadtvunitdetails(){
+    this.http.listtvunitdetails(this.routeee.snapshot.paramMap.get('id'),).subscribe(res=>{
+      this.tvdetails=res
+      console.log(res)
+    })
+  }
 
 
 
@@ -150,6 +164,9 @@ export class SignoffDetailComponent implements OnInit {
     this.loadwardrobehingesdetails();
     this.loadwardrobedrawersdetails();
     this.loadwardrobehardwaredetails();
+    this.loadbeddetails();
+    this.loadtvunitdetails();
+
 
   }
 

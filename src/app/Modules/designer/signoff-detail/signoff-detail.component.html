@@ -1,7 +1,7 @@
 <div align="center" class="align1" id="htmlData">
+<ng-container *ngIf="kitchendetails.length > 0">
    <h1 style="color:black;font-size:30px;"><b>KITCHEN DETAILS</b></h1>
-    <div class="col-md-8" >
-    <table class="center" class="table table-bordered">
+    <table class="center" class="table table-bordered">  
         <tr class="table-primary">
             <!-- <th>Id</th> -->
             <th>Partname</th>
@@ -21,10 +21,13 @@
             <td>{{kitchen.colour}}</td>
             <td>{{kitchen.code}}</td>
             <td>{{kitchen.measurement}}</td>
-        </tr>
+        </tr> 
     </table>
+</ng-container>
+    <ng-container *ngIf="countertopdetails.length > 0">
     <h1 style="color:black;font-size:15px;"><b>Kitchen Countertop Details</b></h1>
     <table class="center" class="table table-bordered">
+
         <tr class="table-primary">
             <!-- <th>Id</th> -->
             <th>Material</th>
@@ -41,9 +44,13 @@
             <td>{{kitchencountertop.remark}}</td>
             
         </tr>
+
     </table>
+</ng-container>
+    <ng-container *ngIf="countertopdetails.length > 0">
     <h1 style="color:black;font-size:15px;"><b>Kitchen Sink Details</b></h1>
     <table class="center" class="table table-bordered">
+
         <tr class="table-primary">
             <!-- <th>Id</th> -->
             <th>Brand</th>
@@ -60,9 +67,14 @@
             <td>{{kitchensink.remark}}</td>
             
         </tr>
+
     </table>
+</ng-container>
+
+<ng-container *ngIf="cpfittingdetails.length > 0"> 
     <h1 style="color:black;font-size:15px;"><b>Kitchen CPFitting Details</b></h1>
     <table class="center" class="table table-bordered">
+ 
         <tr class="table-primary">
             <!-- <th>Id</th> -->
             <th>Brand</th>
@@ -79,9 +91,14 @@
             <td>{{kitchencpfitting.remark}}</td>
             
         </tr>
+      
     </table>
+</ng-container>
+
+<ng-container *ngIf="tilesdetails.length > 0">
     <h1 style="color:black;font-size:15px;"><b>Kitchen Tiles Details</b></h1>
     <table class="center" class="table table-bordered">
+
         <tr class="table-primary">
             <!-- <th>Id</th> -->
             <th>Brand</th>
@@ -98,16 +115,18 @@
             <td>{{kitchentile.remark}}</td>
             
         </tr>
+
     </table>
+</ng-container>
+
+<ng-container *ngIf="kitchendrawers.length > 0">
     <h1 style="color:black;font-size:15px;"><b>Kitchen Drawers Details</b></h1>
     <table class="center" class="table table-bordered">
         <tr class="table-primary">
             <!-- <th>Id</th> -->
             <th>Brand</th>
             <th>Units</th>
-            <th>Remark</th>
-            
-            
+            <th>Remark</th>           
         </tr>
         <tr *ngFor="let kitchendrawers of kitchendrawers">
             <!-- <th>{{kitchen.id}}</th> -->
@@ -117,15 +136,16 @@
             
         </tr>
     </table>
+</ng-container>
+<ng-container *ngIf="kitchenbasket.length > 0">
     <h1 style="color:black;font-size:15px;"><b>Kitchen Basket Details</b></h1>
     <table class="center" class="table table-bordered">
+
         <tr class="table-primary">
             <!-- <th>Id</th> -->
             <th>Brand</th>
             <th>Units</th>
-            <th>Remark</th>
-            
-            
+            <th>Remark</th>         
         </tr>
         <tr *ngFor="let kitbasket of kitchenbasket">
             <!-- <th>{{kitchen.id}}</th> -->
@@ -134,9 +154,14 @@
             <td>{{kitbasket.remark}}</td>
             
         </tr>
+
     </table>
+</ng-container>
+
+<ng-container *ngIf="kitchenhinges.length > 0">
     <h1 style="color:black;font-size:15px;"><b>Kitchen Hinges Details</b></h1>
     <table class="center" class="table table-bordered">
+
         <tr class="table-primary">
             <!-- <th>Id</th> -->
             <th>Brand</th>
@@ -153,8 +178,11 @@
             
         </tr>
     </table>
+</ng-container>
+<ng-container *ngIf="kitchenhardware.length > 0">
     <h1 style="color:black;font-size:15px;"><b>Kitchen Hardware Details</b></h1>
     <table class="center" class="table table-bordered">
+
         <tr class="table-primary">
             <!-- <th>Id</th> -->
             <th>Brand</th>
@@ -168,13 +196,12 @@
             
         </tr>
     </table>
-    <div>
-
-    </div>
-   
+</ng-container>
+<ng-container *ngIf="wardrobedetails.length > 0">
     <h1 style="color:black;font-size:30px;"><b>WARDROBE DETAILS</b></h1>
    
      <table class="center" class="table table-bordered">
+        
          <tr class="table-primary">
              <!-- <th>Id</th> -->
              <th>Part</th>
@@ -201,9 +228,13 @@
              <td>{{wardrobe.measurement}}</td>
              <td>{{wardrobe.remark}}</td>
          </tr>
-     </table>
+       
+     </table>  
+    </ng-container>
+     <ng-container *ngIf="wardrobebasket.length > 0">
      <h1 style="color:black;font-size:15px;"><b>Wardrobe Basket Details</b></h1>
      <table class="center" class="table table-bordered">
+        <!-- <ng-container *ngIf="wardrobebasket.length > 0"> -->
          <tr class="table-primary">
              <!-- <th>Id</th> -->
              <th>Brand</th>
@@ -219,9 +250,13 @@
              <td>{{basket.remark}}</td>
              
          </tr>
+         
      </table>
+     </ng-container>
+     <ng-container *ngIf="wardrobehinges.length > 0">
      <h1 style="color:black;font-size:15px;"><b>Wardrobe Hinges Details</b></h1>
      <table class="center" class="table table-bordered">
+        
          <tr class="table-primary">
              <!-- <th>Id</th> -->
              <th>Brand</th>
@@ -237,8 +272,11 @@
              
          </tr>
      </table>
+    </ng-container>
+     <ng-container *ngIf="wardrobedrawers.length > 0">
      <h1 style="color:black;font-size:15px;"><b>Wardrobe Drawers Details</b></h1>
      <table class="center" class="table table-bordered">
+
          <tr class="table-primary">
              <!-- <th>Id</th> -->
              <th>Brand</th>
@@ -253,9 +291,14 @@
              <td>{{drawers.remark}}</td>
              
          </tr>
+   
      </table>
+    </ng-container>
+
+    <ng-container *ngIf="wardrobehardware.length > 0">
      <h1 style="color:black;font-size:15px;"><b>Wardrobe Hardware Details</b></h1>
      <table class="center" class="table table-bordered">
+
          <tr class="table-primary">
              <!-- <th>Id</th> -->
              <th>Brand</th>
@@ -268,13 +311,67 @@
              <td>{{hardware.remark}}</td> 
                         
          </tr>
+        
      </table>
- 
-
-</div>
-
-</div>
-
+    </ng-container>
+    <ng-container *ngIf="beddetails.length > 0">
+    <h1 style="color:black;font-size:30px;"><b>BED DETAILS</b></h1>
+   
+    <table class="center" class="table table-bordered">
+     
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>Finish</th>
+            <th>Brands</th>
+            <th>Types</th>
+            <th>Type size</th>
+            <th>Edge Banding</th>
+            <th>Colour</th>
+            <th>Remark</th>
+        </tr>
+        <tr *ngFor="let bed of beddetails">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{bed.finishs}}</td>
+            <td>{{bed.brands}}</td>
+            <td>{{bed.types}}</td>
+            <td>{{bed.typesizes}}</td>
+            <td>{{bed.edgebanding}}</td>
+            <td>{{bed.colour}}</td>
+            <td>{{bed.code}}</td>
+            <td>{{bed.remark}}</td>
+        </tr>
+   
+    </table> 
+</ng-container>  
+<ng-container *ngIf="tvdetails.length > 0"> 
+    <h1 style="color:black;font-size:30px;"><b>TV UNIT DETAILS</b></h1>
+   
+    <table class="center" class="table table-bordered">
+       
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>Material</th>
+            <th>Finish</th>
+            <th>Brands</th>
+            <th>Edge Banding</th>
+            <th>Colour</th>
+            <th>Measurement</th>
+            <th>Remark</th>        
+        </tr>
+        <tr *ngFor="let bed of tvdetails">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{bed.materials}}</td>
+            <td>{{bed.finishs}}</td>
+            <td>{{bed.brands}}</td>
+            <td>{{bed.edgebanding}}</td>
+            <td>{{bed.colour}}</td>
+            <td>{{bed.code}}</td>
+            <td>{{bed.measurement}}</td>
+            <td>{{bed.remark}}</td>
+        </tr> 
+    </table>
+</ng-container>
+   </div>
 
 <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>  
 
