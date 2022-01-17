@@ -157,25 +157,31 @@
        <section class="example-section">
         <mat-checkbox id="drawers" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked1">Drawers</mat-checkbox><br>
         <ng-container *ngIf="checked1">
+
           <app-wardrobedrawers></app-wardrobedrawers>
-        </ng-container>  
+          </ng-container>
+
         </section>
         <section class="example-section">
           <mat-checkbox id="hardware" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked2">Hardware</mat-checkbox><br>
           <ng-container *ngIf="checked2">
+
             <app-wardrobehardware></app-wardrobehardware>
+
           </ng-container>  
           </section>
           <section class="example-section">
             <mat-checkbox id="hinges" type="checkbox" [ngModelOptions]="{standalone: true}" class="example-margin" [(ngModel)]="checked3">Hinges</mat-checkbox><br>
             <ng-container *ngIf="checked3">
+
               <app-wardrobehinges></app-wardrobehinges>  
+
             </ng-container>  
             </section>
        </div>
        </div>
     </ng-container>
  </form>
- </ng-container>
+
  {{ leadWardrobeDetailForm.value | json }}
 

@@ -121,6 +121,11 @@ const routes: Routes = [
     ViewmeasurementdetailsComponent,
    
   
+
+    LeadtoprojectComponent,
+    CreateprojectComponent,
+
+
 ],
 
   entryComponents:[

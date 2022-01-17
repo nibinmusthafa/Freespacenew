@@ -540,9 +540,22 @@ export class DesignerService {
     return this.http.post(this.baseUrl + 'api/addtilesdetails/',data)
   }
 
+
+
+  listLeadforProjects(): Observable<leads[]> {
+    return this.http.get<leads[]>(this.baseUrl + 'api/listleadsforprojects/');
+  }
+
+  // listLeadbyProject():Observable<projectlead[]>{
+
+
+  //   return this.http.get<projectlead[]>(this.baseUrl + 'api/listleadforprojects/');
+  // }
+
   addProject(data:any){
     return this.http.post(this.baseUrl + 'api/addproject/',data)
   }
+
 
   getDesignername():Observable<isupervisors[]>{
     return this.http.get<isupervisors[]>(this.baseUrl+'listsupervisors/')
@@ -557,6 +570,7 @@ export class DesignerService {
 
   listLeadbyProject():Observable<leads[]>{
     return this.http.get<leads[]>(this.baseUrl + 'api/listleadsforprojects/');
+
   }
 
   addfiledetails(data:any){
@@ -626,6 +640,7 @@ export class DesignerService {
     }
     listmeasurementdetails(id:any): Observable<imeasurementdetails[]> {
       return this.http.get<imeasurementdetails[]>(this.baseUrl + 'api/listmeasurementdetails/'+id+'/');
+
 
   }
 
