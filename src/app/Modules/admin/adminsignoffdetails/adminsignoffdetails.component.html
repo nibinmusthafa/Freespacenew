@@ -1,0 +1,347 @@
+<div align="center" class="align1 col-md-12" id="htmlData">
+    <ng-container *ngIf="kitchendetails.length > 0">
+       <h1 style="color:black;font-size:30px;"><b>KITCHEN DETAILS</b></h1>
+        <table class="center" class="table table-bordered">  
+            <tr class="table-primary">
+                <th>Partname</th>
+                <th>Material</th>
+                <th>Brands</th>
+                <th>Edge_banding</th>
+                <th>Colour</th>
+                <th>Code</th>
+                <th>Measurement</th>
+            </tr>
+            <tr *ngFor="let kitchen of kitchendetails">
+
+                <td>{{kitchen.partname}}</td>
+                <td>{{kitchen.materials}}</td>
+                <td>{{kitchen.brands}}</td>
+                <td>{{kitchen.edge_banding}}</td>
+                <td>{{kitchen.colour}}</td>
+                <td>{{kitchen.code}}</td>
+                <td>{{kitchen.measurement}}</td>
+            </tr> 
+        </table>
+    </ng-container>
+        <ng-container *ngIf="countertopdetails.length > 0">
+        <h1 style="color:black;font-size:15px;"><b>Kitchen Countertop Details</b></h1>
+        <table class="center" class="table table-bordered">
+    
+            <tr class="table-primary">
+                <th>Material</th>
+                <th>Materials</th>
+                <th>Colour</th>
+                <th>Remark</th>
+                
+            </tr>
+            <tr *ngFor="let kitchencountertop of countertopdetails">
+
+                <td>{{kitchencountertop.material}}</td>
+                <td>{{kitchencountertop.materials}}</td>
+                <td>{{kitchencountertop.colour}}</td>
+                <td>{{kitchencountertop.remark}}</td>
+                
+            </tr>
+    
+        </table>
+    </ng-container>
+        <ng-container *ngIf="countertopdetails.length > 0">
+        <h1 style="color:black;font-size:15px;"><b>Kitchen Sink Details</b></h1>
+        <table class="center" class="table table-bordered">
+    
+            <tr class="table-primary">
+                <th>Brand</th>
+                <th>Colour</th>
+                <th>Size</th>
+                <th>Remark</th>
+                
+            </tr>
+            <tr *ngFor="let kitchensink of sinkdetails">
+                <td>{{kitchensink.brand}}</td>
+                <td>{{kitchensink.colour}}</td>
+                <td>{{kitchensink.size}}</td>
+                <td>{{kitchensink.remark}}</td>
+                
+            </tr>
+    
+        </table>
+    </ng-container>
+    
+    <ng-container *ngIf="cpfittingdetails.length > 0"> 
+        <h1 style="color:black;font-size:15px;"><b>Kitchen CPFitting Details</b></h1>
+        <table class="center" class="table table-bordered">
+     
+            <tr class="table-primary">
+                <th>Brand</th>
+                <th>Colour</th>
+                <th>Size</th>
+                <th>Remark</th>
+                
+            </tr>
+            <tr *ngFor="let kitchencpfitting of cpfittingdetails">
+                <td>{{kitchencpfitting.brand}}</td>
+                <td>{{kitchencpfitting.colour}}</td>
+                <td>{{kitchencpfitting.size}}</td>
+                <td>{{kitchencpfitting.remark}}</td>
+                
+            </tr>
+          
+        </table>
+    </ng-container>
+    
+    <ng-container *ngIf="tilesdetails.length > 0">
+        <h1 style="color:black;font-size:15px;"><b>Kitchen Tiles Details</b></h1>
+        <table class="center" class="table table-bordered">
+    
+            <tr class="table-primary">
+                <th>Brand</th>
+                <th>Colour</th>
+                <th>Size</th>
+                <th>Remark</th>
+                
+            </tr>
+            <tr *ngFor="let kitchentile of tilesdetails">
+                <td>{{kitchentile.brand}}</td>
+                <td>{{kitchentile.colour}}</td>
+                <td>{{kitchentile.size}}</td>
+                <td>{{kitchentile.remark}}</td>
+                
+            </tr>
+    
+        </table>
+    </ng-container>
+    
+    <ng-container *ngIf="kitchendrawers.length > 0">
+        <h1 style="color:black;font-size:15px;"><b>Kitchen Drawers Details</b></h1>
+        <table class="center" class="table table-bordered">
+            <tr class="table-primary">
+                <th>Brand</th>
+                <th>Units</th>
+                <th>Remark</th>           
+            </tr>
+            <tr *ngFor="let kitchendrawers of kitchendrawers">
+                <td>{{kitchendrawers.brand}}</td>
+                <td>{{kitchendrawers.units}}</td>
+                <td>{{kitchendrawers.remark}}</td>
+                
+            </tr>
+        </table>
+    </ng-container>
+    <ng-container *ngIf="kitchenbasket.length > 0">
+        <h1 style="color:black;font-size:15px;"><b>Kitchen Basket Details</b></h1>
+        <table class="center" class="table table-bordered">
+    
+            <tr class="table-primary">
+                <th>Brand</th>
+                <th>Units</th>
+                <th>Remark</th>         
+            </tr>
+            <tr *ngFor="let kitbasket of kitchenbasket">
+                <td>{{kitbasket.brand}}</td>
+                <td>{{kitbasket.units}}</td>
+                <td>{{kitbasket.remark}}</td>
+                
+            </tr>
+    
+        </table>
+    </ng-container>
+    
+    <ng-container *ngIf="kitchenhinges.length > 0">
+        <h1 style="color:black;font-size:15px;"><b>Kitchen Hinges Details</b></h1>
+        <table class="center" class="table table-bordered">
+    
+            <tr class="table-primary">
+                <th>Brand</th>
+                <th>Hinge Type</th>
+                <th>Type</th>
+                <th>Remark</th>
+            </tr>
+            <tr *ngFor="let kitchenhinge of kitchenhinges">
+                <td>{{kitchenhinge.brand}}</td>
+                <td>{{kitchenhinge.hingetype}}</td>
+                <td>{{kitchenhinge.typessss}}</td>
+                <td>{{kitchenhinge.remark}}</td>
+                
+            </tr>
+        </table>
+    </ng-container>
+    <ng-container *ngIf="kitchenhardware.length > 0">
+        <h1 style="color:black;font-size:15px;"><b>Kitchen Hardware Details</b></h1>
+        <table class="center" class="table table-bordered">
+    
+            <tr class="table-primary">
+                <th>Brand</th>
+                <th>Remark</th>          
+                
+            </tr>
+            <tr *ngFor="let kithardware of kitchenhardware">
+                <td>{{kithardware.brand}}</td>
+                <td>{{kithardware.remark}}</td>
+                
+            </tr>
+        </table>
+    </ng-container>
+    <ng-container *ngIf="wardrobedetails.length > 0">
+        <h1 style="color:black;font-size:30px;"><b>WARDROBE DETAILS</b></h1>
+       
+         <table class="center" class="table table-bordered">
+            
+             <tr class="table-primary">
+                 <th>Part</th>
+                 <th>Types</th>
+                 <th>Type size</th>
+                 <th>Materials</th>
+                 <th>Finish</th>
+                 <th>Edge Banding</th>
+                 <th>Colour</th>
+                 <th>Code</th>
+                 <th>Measurement</th>
+                 <th>Remark</th>
+             </tr>
+             <tr *ngFor="let wardrobe of wardrobedetails">
+                 <td>{{wardrobe.Part}}</td>
+                 <td>{{wardrobe.types}}</td>
+                 <td>{{wardrobe.typesizess}}</td>
+                 <td>{{wardrobe.materials}}</td>
+                 <td>{{wardrobe.finishes}}</td>
+                 <td>{{wardrobe.edgebanding}}</td>
+                 <td>{{wardrobe.colour}}</td>
+                 <td>{{wardrobe.code}}</td>
+                 <td>{{wardrobe.measurement}}</td>
+                 <td>{{wardrobe.remark}}</td>
+             </tr>
+           
+         </table>  
+        </ng-container>
+         <ng-container *ngIf="wardrobebasket.length > 0">
+         <h1 style="color:black;font-size:15px;"><b>Wardrobe Basket Details</b></h1>
+         <table class="center" class="table table-bordered">
+             <tr class="table-primary">
+                 <th>Brand</th>
+                 <th>Units</th>
+                 <th>Colour</th>
+                 <th>Remark</th> 
+                 
+             </tr>
+             <tr *ngFor="let basket of wardrobebasket">
+                 <td>{{basket.brand}}</td>
+                 <td>{{basket.units}}</td>
+                 <td>{{basket.remark}}</td>
+                 
+             </tr>
+             
+         </table>
+         </ng-container>
+         <ng-container *ngIf="wardrobehinges.length > 0">
+         <h1 style="color:black;font-size:15px;"><b>Wardrobe Hinges Details</b></h1>
+         <table class="center" class="table table-bordered">
+            
+             <tr class="table-primary">
+                 <th>Brand</th>
+                 <th>Hinge Type</th>
+                 <th>Remark</th>
+                 
+             </tr>
+             <tr *ngFor="let wardrobehinge of wardrobehinges">
+                 <td>{{wardrobehinge.brand}}</td>
+                 <td>{{wardrobehinge.hingetypes}}</td>
+                 <td>{{wardrobehinge.remark}}</td>
+                 
+             </tr>
+         </table>
+        </ng-container>
+         <ng-container *ngIf="wardrobedrawers.length > 0">
+         <h1 style="color:black;font-size:15px;"><b>Wardrobe Drawers Details</b></h1>
+         <table class="center" class="table table-bordered">
+    
+             <tr class="table-primary">
+                 <th>Brand</th>
+                 <th>Unit</th>
+                 <th>Remark</th>
+                 
+             </tr>
+             <tr *ngFor="let drawers of wardrobedrawers">
+                 <td>{{drawers.brand}}</td>
+                 <td>{{drawers.unit}}</td>
+                 <td>{{drawers.remark}}</td>
+                 
+             </tr>
+       
+         </table>
+        </ng-container>
+    
+        <ng-container *ngIf="wardrobehardware.length > 0">
+         <h1 style="color:black;font-size:15px;"><b>Wardrobe Hardware Details</b></h1>
+         <table class="center" class="table table-bordered">
+    
+             <tr class="table-primary">
+                 <th>Brand</th>
+                 <th>Remark</th>
+                 
+             </tr>
+             <tr *ngFor="let hardware of wardrobehardware">
+                 <td>{{hardware.brand}}</td>
+                 <td>{{hardware.remark}}</td> 
+                            
+             </tr>
+            
+         </table>
+        </ng-container>
+        <ng-container *ngIf="beddetails.length > 0">
+        <h1 style="color:black;font-size:30px;"><b>BED DETAILS</b></h1>   
+        <table class="center" class="table table-bordered">   
+            <tr class="table-primary">
+                <th>Finish</th>
+                <th>Brands</th>
+                <th>Types</th>
+                <th>Type size</th>
+                <th>Edge Banding</th>
+                <th>Colour</th>
+                <th>Code</th>
+                <th>Remark</th>
+            </tr>
+            <tr *ngFor="let bed of beddetails">
+                <td>{{bed.finishs}}</td>
+                <td>{{bed.brands}}</td>
+                <td>{{bed.types}}</td>
+                <td>{{bed.typesizes}}</td>
+                <td>{{bed.edgebanding}}</td>
+                <td>{{bed.colour}}</td>
+                <td>{{bed.code}}</td>
+                <td>{{bed.remark}}</td>
+            </tr>   
+        </table> 
+    </ng-container>  
+    <ng-container *ngIf="tvdetails.length > 0"> 
+        <h1 style="color:black;font-size:30px;"><b>TV UNIT DETAILS</b></h1>
+       
+        <table class="center" class="table table-bordered">
+           
+            <tr class="table-primary">
+                <th>Material</th>
+                <th>Finish</th>
+                <th>Brands</th>
+                <th>Edge Banding</th>
+                <th>Colour</th>
+                <th>Code</th>
+                <th>Measurement</th>
+                <th>Remark</th>        
+            </tr>
+            <tr *ngFor="let tv of tvdetails">
+                <td>{{tv.materials}}</td>
+                <td>{{tv.finishs}}</td>
+                <td>{{tv.brands}}</td>
+                <td>{{tv.edgebanding}}</td>
+                <td>{{tv.colour}}</td>
+                <td>{{tv.code}}</td>
+                <td>{{tv.measurement}}</td>
+                <td>{{tv.remark}}</td>
+            </tr> 
+        </table>
+    </ng-container>
+       </div>   
+<button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>  
+    
+    
+    
+    

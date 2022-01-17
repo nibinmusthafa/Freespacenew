@@ -1,4 +1,4 @@
-<div align="center" class="align1" id="htmlData">
+<div align="center" class="align1 col-md-12" id="htmlData">
 <ng-container *ngIf="kitchendetails.length > 0">
    <h1 style="color:black;font-size:30px;"><b>KITCHEN DETAILS</b></h1>
     <table class="center" class="table table-bordered">  
@@ -315,10 +315,8 @@
      </table>
     </ng-container>
     <ng-container *ngIf="beddetails.length > 0">
-    <h1 style="color:black;font-size:30px;"><b>BED DETAILS</b></h1>
-   
-    <table class="center" class="table table-bordered">
-     
+    <h1 style="color:black;font-size:30px;"><b>BED DETAILS</b></h1>   
+    <table class="center" class="table table-bordered">   
         <tr class="table-primary">
             <!-- <th>Id</th> -->
             <th>Finish</th>
@@ -327,6 +325,7 @@
             <th>Type size</th>
             <th>Edge Banding</th>
             <th>Colour</th>
+            <th>Code</th>
             <th>Remark</th>
         </tr>
         <tr *ngFor="let bed of beddetails">
@@ -339,8 +338,7 @@
             <td>{{bed.colour}}</td>
             <td>{{bed.code}}</td>
             <td>{{bed.remark}}</td>
-        </tr>
-   
+        </tr>   
     </table> 
 </ng-container>  
 <ng-container *ngIf="tvdetails.length > 0"> 
@@ -355,19 +353,20 @@
             <th>Brands</th>
             <th>Edge Banding</th>
             <th>Colour</th>
+            <th>Code</th>
             <th>Measurement</th>
             <th>Remark</th>        
         </tr>
-        <tr *ngFor="let bed of tvdetails">
+        <tr *ngFor="let tv of tvdetails">
             <!-- <th>{{kitchen.id}}</th> -->
-            <td>{{bed.materials}}</td>
-            <td>{{bed.finishs}}</td>
-            <td>{{bed.brands}}</td>
-            <td>{{bed.edgebanding}}</td>
-            <td>{{bed.colour}}</td>
-            <td>{{bed.code}}</td>
-            <td>{{bed.measurement}}</td>
-            <td>{{bed.remark}}</td>
+            <td>{{tv.materials}}</td>
+            <td>{{tv.finishs}}</td>
+            <td>{{tv.brands}}</td>
+            <td>{{tv.edgebanding}}</td>
+            <td>{{tv.colour}}</td>
+            <td>{{tv.code}}</td>
+            <td>{{tv.measurement}}</td>
+            <td>{{tv.remark}}</td>
         </tr> 
     </table>
 </ng-container>

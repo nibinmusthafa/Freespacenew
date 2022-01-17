@@ -1,0 +1,30 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="measurement_details">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Measurement Details</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.measurement_details}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="file_upload">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">File</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.file_upload}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="measurementtype">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">Measurement Type</h3></th>
+      <td mat-cell *matCellDef="let row">{{row.measurementtype}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data?.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>

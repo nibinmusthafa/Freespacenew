@@ -69,7 +69,7 @@ export class MeasurementComponent implements OnInit {
     fd.append('lead_id', this.data.lead_id)
     this.http.addmeasurementdetails(fd).subscribe(res=>console.log(res))
     // this.MeasurementForm.reset()
-    window.location.reload()
+    // window.location.reload()
     this.router.navigateByUrl('supervisor/updateleads')
     
   }

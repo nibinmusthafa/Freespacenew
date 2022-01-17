@@ -54,6 +54,8 @@ import { WardrobedrawersComponent } from './Wardrobesubcategories/wardrobedrawer
 import { WardrobehingesComponent } from './Wardrobesubcategories/wardrobehinges/wardrobehinges.component';
 import { SignoffHomeComponent } from './signoff-home/signoff-home.component';
 import { SignoffDetailComponent } from './signoff-detail/signoff-detail.component';
+import { ViewmeasurementdetailsComponent } from './viewmeasurementdetails/viewmeasurementdetails.component';
+
 
 
 
@@ -76,7 +78,8 @@ const routes: Routes = [
       { path: "leadtoproject",canActivate:[AuthGuard], component: LeadtoprojectComponent },
       { path: "createproject/:id",canActivate:[AuthGuard], component: CreateprojectComponent },
       { path: "signoffhome",canActivate:[AuthGuard], component: SignoffHomeComponent },
-      { path: "signoffdetail/:id",canActivate:[AuthGuard], component: SignoffDetailComponent }, 
+      { path: "signoffdetail/:id",canActivate:[AuthGuard], component: SignoffDetailComponent },
+      { path: "viewmeasurementdetails/:id",canActivate:[AuthGuard], component: ViewmeasurementdetailsComponent }, 
            
     ]
   }
@@ -115,6 +118,8 @@ const routes: Routes = [
     WardrobehingesComponent,
     SignoffHomeComponent,
     SignoffDetailComponent,
+    ViewmeasurementdetailsComponent,
+   
   
 ],
 

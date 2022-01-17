@@ -11,14 +11,15 @@
         <button (click)="openStatusDialog()" mat-raised-button color="primary" type="button">Update Status</button>
       </div>
       <div class="fl-center">
-        <button (click)="openFollowupDialog()" mat-raised-button color="accent" type="button">Followup</button>
+        <button (click)="openmeasurement()" mat-raised-button color="primary" type="button">View Measurement</button>
       </div>
+      <div class="fl-center" >
+        <button class="button button5" (click)="openFollowupDialog()" mat-raised-button color="accent" type="button">Followup</button>
+      </div>
+      
       <ng-container>
         <h1 style="color: rgb(19, 6, 92);">{{followupDate?.followup_date | date}}</h1>
       </ng-container>
-      <div class="fl-right">
-        <h1 class="ml-0">{{ lead.statusvalue | titlecase }}</h1>
-      </div>
       <div class="fl-right">
         <h1 class="ml-0">{{ lead.statusvalue | titlecase }}</h1>
       </div>

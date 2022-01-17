@@ -13,6 +13,7 @@ import { followupDate } from 'src/app/_models/user';
 import { DatePipe } from '@angular/common';
 import { ViewcategoryComponent } from '../viewcategory/viewcategory.component';
 
+
 export interface lead {
   customer_id: number,
   phonenumber: number,
@@ -115,6 +116,7 @@ export class LeadremarksComponent implements OnInit {
   openCategoryDialog(){
     this.dialog.open(ViewcategoryComponent, { data: { lead_id: this.route.snapshot.paramMap.get('id'), user_id: this.getcurrentUser() } })
   }
+  
 
   addCategory(){
     this.router.navigateByUrl('designer/leaddetails/'+this.lead_id)
@@ -216,6 +218,9 @@ export class LeadremarksComponent implements OnInit {
       // console.log(res)
       this.updateStatusValue();
     })
+  }
+  openmeasurement(){
+    this.router.navigateByUrl('designer/viewmeasurementdetails/'+this.lead_id )
   }
 
 }
