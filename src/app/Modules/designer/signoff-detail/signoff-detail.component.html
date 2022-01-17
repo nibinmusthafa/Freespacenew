@@ -1,35 +1,282 @@
 <div align="center" class="align1" id="htmlData">
-   <h1>Kitchendetails</h1>
+   <h1 style="color:black;font-size:30px;"><b>KITCHEN DETAILS</b></h1>
     <div class="col-md-8" >
     <table class="center" class="table table-bordered">
         <tr class="table-primary">
             <!-- <th>Id</th> -->
-            <th>partname</th>
-            <th>material</th>
-            <th>brands</th>
-            <th>edge_banding</th>
-            <th>colour</th>
-            <th>code</th>
-            <th>measurement</th>
+            <th>Partname</th>
+            <th>Material</th>
+            <th>Brands</th>
+            <th>Edge_banding</th>
+            <th>Colour</th>
+            <th>Code</th>
+            <th>Measurement</th>
         </tr>
         <tr *ngFor="let kitchen of kitchendetails">
             <!-- <th>{{kitchen.id}}</th> -->
             <td>{{kitchen.partname}}</td>
             <td>{{kitchen.materials}}</td>
             <td>{{kitchen.brands}}</td>
-            <th>{{kitchen.edge_banding}}</th>
+            <td>{{kitchen.edge_banding}}</td>
             <td>{{kitchen.colour}}</td>
             <td>{{kitchen.code}}</td>
             <td>{{kitchen.measurement}}</td>
-
-
         </tr>
     </table>
+    <h1 style="color:black;font-size:15px;"><b>Kitchen Countertop Details</b></h1>
+    <table class="center" class="table table-bordered">
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>Material</th>
+            <th>Materials</th>
+            <th>Colour</th>
+            <th>Remark</th>
+            
+        </tr>
+        <tr *ngFor="let kitchencountertop of countertopdetails">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{kitchencountertop.material}}</td>
+            <td>{{kitchencountertop.materials}}</td>
+            <td>{{kitchencountertop.colour}}</td>
+            <td>{{kitchencountertop.remark}}</td>
+            
+        </tr>
+    </table>
+    <h1 style="color:black;font-size:15px;"><b>Kitchen Sink Details</b></h1>
+    <table class="center" class="table table-bordered">
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>Brand</th>
+            <th>Colour</th>
+            <th>Size</th>
+            <th>Remark</th>
+            
+        </tr>
+        <tr *ngFor="let kitchensink of sinkdetails">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{kitchensink.brand}}</td>
+            <td>{{kitchensink.colour}}</td>
+            <td>{{kitchensink.size}}</td>
+            <td>{{kitchensink.remark}}</td>
+            
+        </tr>
+    </table>
+    <h1 style="color:black;font-size:15px;"><b>Kitchen CPFitting Details</b></h1>
+    <table class="center" class="table table-bordered">
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>Brand</th>
+            <th>Colour</th>
+            <th>Size</th>
+            <th>Remark</th>
+            
+        </tr>
+        <tr *ngFor="let kitchencpfitting of cpfittingdetails">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{kitchencpfitting.brand}}</td>
+            <td>{{kitchencpfitting.colour}}</td>
+            <td>{{kitchencpfitting.size}}</td>
+            <td>{{kitchencpfitting.remark}}</td>
+            
+        </tr>
+    </table>
+    <h1 style="color:black;font-size:15px;"><b>Kitchen Tiles Details</b></h1>
+    <table class="center" class="table table-bordered">
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>Brand</th>
+            <th>Colour</th>
+            <th>Size</th>
+            <th>Remark</th>
+            
+        </tr>
+        <tr *ngFor="let kitchentile of tilesdetails">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{kitchentile.brand}}</td>
+            <td>{{kitchentile.colour}}</td>
+            <td>{{kitchentile.size}}</td>
+            <td>{{kitchentile.remark}}</td>
+            
+        </tr>
+    </table>
+    <h1 style="color:black;font-size:15px;"><b>Kitchen Drawers Details</b></h1>
+    <table class="center" class="table table-bordered">
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>Brand</th>
+            <th>Units</th>
+            <th>Remark</th>
+            
+            
+        </tr>
+        <tr *ngFor="let kitchendrawers of kitchendrawers">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{kitchendrawers.brand}}</td>
+            <td>{{kitchendrawers.units}}</td>
+            <td>{{kitchendrawers.remark}}</td>
+            
+        </tr>
+    </table>
+    <h1 style="color:black;font-size:15px;"><b>Kitchen Basket Details</b></h1>
+    <table class="center" class="table table-bordered">
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>Brand</th>
+            <th>Units</th>
+            <th>Remark</th>
+            
+            
+        </tr>
+        <tr *ngFor="let kitbasket of kitchenbasket">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{kitbasket.brand}}</td>
+            <td>{{kitbasket.units}}</td>
+            <td>{{kitbasket.remark}}</td>
+            
+        </tr>
+    </table>
+    <h1 style="color:black;font-size:15px;"><b>Kitchen Hinges Details</b></h1>
+    <table class="center" class="table table-bordered">
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>Brand</th>
+            <th>Hinge Type</th>
+            <th>Type</th>
+            <th>Remark</th>
+        </tr>
+        <tr *ngFor="let kitchenhinge of kitchenhinges">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{kitchenhinge.brand}}</td>
+            <td>{{kitchenhinge.hingetype}}</td>
+            <td>{{kitchenhinge.typessss}}</td>
+            <td>{{kitchenhinge.remark}}</td>
+            
+        </tr>
+    </table>
+    <h1 style="color:black;font-size:15px;"><b>Kitchen Hardware Details</b></h1>
+    <table class="center" class="table table-bordered">
+        <tr class="table-primary">
+            <!-- <th>Id</th> -->
+            <th>Brand</th>
+            <th>Remark</th>          
+            
+        </tr>
+        <tr *ngFor="let kithardware of kitchenhardware">
+            <!-- <th>{{kitchen.id}}</th> -->
+            <td>{{kithardware.brand}}</td>
+            <td>{{kithardware.remark}}</td>
+            
+        </tr>
+    </table>
+    <div>
+
     </div>
+   
+    <h1 style="color:black;font-size:30px;"><b>WARDROBE DETAILS</b></h1>
+   
+     <table class="center" class="table table-bordered">
+         <tr class="table-primary">
+             <!-- <th>Id</th> -->
+             <th>Part</th>
+             <th>Types</th>
+             <th>Type size</th>
+             <th>Materials</th>
+             <th>Finish</th>
+             <th>Edge Banding</th>
+             <th>Colour</th>
+             <th>Code</th>
+             <th>Measurement</th>
+             <th>Remark</th>
+         </tr>
+         <tr *ngFor="let wardrobe of wardrobedetails">
+             <!-- <th>{{kitchen.id}}</th> -->
+             <td>{{wardrobe.Part}}</td>
+             <td>{{wardrobe.types}}</td>
+             <td>{{wardrobe.typesizess}}</td>
+             <td>{{wardrobe.materials}}</td>
+             <td>{{wardrobe.finishes}}</td>
+             <td>{{wardrobe.edgebanding}}</td>
+             <td>{{wardrobe.colour}}</td>
+             <td>{{wardrobe.code}}</td>
+             <td>{{wardrobe.measurement}}</td>
+             <td>{{wardrobe.remark}}</td>
+         </tr>
+     </table>
+     <h1 style="color:black;font-size:15px;"><b>Wardrobe Basket Details</b></h1>
+     <table class="center" class="table table-bordered">
+         <tr class="table-primary">
+             <!-- <th>Id</th> -->
+             <th>Brand</th>
+             <th>Units</th>
+             <th>Colour</th>
+             <th>Remark</th> 
+             
+         </tr>
+         <tr *ngFor="let basket of wardrobebasket">
+             <!-- <th>{{kitchen.id}}</th> -->
+             <td>{{basket.brand}}</td>
+             <td>{{basket.units}}</td>
+             <td>{{basket.remark}}</td>
+             
+         </tr>
+     </table>
+     <h1 style="color:black;font-size:15px;"><b>Wardrobe Hinges Details</b></h1>
+     <table class="center" class="table table-bordered">
+         <tr class="table-primary">
+             <!-- <th>Id</th> -->
+             <th>Brand</th>
+             <th>Hinge Type</th>
+             <th>Remark</th>
+             
+         </tr>
+         <tr *ngFor="let wardrobehinge of wardrobehinges">
+             <!-- <th>{{kitchen.id}}</th> -->
+             <td>{{wardrobehinge.brand}}</td>
+             <td>{{wardrobehinge.hingetypes}}</td>
+             <td>{{wardrobehinge.remark}}</td>
+             
+         </tr>
+     </table>
+     <h1 style="color:black;font-size:15px;"><b>Wardrobe Drawers Details</b></h1>
+     <table class="center" class="table table-bordered">
+         <tr class="table-primary">
+             <!-- <th>Id</th> -->
+             <th>Brand</th>
+             <th>Unit</th>
+             <th>Remark</th>
+             
+         </tr>
+         <tr *ngFor="let drawers of wardrobedrawers">
+             <!-- <th>{{kitchen.id}}</th> -->
+             <td>{{drawers.brand}}</td>
+             <td>{{drawers.unit}}</td>
+             <td>{{drawers.remark}}</td>
+             
+         </tr>
+     </table>
+     <h1 style="color:black;font-size:15px;"><b>Wardrobe Hardware Details</b></h1>
+     <table class="center" class="table table-bordered">
+         <tr class="table-primary">
+             <!-- <th>Id</th> -->
+             <th>Brand</th>
+             <th>Remark</th>
+             
+         </tr>
+         <tr *ngFor="let hardware of wardrobehardware">
+             <!-- <th>{{kitchen.id}}</th> -->
+             <td>{{hardware.brand}}</td>
+             <td>{{hardware.remark}}</td> 
+                        
+         </tr>
+     </table>
+ 
 
 </div>
 
-    <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>  
+</div>
+
+
+<button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>  
 
 
 

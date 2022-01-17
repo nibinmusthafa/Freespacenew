@@ -49,6 +49,133 @@ export interface kitchendetails{
 
 }
 
+export interface iwardrobedetails{
+  lead_id: number,
+  lead_category_id: number,
+  Part: number,
+  type: number,
+  types: string,
+  material: number,
+  typesizess: string,
+  materials: string,
+  finish: number,
+  finishes: string,
+  brand: number,
+  brandss: string,
+  typesize: number,
+  edgebanding: string,
+  colour: string,
+  code: number,
+  measurement: number,
+  remark: string,
+ 
+
+
+}
+
+export interface icountertopdetails{
+  lead_id: number,
+  material: number,
+  materials: string,
+  colour: string,
+  remark: string,
+}
+
+export interface itilesdetails{
+  lead_id: number,
+  brand: string,
+  colour: string,
+  size: string,
+  remark: string,
+  
+}
+export interface isinkdetails{
+  lead_id: number,
+  brand: string,
+  colour: string,
+  size: string,
+  remark: string,
+  
+  
+}
+export interface icpfittingdetails{
+  id:number,
+  brand: string,
+  colour: string,
+  size: number,
+  remark: string,
+  lead_id: number,
+  
+}
+export interface ikitchendrawersdetails{
+  id: number,
+  brand: string,
+  units: number,
+  remark: string,
+  lead_id: number
+  
+}
+export interface ikitchenbasketdetails{
+  id: number,
+  brand: string,
+  units: number,
+  remark: string,
+  lead_id: number,
+}
+
+  
+export interface ikitchenhingesdetails{
+  lead_id: number,
+  brand: string,
+  hingetype: number,
+  typessss: string,
+  remark: string,
+
+  
+}
+export interface ikitcehnhardwaredetails{
+  id: number,
+  brand: string,
+  remark: string,
+  lead_id: number
+}
+
+export interface iwardrobedrawersdetails{
+
+  id: number,
+  brand: string,
+  unit: number,
+  remark: string,
+  lead_id: number,
+
+  
+}
+
+export interface iwardrobebasketdetails{
+  id: number,
+  brand: string,
+  units: number,
+  remark: string,
+  lead_id: number,
+  
+}
+
+export interface iwardrobehingesdetails{
+  lead_id: number,
+  brand: string,
+  hingetype: number,
+  hingetypes: string,
+  remark: string,
+  
+}
+
+export interface iwardrobehardwaredetails{
+  id: number,
+  brand: string,
+  remark: string,
+  lead_id: number
+}
+
 export interface leads {     
   customer_id: number,
   phonenumber: number,
@@ -351,7 +478,7 @@ export class DesignerService {
   }
 
   getHingestype():Observable<ihingestype[]>{
-    return this.http.get<ihingestype[]>(this.baseUrl + 'api/listkitchenhinges/')
+    return this.http.get<ihingestype[]>(this.baseUrl + 'api/listkitchenhingetype/')
   }
 
   addkitchenhinges(data:any){
@@ -406,9 +533,48 @@ export class DesignerService {
       return this.http.get<kitchendetails[]>(this.baseUrl + 'api/listkitchendetails/'+id+'/');
     } 
 
-    listWardrobedetails(id:any): Observable<kitchendetails[]> {
-      return this.http.get<kitchendetails[]>(this.baseUrl + 'api/listwardrobedetails/'+id+'/');
+    listWardrobedetails(id:any): Observable<iwardrobedetails[]> {
+      return this.http.get<iwardrobedetails[]>(this.baseUrl + 'api/listwardrobedetails/'+id+'/');
     } 
+
+    listCountertopdetails(id:any): Observable<icountertopdetails[]> {
+      return this.http.get<icountertopdetails[]>(this.baseUrl + 'api/listcountertopdetails/'+id+'/');
+    } 
+
+    listTilesdetails(id:any): Observable<itilesdetails[]> {
+      return this.http.get<itilesdetails[]>(this.baseUrl + 'api/listtilesdetails/'+id+'/');
+    } 
+    listSinkdetails(id:any): Observable<isinkdetails[]> {
+      return this.http.get<isinkdetails[]>(this.baseUrl + 'api/listsinkdetails/'+id+'/');
+    } 
+    listCpFittingdetails(id:any): Observable<icpfittingdetails[]> {
+      return this.http.get<icpfittingdetails[]>(this.baseUrl + 'api/listcpfittingdetails/'+id+'/');
+    } 
+
+    listkitchendrawersdetails(id:any): Observable<ikitchendrawersdetails[]> {
+      return this.http.get<ikitchendrawersdetails[]>(this.baseUrl + 'api/listdrawers/'+id+'/');
+    } 
+    listkitchenbasketdetails(id:any): Observable<ikitchenbasketdetails[]> {
+      return this.http.get<ikitchenbasketdetails[]>(this.baseUrl + 'api/listkitchenbasket/'+id+'/');
+    } 
+    listkitchenhingesdetails(id:any): Observable<ikitchenhingesdetails[]> {
+      return this.http.get<ikitchenhingesdetails[]>(this.baseUrl + 'api/listkitchenhinges/'+id+'/');
+    } 
+    listkitchenhardwaredetails(id:any): Observable<ikitcehnhardwaredetails[]> {
+      return this.http.get<ikitcehnhardwaredetails[]>(this.baseUrl + 'api/listkitchenhardware/'+id+'/');
+    } 
+    listwardrobedrawersdetails(id:any): Observable<iwardrobedrawersdetails[]> {
+      return this.http.get<iwardrobedrawersdetails[]>(this.baseUrl + 'api/listwardrobedrawers/'+id+'/');
+    } 
+    listwardrobebasketdetails(id:any): Observable<iwardrobebasketdetails[]> {
+      return this.http.get<iwardrobebasketdetails[]>(this.baseUrl + 'api/listwardrobebasket/'+id+'/');
+    } 
+    listwardrobehingesdetails(id:any): Observable<iwardrobehingesdetails[]> {
+      return this.http.get<iwardrobehingesdetails[]>(this.baseUrl + 'api/listwardrobehinges/'+id+'/');
+    } 
+    listwardrobehardwaredetails(id:any): Observable<iwardrobehardwaredetails[]> {
+      return this.http.get<iwardrobehardwaredetails[]>(this.baseUrl + 'api/listwardrobehardware/'+id+'/');
+    }
 
   }
 
