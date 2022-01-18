@@ -1,0 +1,24 @@
+.full-width {
+    width: 80%;
+  }
+.col1{
+    margin-left: 10px;
+}
+.col2{
+    margin-left: 5px;
+    
+}
+.example-button-container{
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+.add{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.col{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -15,6 +15,17 @@
   top: 0;
   z-index: 1;
 }
+.title_panel_bg{
+  height:40px;
+}
+.mat-expansion-panel{
+  border-radius: 0.375rem!important;
+}
+.mat-expansion-panel-header.mat-expanded{
+  border-radius: 0.375rem!important;
+  background-color: whitesmoke !important;
+  margin-bottom: 10px;
+}
 .log_main {
   position: relative;
   margin: 0px 0px 0px auto;

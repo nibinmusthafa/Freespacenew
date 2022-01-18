@@ -41,7 +41,7 @@ export class ListprojectsComponent implements AfterViewInit {
 }
 
  manageproject(id: any) {
-  this.router.navigateByUrl('supervisor/manageproject/' + id);
+  this.router.navigateByUrl('supervisor/supervisortask/' + id);
 }
 
 

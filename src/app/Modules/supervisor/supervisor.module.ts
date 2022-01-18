@@ -35,7 +35,8 @@ import { SupervisorremarksComponent } from './supervisorremarks/supervisorremark
 import { SupervisorviewcategoryComponent } from './supervisorviewcategory/supervisorviewcategory.component';
 import { MeasurementComponent } from './measurement/measurement.component';
 import { ListprojectsComponent } from './listprojects/listprojects.component';
-import { ManageprojectComponent } from './manageproject/manageproject.component';
+import { SupervisortaskComponent } from './supervisortask/supervisortask.component';
+import { SupervisorprojectexecutionComponent } from './supervisorprojectexecution/supervisorprojectexecution.component';
 
 
 
@@ -49,7 +50,9 @@ const routes: Routes = [
       { path: "supervisorremarks/:id",canActivate:[AuthGuard], component: SupervisorremarksComponent },
       { path: "supervisorcategory",canActivate:[AuthGuard], component: SupervisorviewcategoryComponent },
       { path: "measurement/:id",canActivate:[AuthGuard], component: MeasurementComponent },
-      { path: "listprojects",canActivate:[AuthGuard], component: ListprojectsComponent }
+      { path: "listprojects",canActivate:[AuthGuard], component: ListprojectsComponent },
+      { path: "supervisortask/:id",canActivate:[AuthGuard], component: SupervisortaskComponent },
+      { path: "supervisorprojectexecution",canActivate:[AuthGuard], component: SupervisorprojectexecutionComponent },
     ]
   
   }
@@ -62,7 +65,7 @@ const routes: Routes = [
     FileuploadComponent, 
     AssignsupervisorComponent, 
     UpdatestatusComponent, 
-    FollowupComponent, SupervisorremarksComponent, SupervisorviewcategoryComponent, MeasurementComponent, ListprojectsComponent, ManageprojectComponent],
+    FollowupComponent, SupervisorremarksComponent, SupervisorviewcategoryComponent, MeasurementComponent, ListprojectsComponent, SupervisortaskComponent, SupervisorprojectexecutionComponent],
 
     entryComponents:[
       AssignsupervisorComponent,

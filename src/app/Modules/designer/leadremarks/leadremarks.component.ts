@@ -174,7 +174,6 @@ export class LeadremarksComponent implements OnInit {
   listFiles() {
     this.http.listFilesbylead(this.route.snapshot.paramMap.get('id'),this.getcurrentUser()).subscribe(res => {
       this.files = res
-
     // console.log(res)
     })
   }

@@ -638,10 +638,9 @@ export class DesignerService {
     listtvunitdetails(id:any): Observable<itvunitdetails[]> {
       return this.http.get<itvunitdetails[]>(this.baseUrl + 'api/listtvcrockery/'+id+'/');
     }
+    
     listmeasurementdetails(id:any): Observable<imeasurementdetails[]> {
       return this.http.get<imeasurementdetails[]>(this.baseUrl + 'api/listmeasurementdetails/'+id+'/');
-
-
   }
 
 }
