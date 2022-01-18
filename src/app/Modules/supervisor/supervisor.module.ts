@@ -34,6 +34,9 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { SupervisorremarksComponent } from './supervisorremarks/supervisorremarks.component';
 import { SupervisorviewcategoryComponent } from './supervisorviewcategory/supervisorviewcategory.component';
 import { MeasurementComponent } from './measurement/measurement.component';
+import { ListprojectsComponent } from './listprojects/listprojects.component';
+import { ManageprojectComponent } from './manageproject/manageproject.component';
+
 
 
 
@@ -45,7 +48,8 @@ const routes: Routes = [
       { path: "updateleads",canActivate:[AuthGuard], component: UpdateleadbysupervisorComponent },
       { path: "supervisorremarks/:id",canActivate:[AuthGuard], component: SupervisorremarksComponent },
       { path: "supervisorcategory",canActivate:[AuthGuard], component: SupervisorviewcategoryComponent },
-      { path: "measurement/:id",canActivate:[AuthGuard], component: MeasurementComponent }
+      { path: "measurement/:id",canActivate:[AuthGuard], component: MeasurementComponent },
+      { path: "listprojects",canActivate:[AuthGuard], component: ListprojectsComponent }
     ]
   
   }
@@ -58,7 +62,7 @@ const routes: Routes = [
     FileuploadComponent, 
     AssignsupervisorComponent, 
     UpdatestatusComponent, 
-    FollowupComponent, SupervisorremarksComponent, SupervisorviewcategoryComponent, MeasurementComponent],
+    FollowupComponent, SupervisorremarksComponent, SupervisorviewcategoryComponent, MeasurementComponent, ListprojectsComponent, ManageprojectComponent],
 
     entryComponents:[
       AssignsupervisorComponent,
@@ -90,7 +94,7 @@ const routes: Routes = [
     MatNativeDateModule,
     MatSnackBarModule,
     PdfViewerModule
-
+  
   ],
 
   exports: [

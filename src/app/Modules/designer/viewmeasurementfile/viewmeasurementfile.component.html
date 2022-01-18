@@ -1,0 +1,12 @@
+<div class="img_size">
+    <ng-container *ngIf="data.img_url.split('.').pop() === 'pdf'">
+        <pdf-viewer [src]="data.img_url"
+        [render-text]="true"
+        [original-size]="false"
+        style="width: 900px;height: 700px">
+    </pdf-viewer>
+    </ng-container>
+    <ng-container *ngIf="data.img_url.split('.').pop() !== 'pdf'">
+    <img class="img_size" [src]="data.img_url">
+    </ng-container>
+</div>

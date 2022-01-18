@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DesignerService, imeasurementdetails } from '../designer.service';
+import { ViewmeasurementfileComponent } from '../viewmeasurementfile/viewmeasurementfile.component';
 import { ViewmeasurementdetailsDataSource, ViewmeasurementdetailsItem } from './viewmeasurementdetails-datasource';
 
 @Component({
@@ -20,8 +22,12 @@ export class ViewmeasurementdetailsComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['measurement_details', 'file_upload','measurementtype'];
 
-  constructor(private http:DesignerService,private routee: Router,private router: ActivatedRoute) {
+  constructor(private http:DesignerService,private routee: Router,private router: ActivatedRoute,
+    public dialog: MatDialog) {
     // this.dataSource = new ViewmeasurementdetailsDataSource();
+  }
+  btnclick(url: any) {   
+    this.dialog.open(ViewmeasurementfileComponent, { data: { img_url: url } })
   }
 
   listmeasurementdetail(){
@@ -39,6 +45,7 @@ export class ViewmeasurementdetailsComponent implements AfterViewInit {
     // this.dataSource.paginator = this.paginator;
     // this.table.dataSource = this.dataSource;
   }
+
   ngOnInit(): void {
     this.listmeasurementdetail();
   }

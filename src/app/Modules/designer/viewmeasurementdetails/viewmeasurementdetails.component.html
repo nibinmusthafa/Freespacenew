@@ -9,7 +9,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="file_upload">
       <th mat-header-cell *matHeaderCellDef mat-sort-header><h3 class="mat-subheading-2 font-weight-bold">File</h3></th>
-      <td mat-cell *matCellDef="let row">{{row.file_upload}}</td>
+      <td mat-cell *matCellDef="let row"><h3 (click)="btnclick(row.url)">{{row.file_upload}}</h3></td>
     </ng-container>
 
     <ng-container matColumnDef="measurementtype">

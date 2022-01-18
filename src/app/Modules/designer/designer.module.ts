@@ -55,6 +55,7 @@ import { WardrobehingesComponent } from './Wardrobesubcategories/wardrobehinges/
 import { SignoffHomeComponent } from './signoff-home/signoff-home.component';
 import { SignoffDetailComponent } from './signoff-detail/signoff-detail.component';
 import { ViewmeasurementdetailsComponent } from './viewmeasurementdetails/viewmeasurementdetails.component';
+import { ViewmeasurementfileComponent } from './viewmeasurementfile/viewmeasurementfile.component';
 
 
 
@@ -124,6 +125,7 @@ const routes: Routes = [
 
     LeadtoprojectComponent,
     CreateprojectComponent,
+    ViewmeasurementfileComponent,
 
 
 ],

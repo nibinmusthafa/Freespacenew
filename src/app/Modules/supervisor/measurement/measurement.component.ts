@@ -70,7 +70,7 @@ export class MeasurementComponent implements OnInit {
     this.http.addmeasurementdetails(fd).subscribe(res=>console.log(res))
     // this.MeasurementForm.reset()
     // window.location.reload()
-    this.router.navigateByUrl('supervisor/updateleads')
+    // this.router.navigateByUrl('supervisor/updateleads')
     
   }
 

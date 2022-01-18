@@ -50,6 +50,7 @@
       <!-- </div> -->
         </mat-card-content>
     </mat-card>   
-      <button type="button" class="btn btn-outline-dark" [disabled]="MeasurementForm.invalid"  (click)="onsubmitmeasurementdetails()">Submit</button>
+      <button style='margin-right:16px' type="button" class="btn btn-outline-dark" [disabled]="MeasurementForm.invalid"  (click)="onsubmitmeasurementdetails()">Submit</button>
+      <button mat-button mat-dialog-close type="button" class="btn btn-outline-dark">Close</button>
 </form>
 <!-- {{MeasurementForm.value|json}} -->
